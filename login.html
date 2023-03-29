@@ -4,9 +4,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Login</title>
+    <link rel="stylesheet" href="./StyleSheets/login.css">
 </head>
 <body>
-    
+
+    <div id="container">
+      <div id="home">Home</div>
+      <div id="main">
+        <div id="user">
+            <!-- heading -->
+            <div id="heading">
+                <div id="LogIn">
+                    <a href="login.html"><h3 id="account">Log in</h3></a>
+                    <div id="line1"></div>
+                </div>
+                <div id="create">
+                    <a href="signup.html"><h3>Create Account</h3></a>
+                    <div id="line2"></div>
+                </div>
+            </div>
+            <!-- separator -->
+            <div id="line"></div>
+            <!-- form -->
+            <form id="form">
+
+                <div id="title">
+                    
+                    <p>* Required</p>
+                </div>
+
+                <input type="email" placeholder="Email *" id="email">
+                <input type="password" placeholder="Password *" id="password">
+                <label>Minimum of 8 characters 1 uppercase letter 1 lowercase letter 1 number</label> 
+                
+
+                <input type="submit" placeholder="LOG IN" id="submit">
+
+                
+                <input type="checkbox" id="checkbox">
+                <p id="remember">Remember me</p>
+                <a href="#" > <p id="forgot"> Forgot Password</p> </a>
+                
+                
+                
+            </form>
+             </div>
+
+
+        <div id="order">
+            <div id="heading1">
+                <div id="checkOrder">
+                    <h1>Check Order</h1>
+                </div>
+                <p id="orderP">* Required</p>
+            </div>
+
+            <input type="text" placeholder="Order No *">
+            <label>e.g. 15133006 or 200006567</label>
+            <input type="text" placeholder="Email *">
+            <input type="text" placeholder="Billing Zip No *">
+            <input type="submit" id="submit1" placeholder="FIND ORDER">
+
+            <div id="help">
+                <h3>NEED HELP?</h3>
+                <p id="textBox">If you have any questions or need help with your account, you may contact us to assist you.</p>
+            </div>
+
+            <div id="contact">
+                <h3>Customer Care ></h3>
+                <p>
+                    Phone: 5am-8pm PT Mon-Fri, Closed Sat/Sun
+                </p>
+                <p>Chat: 5am-8pm PT Sat/Sun, 4am-9pm PT Mon-Fri</p>
+            </div>
+
+            <div id="phone">Phone: (800) 622-6953</div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script src="./Scripts/login.js"></script>
 </body>
 </html>
