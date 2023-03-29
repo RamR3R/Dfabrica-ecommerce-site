@@ -1,0 +1,1 @@
+// Js file for appending all the individual product data in the DOM

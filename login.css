@@ -1,0 +1,11 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* the css for the nav bar and other part can be linked from the index.css file 
+    just add the css parts for the login page & signup page elements alone.
+    login and signup same file is enough
+
+    adminLogin page can also use the CSS part from this file.
+ */

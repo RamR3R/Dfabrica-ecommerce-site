@@ -1,0 +1,1 @@
+// Login and Signup can use same JS file for funtionalities

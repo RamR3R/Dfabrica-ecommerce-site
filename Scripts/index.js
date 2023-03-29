@@ -1,0 +1,1 @@
+// JS file for the landing page of the Site that is Index file

@@ -1,0 +1,7 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* CSS for both the mens and womens page are same so one file is enough to be create 
+link both the index.css and this file with the mens and womens.html pages   */

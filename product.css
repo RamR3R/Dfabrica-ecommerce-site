@@ -1,0 +1,10 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* 
+    The individual product page has different CSS from others so new file link the index.css too
+    As it would contain the parts from the nav header footer part's css which are common in all
+    all the Pages.
+*/
