@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./StyleSheets/adminLogin.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Admin| Login</title>
+  </head>
+  <body>
+    <div id="brandImg"><img src="./Images/logo.jpg" alt="Brand logo" /></div>
+    <div class="box">
+      <div class="container">
+        <form action="" id="formID">
+          <div class="top">
+            <h2>Welcome, Admin</h2>
+            <!-- <header>Login</header> -->
+          </div>
+
+          <div class="cont1 input-field input-field-hide">
+            <input type="text" class="input" placeholder="Username" id="" />
+            <i class="bx bx-user"></i>
+            <button class="btn">Next ➡</button>
+          </div>
+
+          <div class="cont2 input-field input-field-hide">
+            <input type="Password" class="input" placeholder="Password" id="" />
+            <i class="bx bx-lock-alt"></i>
+          </div>
+
+          <div class="cont3 input-field input-field-hide">
+            <input type="submit" class="submit" value="Login" id="" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
+<script src="./Scripts/adminLogin.js"></script>

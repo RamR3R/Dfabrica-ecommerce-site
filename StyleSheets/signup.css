@@ -1,0 +1,345 @@
+/* user signup css part */
+
+*{
+    margin:0px;
+    padding:0px;
+}
+
+body{
+    background-image: url("https://cdn.xxl.thumbs.canstockphoto.com/woman-holding-shopping-bags-stock-photography_csp13006607.jpg");
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    }
+
+#container{
+    
+    width:100%;
+    height:2000px;;
+}
+#home{
+    color:red;
+    font-size: 30px;
+    width:4%;
+    height:20px;
+    margin-left: 20px;
+    margin-top:30px;
+    cursor: pointer;
+    font-family: open sans,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;;
+}
+/* form & order css */
+#main{
+    width:90%;
+    height:1650px;
+    
+    display: flex;
+    margin: auto;
+    margin-top:50px;
+    justify-content: space-around;
+}
+#main>div{
+   
+    border-style: solid;
+   border-width: thick;
+}
+#user{
+    width:50%;
+    background-color: #C5E1A5;
+}
+#order{
+    width:40%;
+    height:900px;
+    background-color: #C5E1A5;
+}
+#heading{
+    width:100%;
+
+    height:75px;
+    display:flex;
+    justify-content: center;
+}
+#LogIn{
+    width:45%;
+    height:100%;
+    background-color: #DCE775;
+    font-size: 20px;
+    
+}
+#create{
+    width:50%;
+    height:100%;
+    background-color: #DCE775;
+    font-size: 20px;
+    
+}
+
+h3{
+    font-family: open sans,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+    font-weight: 400; 
+    text-align: center;
+    margin-top: 40px;;
+    color:#0D47A1;
+}
+#account{
+    font-weight: bold;
+}
+a{
+    text-decoration: none;
+}
+#line1{
+    width:100%;
+    height:2px;
+    margin-top:9px;
+    background-color:#0D47A1;
+    display:none;
+
+}
+#line2{
+    width:100%;
+    height:2px;
+    margin-top:9px;
+    background-color:#0D47A1;
+    
+
+}
+#line{
+    width:100%;
+    height:1px;
+    background-color:grey;
+}
+/* form */
+#form{
+    width:100%;
+    height:80%;
+}
+h2{
+    font-family: gert bold,sans-serif;
+    
+}
+p{
+    margin-top: 5px;
+}
+#title{
+    width:95%;
+    margin:auto;
+    height:30px;
+    margin-top:30px;
+    display: flex;
+    justify-content: space-between;
+}
+#title>h2{
+    color:black;
+    font-size: 30px;
+    text-decoration: underline;
+}
+input{
+    width:90%;
+    height:40px;
+    display:block;
+    margin: auto;
+    margin-top: 40px;
+    font-size: 18px;
+    border:1.2px solid black;
+    padding: 10px;
+}
+label{
+    margin-left:25px;
+    font-size: larger;
+    color:grey;
+    font-size: 25px;
+    color:red;
+}
+#gender{
+    margin-top: 30px;
+    margin-left: 20px;
+    font-size: 50px;
+    font-weight:200;
+    color:black;
+    text-decoration: underline;
+}
+#radio{
+    width:100%;
+    height:40px;
+    display: flex;
+    
+    
+}
+#radio > input[type="radio"]{
+    width:20px;
+    height:20px;
+    margin-top:20px;
+    margin-left:20px;
+    margin-right:35px;
+    
+}
+.type{
+    margin-top: 23px;
+    font-size: 25px;
+    margin-left:-30px;
+    color:black;
+    font-weight: 500;
+}
+#date{
+    width:95%;
+    height:80px;
+    margin: auto;
+    margin-top:30px;
+
+    display: flex;
+    justify-content: space-between;
+}
+#date>div{
+    
+    width:45%;
+    
+}
+select{
+    width:100%;
+    height:65%;
+    margin-top:5px;
+    font-size: 18px;
+    padding: 10px;
+}
+#checkbox{
+    width:20px;
+    height:20px;
+    margin-top:50px;
+    margin-left: 10px;
+    margin-right:0px;;
+}
+#box{
+    display: flex;
+    font-size: 25px;
+}
+#check{
+    margin-top:50px;
+    margin-left:10px;
+   
+}
+#banner{
+    margin-top: 30px;
+    width:100%;
+    height:200px;
+    background-color: black;
+}
+#head1{
+    color:white;
+    font-size: 55px;
+    font-weight: 400;
+    text-align: center;
+    display: block;
+}
+#head2{
+    color:white;
+    font-size: 55px;
+}
+#text{
+    width:100%;
+    height:40%;
+    margin: auto;
+    padding-top: 20px;
+}
+#checkbox1{
+    width:20px;
+    height:20px;
+    margin-top:20px;
+    margin-left: 10px;
+    margin-right:0px;;
+}
+#check1{
+    margin-top:22px;
+    margin-left:5px;
+    color:white;
+}
+#text2{
+    display: flex;
+    padding: 0px 10px;
+}
+#submit{
+    width:80%;
+    height:60px;
+    border:1.2px solid grey;
+    cursor: pointer;
+    font-size: 30px;
+    background-color: #4FC3F7;
+    
+}
+#bottom{
+    width:80%;
+    height:40px;
+    margin:auto;
+    
+    margin-bottom: 10px;
+   font-size: 20px;
+}
+
+/* order form */
+#heading1{
+  width:100%;
+  height:75px;
+  display: flex;
+  
+}
+#checkOrder{
+    margin-top: 20px;
+    margin-left: 20px;
+    text-decoration: underline;
+}
+
+    #orderP{
+        margin-top:35px;
+        margin-left:140px;
+        font-size: 20px;
+    
+    }
+
+#textBox{
+    width:90%;
+    margin:auto;
+    margin-top: 10px;
+    font-size: 22px;
+}
+#submit1{
+    width:90%;
+    height:60px;
+    margin: auto;
+    margin-top: 30px;
+    /* border:1.2px solid black; */
+    cursor: pointer;
+    font-size: 30px;
+    background-color: #4FC3F7;
+
+}
+#help>h3{
+    color:black;
+    margin-left: -280px;
+    font-weight: 700;
+    font-size: 30px;
+}
+#contact>h3{
+    color:black;
+    margin-left: -250px;
+    font-weight: 700;
+    font-size: 30px;
+
+}
+#contact>p{
+    margin-left: 15px;
+    font-size: 20px;
+}
+#phone{
+    margin-left:15px;
+    margin-top:20px;
+    font-size: 18px;
+}
+#title>p{
+    font-size: 20px;
+}
+#Month>p{
+    font-size:40px ;
+}
+#day>p{
+    font-size:40px ;
+}

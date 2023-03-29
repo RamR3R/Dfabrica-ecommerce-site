@@ -9,3 +9,262 @@
 
     adminLogin page can also use the CSS part from this file.
  */
+   /* user login css part */
+ *{
+    margin:0px;
+    padding:0px;
+}
+
+body{
+background-image: url("https://cdn.xxl.thumbs.canstockphoto.com/woman-holding-shopping-bags-stock-photography_csp13006607.jpg");
+position: relative;
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+background-repeat: no-repeat;
+}
+
+#container{
+    width:100%;
+}
+#home{
+    color:red;
+    font-size: 30px;
+    width:4%;
+    height:20px;
+    margin-left: 20px;
+    margin-top:30px;
+    cursor: pointer;
+    font-family: open sans,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;;
+}
+/* form & order css */
+#main{
+    width:90%;
+    /* height:900px; */
+    display: flex;
+    margin: auto;
+    margin-top:50px;
+    justify-content: space-around;
+    padding-bottom: 30px;
+    
+    
+}
+ 
+#main>div{
+   
+   border-style: solid;
+   border-width: thick;
+} 
+#user{
+    width:50%;
+    background-color: #C5E1A5;
+    
+}
+#order{
+    width:40%;
+    /* height:900px; */
+    padding-bottom: 30px;
+    background-color: #C5E1A5;
+   
+}
+#heading{
+    width:100%;
+    height:75px;
+    display:flex;
+    justify-content: center;
+}
+#LogIn{
+    width:45%;
+    height:100%;
+   background-color: #DCE775;
+   font-size: 20px;
+    
+}
+#create{
+    width:50%;
+    height:100%;
+    background-color: #DCE775;
+    font-size: 20px;
+    
+    
+}
+h3{
+    font-family: open sans,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+    font-weight: 400; 
+    text-align: center;
+    margin-top: 40px;
+    color:#0D47A1;
+}
+#account{
+    font-weight: bold;
+}
+a{
+    text-decoration: none;
+}
+#line1{
+    width:100%;
+    height:2px;
+    margin-top:9px;
+    background-color:#0D47A1;
+    
+
+}
+#line2{
+    width:100%;
+    height:2px;
+    margin-top:9px;
+    background-color:#0D47A1;
+    display:none;
+
+}
+#line{
+    width:100%;
+    height:1px;
+    background-color:grey;
+}
+/* form */
+#form{
+
+    width:100%;
+    height:80%;
+
+   
+}
+h2{
+    font-family: gert bold,sans-serif;
+    
+}
+p{
+    margin-top:5px;
+}
+#title p{
+    margin-top: 20px;
+    text-align: end;
+    margin-right:15px;
+    font-size: 20px;
+   
+}
+
+input{
+    width:90%;
+    height:40px;
+    display:block;
+    margin: auto;
+    margin-top: 10px;
+    font-size: 18px;
+    border:1.2px solid black;
+    padding: 10px;
+}
+#email{
+    margin-bottom: 35px;
+  
+}
+   input{
+       padding-left: 40px;
+    }
+label{
+    margin-left:50px;
+   
+    font-size: 25px;
+    color:red;
+    
+    
+}
+#submit{
+    width:90%;
+    height:70px;
+    margin-top: 30px;
+    font-size: 30px;
+    border:1.2px solid gray;
+    background-color: #4FC3F7;
+    cursor: pointer;
+    padding: 10px;
+}
+#checkbox{
+    width:20px;
+    height:20px;
+    margin-top:30px;
+    margin-left: 80px;
+    margin-right:0px;;
+}
+#remember{
+    margin-left:100px;
+    margin-top:-25px;
+    margin-bottom:20px;
+    font-size: 30px;
+}
+#forgot{
+    color:black;
+    margin-left:60px;
+    text-decoration: underline;
+    font-size: 30px;
+
+    
+}
+
+/* order form */
+#heading1{
+  width:100%;
+  height:75px;
+  display: flex;
+  
+}
+#checkOrder{
+    margin-top: 20px;
+    margin-left: 20px;
+    text-decoration: underline;
+}
+#orderP{
+    margin-top:35px;
+    margin-left:140px;
+    font-size: small;
+
+}
+#textBox{
+    width:90%;
+    margin:auto;
+    margin-top: 10px;
+}
+#submit1{
+    width:95%;
+    height:60px;
+    margin: auto;
+    margin-top: 30px;
+    font-size: 30px;
+    border:1.2px solid black;
+    cursor: pointer;
+    background-color: #4FC3F7;
+}
+#help>h3{
+    color:black;
+    margin-left: -280px;
+    /* float: left; */
+    font-weight: 700;
+    font-size: 30px;
+}
+    
+
+#contact>h3{
+    color:black;
+    margin-left: -250px;
+    font-weight: 700;
+    font-size: 30px;
+}
+   
+    
+
+#contact>p{
+    margin-left: 15px;
+    font-size: 20px;
+}
+#phone{
+    margin-left:15px;
+    margin-top:20px;
+}
+#textBox{
+    font-size: 20px;
+}
+#orderP{
+    font-size: 20px;
+}
+
