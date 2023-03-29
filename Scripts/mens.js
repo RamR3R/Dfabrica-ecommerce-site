@@ -1,4 +1,3 @@
-// link with mens.html and write the funtionalities
 let urlMens="https://fine-puce-vulture-garb.cyclic.app/DFabrica?sex=M";
 console.log("hi");
 
