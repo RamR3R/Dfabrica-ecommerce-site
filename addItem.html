@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./addProducts.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+    />
+    <title>Add Products</title>
+  </head>
+  <body>
+    <input type="checkbox" id="nav-toggle" />
+    <div class="sidebar">
+      <div class="sidebar-brand">
+        <h2><span class="lab la-accusoft"></span><span>D Fabrica</span></h2>
+      </div>
+      <div class="sidebar-menu">
+        <ul>
+          <li>
+            <a href="index.html"
+              ><span class="las la-igloo"></span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="" class="active"
+              ><span class="las la-igloo"></span>
+              <span>Add Products</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <header>
+        <h2 id="dashboard">
+          <label for="nav-toggle">
+            <span class="las la-bars"></span>
+          </label>
+          Dashboard
+        </h2>
+        <!-- **************************************** -->
+
+        <div class="search-wrapper">
+          <span class="las la-search">
+            <input type="search" placeholder="Search Here" />
+          </span>
+        </div>
+
+        <!-- ************************************************************ -->
+        <div class="user-wrapper">
+          <img src="" width="40px" height="40px" alt="" />
+          <div>
+            <h4>Sumit</h4>
+            <small>Super Admin</small>
+          </div>
+        </div>
+      </header>
+
+      <!-- *********** MAIN  *************************************** -->
+
+      <main>
+        <div class="cards">
+          <div class="card-single">
+            <div>
+              <h1 id="totalCustomers"></h1>
+              <span>Customers</span>
+            </div>
+            <div>
+              <span class="las la-users"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1 id="totalProducts"></h1>
+              <span>Products</span>
+            </div>
+            <div>
+              <span class="las la-clipboard-list"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1 id="totalOrders">10</h1>
+              <span>Orders</span>
+            </div>
+            <div>
+              <span class="las la-shopping-bag"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1 id="totalIncome">₹10000</h1>
+              <span>Income</span>
+            </div>
+            <div>
+              <span class="lab la-google-wallet"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- create a div and inside that table  -->
+        <form id="add-product-form">
+          <label for="name"> Product Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder=" Please Add Product Name Here"
+            required
+          /><br /><br />
+
+          <label for="image1">Image 1:</label>
+          <input
+            type="text"
+            id="image1"
+            name="image1"
+            placeholder="Product Image with Model"
+            required
+          /><br /><br />
+
+          <label for="image2">Image 2:</label>
+          <input
+            type="text"
+            id="image2"
+            name="image2"
+            placeholder="Product Image Having Front Side"
+            required
+          /><br /><br />
+
+          <label for="image3">Image 3:</label>
+          <input
+            type="text"
+            id="image3"
+            name="image3"
+            placeholder="Product Image Having Back Side"
+            required
+          /><br /><br />
+
+          <label for="image4">Image 4:</label>
+          <input
+            type="text"
+            id="image4"
+            name="image4"
+            placeholder="Product Image Having Lateral Side"
+            required
+          /><br /><br />
+
+          <label for="price-inr">Price (INR):</label>
+          <input
+            type="number"
+            id="price-inr"
+            name="price-inr"
+            placeholder="₹"
+            required
+          /><br /><br />
+
+          <label for="price-usd">Price (USD):</label>
+          <input
+            type="number"
+            id="price-usd"
+            name="price-usd"
+            placeholder="$"
+            required
+          /><br /><br />
+
+          <label for="price-pound">Price (Pound):</label>
+          <input
+            type="number"
+            id="price-pound"
+            name="price-pound"
+            placeholder="£"
+            required
+          /><br /><br />
+
+          <label for="discount">Discount:</label>
+          <input
+            type="number"
+            id="discount"
+            name="discount"
+            placeholder=" Rounded Number"
+            required
+          /><br /><br />
+
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            rows="5"
+            placeholder=" Description of the item"
+            required
+          ></textarea
+          ><br /><br />
+
+          <label for="sex">Sex:</label>
+          <select id="sex" name="sex" required>
+            <option value="">Select Gender</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option></select
+          ><br /><br />
+
+          <label for="category">Category:</label>
+          <input
+            type="text"
+            id="category"
+            name="category"
+            placeholder=" M or F"
+            required
+          /><br /><br />
+
+          <label for="stock">Stock:</label>
+          <input
+            type="number"
+            id="stock"
+            name="stock"
+            placeholder="Total number of items"
+            required
+          /><br /><br />
+
+          <label for="size">Size:</label>
+          <input
+            type="text"
+            id="size"
+            name="size"
+            placeholder="XS,S,M,L,XL,XXL"
+            required
+          /><br /><br />
+
+          <label for="rating">Rating:</label>
+          <input
+            type="number"
+            id="rating"
+            name="rating"
+            placeholder=""
+            required
+          /><br /><br />
+
+          <input type="submit" value="Add" />
+        </form>
+      </main>
+    </div>
+  </body>
+</html>
+<!-- <script src="./index.js"></script> -->
+<script src="./index.js"></script>
+<script src="./addProducts.js"></script>
