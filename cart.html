@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Create Account</title>
+    <link rel="stylesheet" href="./StyleSheets/cart.css">
+</head>
+<body>
+
+<div id="cart_main">
+
+    <h2>Shopping Cart</h2>
+    <div class="greater-reward">
+        <h1>GREATER<span>REWARDS</span></h1>
+        <p>Members get free shipping + $3.05 in rewards on this purchase.</p>
+        <a href="">Join Now</a>
+    </div>
+
+    <div id="cart-and-summary">
+
+        <div id="cart-items">
+            <h3 id="update-cart-text">Your Shopping Cart is Empty</h3>
+            <table class="cart-table">
+              <thead id="cart-table-head">
+                <th id="total-items">0 ITEMS</th>
+                <th>PRICE</th>
+                <th>QTY</th>
+                <th>SUBTOTAL</th>
+              </thead>
+              <tbody id="cart-table-body">
+                <!-- Append Data from User -->
+              </tbody>
+            </table>
+
+        </div>
+
+        <div id="summary">
+        
+          <h1>D Fabrica</h1>
+          <div class="order-summary">
+            <div class="order-summary-heading">
+              <p>SUBTOTAL</p>
+              <p>STANDARD DELIVERY</p>
+              <P>ESTIMATED TAX</P>
+              <hr>
+              <h5>ESTIMATED TOTAL</h5>
+            </div>
+            <div class="order-summary-pricing">
+              <p id="sub-total-price">$0</p>
+              <p>$6</p>
+              <p>$0</p>
+              <hr>
+              <h5 id="cart-total">$0</h5>
+            </div>
+          </div>
+          <button id="checkout-button">CHECKOUT</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="select-delivery-address">
+  <select id="select-address" required>
+    <option value="">Select Delivery Address</option>
+  </select>
+</div>
+
+
+  
+
+<script src="./Scripts/cart.js"></script>
+</body>
+</html>
