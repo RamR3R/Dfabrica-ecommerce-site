@@ -1,4 +1,3 @@
-// link with mens.html and write the funtionalities
 let urlMens="https://fine-puce-vulture-garb.cyclic.app/DFabrica?sex=M";
 console.log("hi");
 
@@ -38,7 +37,6 @@ function displayData(data){
         cardContainer.append(cardDiv);
     })
 }
-
 var coll = document.getElementsByClassName("collapsible");
 
 for (let i = 0; i < coll.length; i++) {
