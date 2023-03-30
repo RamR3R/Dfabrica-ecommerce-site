@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./StyleSheets/adminDashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+    />
+    <title>Admin Responsive Dashboard</title>
+  </head>
+  <body>
+    <input type="checkbox" id="nav-toggle" />
+    <div class="sidebar">
+      <div class="sidebar-brand">
+        <h2><span class="lab la-accusoft"></span><span>D Fabrica</span></h2>
+      </div>
+      <div class="sidebar-menu">
+        <ul>
+          <li>
+            <a href="" class="active"
+              ><span class="las la-igloo"></span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href=""
+              ><span class="las la-users"></span>
+              <span>Customers</span>
+            </a>
+          </li>
+          <li>
+            <a href=""
+              ><span class="las la-clipboard-list"></span>
+              <span>Projects</span>
+            </a>
+          </li>
+          <li>
+            <a href=""
+              ><span class="las la-shopping-bag"></span>
+              <span>Orders</span>
+            </a>
+          </li>
+          <li>
+            <a href=""
+              ><span class="las la-receipt"></span>
+              <span>Inventory</span>
+            </a>
+          </li>
+          <li>
+            <a href=""
+              ><span class="las la-user-circle"></span>
+              <span>Accounts</span>
+            </a>
+          </li>
+          <li>
+            <a href=""
+              ><span class="las la-clipboard-list"></span>
+              <span>Task</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <header>
+        <h2>
+          <label for="nav-toggle">
+            <span class="las la-bars"></span>
+          </label>
+          Dashboard
+        </h2>
+        <!-- **************************************** -->
+
+        <div class="search-wrapper">
+          <span class="las la-search">
+            <input type="search" placeholder="Search Here" />
+          </span>
+        </div>
+
+        <!-- ************************************************************ -->
+        <div class="user-wrapper">
+          <img src="" width="40px" height="40px" alt="" />
+          <div>
+            <h4>Sumit</h4>
+            <small>Super Admin</small>
+          </div>
+        </div>
+      </header>
+
+      <!-- *********** MAIN  *************************************** -->
+
+      <main>
+        <div class="cards">
+          <div class="card-single">
+            <div>
+              <h1 id="totalCustomers">54</h1>
+              <span>Customers</span>
+            </div>
+            <div>
+              <span class="las la-users"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1 id="totalProjects">79</h1>
+              <span>Projects</span>
+            </div>
+            <div>
+              <span class="las la-clipboard-list"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1 id="totalOrders">10</h1>
+              <span>Orders</span>
+            </div>
+            <div>
+              <span class="las la-shopping-bag"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1 id="totalIncome">₹10000</h1>
+              <span>Income</span>
+            </div>
+            <div>
+              <span class="lab la-google-wallet"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="recent-grid">
+          <div class="projects">
+            <div class="card">
+              <div class="card-header">
+                <h2>Orders</h2>
+                <button>
+                  See all <span class="las la-arrow-right"></span>
+                </button>
+              </div>
+              <div class="card-body">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Username</th>
+                      <th>Firstname</th>
+                      <th>Lastname</th>
+                      <th>Email</th>
+                      <th>Password</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Append  here -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+<script src="./Scripts/adminDashboard.js"></script>
