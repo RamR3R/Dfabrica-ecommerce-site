@@ -198,6 +198,9 @@ a{
 	font-size: 0.9rem;
 	transition: .3s;
 }
+.noshow{
+    display: none;
+}
 
 a:hover{
 	color: #FFEA00;
