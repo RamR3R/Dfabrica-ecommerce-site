@@ -95,7 +95,7 @@ function slideshow(slide,firstImage){
   let slide3=["https://images.bewakoof.com/uploads/grid/app/new-mid-banner-ovrszd-srtwr-dresses-1675243399.jpg","https://images.bewakoof.com/uploads/grid/app/new-mid-banner-2023-bts-new--1--1678448933.jpg","https://images.bewakoof.com/uploads/grid/app/new-mid-banner-ovrszd-srtwr-dresses-1675243399.jpg","https://images.bewakoof.com/uploads/grid/app/plus-size-mid-banner-1671788992.jpg"]
   let slide4=["https://images.bewakoof.com/uploads/grid/app/plus-size-mid-banner-1671788992.jpg","https://images.bewakoof.com/uploads/grid/app/plus-size-mid-banner-1671788992.jpg","https://images.bewakoof.com/uploads/grid/app/new-mid-banner-ovrszd-srtwr-dresses-1675243399.jpg","https://images.bewakoof.com/uploads/grid/app/new-mid-banner-2023-bts-new--1--1678448933.jpg"]
   window.addEventListener("load", function () {
-    // slideshow(slide3,firstImage1)
+
   slideshow(slide1,firstImage)
   slideshow(slide2,firstImage)
   slideshow(slide3,firstImage1)
@@ -104,8 +104,6 @@ function slideshow(slide,firstImage){
 
   // add event-listeners;
   });
-  // window.addEventListener("load", function () {
    
-      
-
+  
   
