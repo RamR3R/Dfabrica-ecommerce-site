@@ -1,4 +1,3 @@
-// link with womens.html and write the funtionalities
 // link with mens.html and write the funtionalities
 let urlMens="https://fine-puce-vulture-garb.cyclic.app/DFabrica?sex=F";
 console.log("hi");
@@ -38,4 +37,18 @@ function displayData(data){
         cardDiv.append(image,brandName,productName,price);
         cardContainer.append(cardDiv);
     })
+}
+
+var coll = document.getElementsByClassName("collapsible");
+
+for (let i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
 }
