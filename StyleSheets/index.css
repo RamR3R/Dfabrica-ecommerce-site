@@ -122,13 +122,13 @@
     justify-content: space-around;
     border-bottom: 1px solid silver;
     /* border-top: 1px solid silver; */
-    /* position: fixed; */
+    
     padding-top: 150px;
 
    }
    .category>a{
     font-size: x-large;
-    /* margin: 20px; */
+   
    }
   
 /* --------------------------------------------------------------------- */
@@ -139,7 +139,6 @@
 }
 .mainSlider {
   width: 100%;
-  /* padding: 0 10vw; */
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -288,15 +287,26 @@ margin: auto;
 .flag img{
   width: 100%;
 }
-.country{
-  width: 100px;
-  text-align: center;
-  background: transparent;
-  width: 100%;
-  height: 300px;
+.botCountry{
+   width: 100%;
+  height: 6000px;
   position: fixed;
+  z-index: 100;
   display: none;
-  padding: 100px;
+  background-color: black;
+  opacity: 70%;
+}
+.country{
+  text-align: center;
+  /* background: black; */
+  width: 100%;
+  height: 800px;
+  position: fixed;
+  z-index: 100;
+  display: none;
+  /* padding: 100px; */
+  /* opacity: 70%; */
+  flex-direction: column;
 }
 .country>div>div{
   margin: auto;
@@ -304,8 +314,6 @@ margin: auto;
   justify-content: center;
   width: 150px;
   margin: auto;
-  /* opacity: 100%; */
-  background-color: blueviolet;
   width: 300px;
   padding: 10px;
   
@@ -313,8 +321,8 @@ margin: auto;
 .country>div>div>div{
   background-color: aqua;
   border-radius: 5px;
-  width: 60px;
-  height: 80px;
+  width: 80px;
+  height: 100px;
   margin: 10px;
   padding: 5px;
   cursor: pointer;
@@ -322,21 +330,35 @@ margin: auto;
 .country>div>div>div>img{
   width: 100%;
 }
-.country>div{
-    margin: auto;
+.country>div:nth-child(2){
+    margin: 0 auto 0 auto;
     text-align: center;
-    margin: auto;
-  /* display: flex; */
   justify-content: center;
   width: 150px;
-  margin: auto;
-  opacity: 90%;
+  opacity: 100%;
   background-color: blueviolet;
   width: 500px;
-  height: 500px;
+  height: 200px;
   padding: 30px;
   border-radius: 50px;
   padding: 10px;
+}
+.country>div:nth-child(1){
+  margin: 150px auto 0 auto;
+background-color: white;
+height: 40px;
+width: 40px;
+border-radius: 50px;
+padding: 10px;
+opacity: 20%;
+cursor: pointer;
+}
+.country>div:nth-child(1)>img{
+  margin: auto;
+  width: 100%;
+}
+.country>div:nth-child(1):hover{
+  opacity: 60%;
 }
 .country h1{
     background-color: yellowgreen;
@@ -417,11 +439,12 @@ margin: auto;
 .parentFoot>div:nth-child(1)>a>img{
   width:100%
 }
-.parentFoot>div:nth-child(2) button{
-  background-color: rgb(247, 172, 237);
+.parentFoot button{
+  background-color: rgb(253, 124, 124);
   border: 0;
   border-radius: 5px;
   padding: 5px;
+  margin: 5px;
 }
 .parentFoot>div:nth-child(2) input{
   border: 0px;
