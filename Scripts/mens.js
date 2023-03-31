@@ -1,15 +1,24 @@
 // link with mens.html and write the funtionalities
-let urlMens="https://fine-puce-vulture-garb.cyclic.app/DFabrica?sex=M";
+let urlMens="https://extinct-boa-zipper.cyclic.app/Dfabrica?sex=M";
 console.log("hi");
 
 let cardContainer = document.getElementById("card-container");
 
 async function renderData(){
+  let totalData;
+  try {
+    let res = await fetch(urlMens);
+    let data = await res.json();
+    console.log(data.length);
+  } catch (error) {
+    console.log(error)
+  }
     try {
-        let data = await fetch(urlMens);
-         data = await data.json();
+        let res = await fetch(`${urlMens}&_limit=9&_page=1`);
+        console.log(res.headers);
+        let data = await res.json();
          displayData(data);
-         console.log(data);
+         console.log(data.length);
 
     } catch (error) {
         console.log(error);
@@ -52,3 +61,51 @@ for (let i = 0; i < coll.length; i++) {
     }
   });
 }
+
+
+
+// let paginationWrapper = document.getElementById("pagination-wrapper");
+
+// // Event listeners
+// fetchAndRenderUsers(2);
+
+// // Fetch & render users
+// function fetchAndRenderUsers(pageNumber) {
+//   fetch(
+//     `https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${pageNumber}`
+//   )
+//     .then((res) => {
+//       let totalPosts = res.headers.get("X-Total-Count");
+//       let totalButtons = Math.ceil(totalPosts / 10);
+
+//       paginationWrapper.innerHTML = null;
+
+//       for (let i = 1; i <= totalButtons; i++) {
+//         paginationWrapper.append(getAsButton(i, i));
+//       }
+
+//       return res.json();
+//     })
+//     .then((data) => {
+//       console.log(data);
+//       mainSection.innerHTML = null;
+
+//       const cardList = getCardList(data);
+//       mainSection.append(cardList);
+//     });
+// }
+
+// // utilites
+
+// function getAsButton(text, dataId) {
+//   let btn = document.createElement("button");
+//   btn.setAttribute("data-id", dataId);
+//   btn.innerText = text;
+
+//   btn.addEventListener("click", function (e) {
+//     fetchAndRenderUsers(e.target.dataset.id);
+//     console.log(e.target.dataset.id);
+//   });
+
+//   return btn;
+// }
