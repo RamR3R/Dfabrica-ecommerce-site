@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 // link with mens.html and write the funtionalities
 let urlMens="https://extinct-boa-zipper.cyclic.app/Dfabrica?sex=M";
+=======
+let urlMens="https://fine-puce-vulture-garb.cyclic.app/DFabrica?sex=M";
+>>>>>>> 8d15971bb9b618bf45d0d6a580aaeae4dfbbd7ff
 console.log("hi");
 
 let cardContainer = document.getElementById("card-container");
@@ -47,7 +51,6 @@ function displayData(data){
         cardContainer.append(cardDiv);
     })
 }
-
 var coll = document.getElementsByClassName("collapsible");
 
 for (let i = 0; i < coll.length; i++) {
@@ -61,6 +64,7 @@ for (let i = 0; i < coll.length; i++) {
     }
   });
 }
+<<<<<<< HEAD
 
 
 
@@ -109,3 +113,5 @@ for (let i = 0; i < coll.length; i++) {
 
 //   return btn;
 // }
+=======
+>>>>>>> 8d15971bb9b618bf45d0d6a580aaeae4dfbbd7ff

@@ -8,3 +8,32 @@
     As it would contain the parts from the nav header footer part's css which are common in all
     all the Pages.
 */
+
+
+.parent{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+.parent>.picture{
+    display: flex;
+
+}
+.parent>.big{
+margin: 10px;
+}
+.parent .small{
+    display: flex;
+    width: 300px;
+    height: 1400px;
+    flex-direction: column;
+    margin-right: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+.small>div{
+width: 300px;
+}
+.small>div>img{
+    width: 100%;
+}

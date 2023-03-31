@@ -4,9 +4,183 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Create Account</title>
+    <link rel="stylesheet" href="./StyleSheets/signup.css">
 </head>
 <body>
-    
+    <div id="container">
+      <div id="home">Home</div>
+      <div id="main">
+        <div id="user">
+            <!-- heading -->
+            <div id="heading">
+                <div id="LogIn">
+                    <a href="./login.html"><h3>Log in</h3></a>
+                    <div id="line1"></div>
+                </div>
+                <div id="create">
+                    <a href="./signup.html"><h3 id="account">Create Account</h3></a>
+                    <div id="line2"></div>
+                </div>
+            </div>
+            <!-- separator -->
+            <div id="line"></div>
+            <!-- form -->
+            <form id="form">
+
+                <div id="title">
+                    <h2>My Login Info</h2>
+                    <p>* Required</p>
+                </div>
+
+                <input type="email" autocomplete="username" placeholder="Email *" id="email" required>
+                <input type="password" autocomplete="new-password" placeholder="Password *" id="password" required>
+                <label>Minimum of 8 characters 1 uppercase letter 1 lowercase letter 1 number</label> 
+                <input type="password" autocomplete="current-password" placeholder="Confirm Password *" id="verifyPass" required>
+
+                <div id="title">
+                    <h2>My Profile</h2>
+                    
+                </div>
+
+                <input type="text" placeholder="First Name *" id="firstName" required>
+                <input type="text" placeholder="Last Name *" id="lastName" required>
+                <input type="number" placeholder="Zip Code *" id="ZipCode" required>
+                <input type="number" placeholder="Phone *" id="Phone" required>
+                <label>Example: (555) 555-5555</label>
+
+                <p id="gender">Gender </p>
+
+                <div id="radio">
+                    <input type="radio" name="gender" value="Male">
+                    <p class="type">Male</p>
+
+                    <input type="radio" name="gender" value="Female">
+                    <p class="type">Female</p>
+
+                    <input type="radio" name="gender" value="NA">
+                    <p class="type">Prefer not to answer</p>
+                </div>
+
+                <div id="date">
+                    <div id="Month">
+                      <p>Birth Month</p>
+                      <select id="birthMonth" name="month" required>
+                        <option value="">Month</option>
+                        <option value="January">01 - January</option>
+                        <option value="February">02 - February</option>
+                        <option value="March">03 - March</option>
+                        <option value="April">04 - April</option>
+                        <option value="May">05 - May</option>
+                        <option value="June">06 - June</option>
+                        <option value="July">07 - July</option>
+                        <option value="August">08 - August</option>
+                        <option value="September">09 - September</option>
+                        <option value="October">10 - October</option>
+                        <option value="November">11 - November</option>
+                        <option value="December">12 - December</option>
+                      </select>
+                    </div>
+                    <div id="day">
+                        <p>Birth Day</p>
+                        <select id="birthDay" name="day" required>
+                            <option value="">Day</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select>
+
+                       
+                    </div>
+                </div>
+
+                <div id="box">
+                    <input type="checkbox" name="" id="checkbox" placeholder="checkbox">
+                <p id="check">Please send me emails about new products, special offers and more.</p>
+                </div>
+
+                <div id="banner">
+                    <div id="text">
+                        <h1 id="head1">GREATERREWARDS</h1>
+                    </div>
+                    <div id="text2">
+                        <input type="checkbox" name="" id="checkbox1" placeholder="checkbox1">
+                        <p id="check1">I want to join Greater Rewards for free shipping and rewards (it's free to join). By checking this box, I have read and understood the Notice of Financial Incentives, and I agree to the Terms and Conditions.</p>
+                    </div>
+                </div>
+
+                
+                
+                <input type="submit" value="CREATE ACCOUNT" id="submit">
+                <div id="bottom">By creating an account, you agree to our Terms of Use and Privacy Policy.</div>
+                
+            </form>
+             </div>
+
+
+        <div id="order">
+            <div id="heading1">
+                <div id="checkOrder">
+                    <h1>Check Order</h1>
+                </div>
+                <p id="orderP">* Required</p>
+            </div>
+
+            <div id="textBox">
+                <p>Don't have an account? Simply enter the order number and billing zip code to get the full story on your order. Paid with Klarna? Use your shipping zip code instead.</p>
+            </div>
+
+            <input type="text" placeholder="Order No *">
+            <label>e.g. 15133006 or 200006567</label>
+            <input type="text" placeholder="Email *">
+            <input type="text" placeholder="Billing Zip No *">
+            <input type="submit" id="submit1" placeholder="FIND ORDER">
+
+            <div id="help">
+                <h3>NEED HELP?</h3>
+                <p id="textBox">If you have any questions or need help with your account, you may contact us to assist you.</p>
+            </div>
+
+            <div id="contact">
+                <h3>Customer Care ></h3>
+                <p>
+                    Phone: 5am-8pm PT Mon-Fri, Closed Sat/Sun
+                </p>
+                <p>Chat: 5am-8pm PT Sat/Sun, 4am-9pm PT Mon-Fri</p>
+            </div>
+
+            <div id="phone">Phone: (800) 622-6953</div>
+        </div>
+      </div>
+    </div>
 </body>
+<script src="./Scripts/login.js"></script>
 </html>
