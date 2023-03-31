@@ -100,6 +100,8 @@ function register(fname,lname,email,pass){
         password: pass,
         id: dataBase.length+1
     }
+    if(verify(obj.email)){
+        alert("Email verified");
     fetch(`https://63f59a1b3f99f5855dc408c8.mockapi.io/Assets/users`,{
         method:"POST",
         headers:{
@@ -113,4 +115,32 @@ function register(fname,lname,email,pass){
     localStorage.setItem("login-info",data);
     })
     console.log(obj);
+    }
+    else
+    {
+        console.log("Error in login check the info provided");
+    }
+
+}
+
+
+function verify(email){
+    const fname = document.getElementById('first-name');
+    const lname = document.getElementById('second-name');
+    const otp = Math.floor(Math.random() * 9000 + 1000);
+    let ebody = `
+    <h2>Hi</h2>
+    <h3>${fname.value}${lname.value},</h3>
+    <h1>YOUR OTP is ${otp}</h1>
+    `;
+
+    Email.send({
+        SecureToken : "2521c93e-d04f-4e79-b347-e4320a19584f", //add your token here
+        To : email, 
+        From : "sanjucool1000@gmail.com",
+        Subject : "Registration Verification DFabrica",
+        Body : ebody
+    }).then(
+      message => alert('OTP sent to mail :: dont forget to check the Spam :)')
+    );
 }
