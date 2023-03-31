@@ -8,6 +8,9 @@ let img=document.querySelector(".flag>img")
 let close=document.querySelector(".close")
 let BotCountry=document.querySelector(".botCountry")
 let flagDelivery=document.querySelector(".flagDelivery")
+let countryData = JSON.parse(localStorage.getItem("userCountry"));
+
+
 flag.addEventListener("click",()=>{
   BotCountry.style.display="flex";
   country.style.display="flex";
@@ -16,44 +19,34 @@ close.addEventListener("click",()=>{
   BotCountry.style.display="none";
   country.style.display="none";
  })
-
+ 
+ 
 document.querySelector(".sc1").addEventListener("click",(e)=>{
-  img.src="https://cdn-icons-png.flaticon.com/512/3909/3909444.png"
   country.style.display="none";
   BotCountry.style.display="none";
-  flagDelivery.src="https://cdn-icons-png.flaticon.com/512/3909/3909444.png"
+  localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/3909/3909444.png","India"]));
+  window.location.reload()
 })
 document.querySelector(".sc2").addEventListener("click",()=>{
- img.src="https://cdn-icons-png.flaticon.com/512/197/197484.png"
   country.style.display="none";
   BotCountry.style.display="none";
-  flagDelivery.src="https://cdn-icons-png.flaticon.com/512/197/197484.png"
+  localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/197/197484.png","USA"]));
+  window.location.reload()
 })
 document.querySelector(".sc3").addEventListener("click",()=>{
-  img.src="https://cdn-icons-png.flaticon.com/512/197/197374.png"
   country.style.display="none";
   BotCountry.style.display="none";
-  flagDelivery.src="https://cdn-icons-png.flaticon.com/512/197/197374.png"
+  localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/197/197374.png","UK"]));
+  window.location.reload()
 })
+
+img.src=countryData[0]
+flagDelivery.src=countryData[0]
+
 // -----------------------------------------------------
-let data=[{
-  "id": 1,
-  "name": "Women's Pink Relaxed Fit Puffer Jacket",
-  "image1": "https://images.bewakoof.com/t1080/women-s-rose-solid-puffer-jackets-498989-1665663674-6.jpg",
-  "image2": "https://images.bewakoof.com/t1080/women-s-rose-solid-puffer-jackets-498989-1665663658-3.jpg",
-  "image3": "https://images.bewakoof.com/t1080/women-s-rose-solid-puffer-jackets-498989-1665663669-5.jpg",
-  "image4": "https://images.bewakoof.com/t1080/women-s-rose-solid-puffer-jackets-498989-1665663664-4.jpg",
-  "price-inr": 3499,
-  "price-usd": 44,
-  "price-pound": 35,
-  "discount": 70,
-  "description": "[`Relaxed fit - Fits just right, not too tight not too loose`,`100% Nylon fabric is strong, durable and lightweight.`]",
-  "sex": "F",
-  "category": "Winterwear",
-  "stock": 31,
-  "size": "[S,M,L,XL,XXL]",
-  "rating":3.9
-}];
+let data=JSON.parse(localStorage.getItem("product"))
+console.log(data)
+// data=data[0]
 function stringToArray(string){
   let arr ;
 
@@ -73,9 +66,15 @@ let detailsProduct=document.querySelector(".detailsProduct")
 let nameOfProduct=document.querySelector(".nameOfProduct")
 let categoryOfProduct=document.querySelector(".categoryP")
 let sizeBox=document.querySelectorAll(".sizeBox div")
-let dummyData=localStorage.setItem("myData",JSON.stringify(data))||data
-let dataC=localStorage.getItem(JSON.stringify("myData"))
-console.log(dataC)
+// let dummyData=localStorage.setItem("myData",JSON.stringify(data))||data
+// let dataC=localStorage.getItem(JSON.stringify("myData"))
+let cartBtn=document.querySelector(".cart")
+let wishBtn=document.querySelector(".wish")
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+let wish=JSON.parse(localStorage.getItem("wish"))||[];
+
 function displayData(data){
   data.forEach((e) => {
     mainImg.src=e.image4
@@ -83,7 +82,18 @@ function displayData(data){
   smallImg[1].src=e.image3
   smallImg[2].src=e.image2  
   smallImg[3].src=e.image1  
-  price.innerHTML=e["price-inr"]
+
+  
+  
+  if(countryData[1]==="India"){
+    price.innerHTML="₹"+e["price-inr"]
+  }
+  if(countryData[1]==="USA"){
+    price.innerHTML="$"+e["price-usd"]
+  }
+  if(countryData[1]==="UK"){
+    price.innerHTML="£"+e["price-pound"]
+  }
   rating.innerText=e.rating
   nameOfProduct.innerHTML=e.name
 
@@ -99,15 +109,55 @@ desc.forEach((ele) => {
 });
   detailsProduct.append(ul)
   categoryOfProduct.innerText=`Category:${e.category}`
-  });
+
+
+
+
+  let productData={
+    "id": e.id,
+    "name": e.name,
+    "image1": e.image1,
+    "image2": e.image2,
+    "image3": e.image3,
+    "image4": e.image4,
+    "price-inr": e["price-inr"],
+    "price-usd": e["price-usd"],
+    "price-pound": e["price-pound"],
+    "discount": e.discount,
+    "description": e.description,
+    "sex": e.sex,
+    "category": e.category,
+    "stock": e.stock,
+    "size": e.size,
+    "rating":e.rating
+};
+
+
+
+cartBtn.addEventListener("click",()=>{
+
+  cart.push(productData)
+  localStorage.setItem("cart", JSON.stringify(cart));
+        })
+        
+console.log(productData.id)
+        wishBtn.addEventListener("click",()=>{
+          // wish= new set(wish)
+          wish.push(productData)
+          
+         localStorage.setItem("wish", JSON.stringify(wish));
+         
+          })
+         
+
+                })
+
+
  
 }
 
-
-
-  
-
-displayData(dummyData)
+displayData(data)
+// displayData(dummyData)
 zoomedImg.src=smallImg[0].src;
 
 // -----------------------------------------
@@ -197,3 +247,7 @@ zoomedImg.style.transform=`translate3d(-${200*1.6*x}px,-${520*y}px,0px)`
 item.addEventListener("mouseleave",()=>{
   zoomImg.style.display="none"
 })
+
+
+// ------------------------------------------------
+// add to cart function
