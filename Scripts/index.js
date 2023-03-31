@@ -25,15 +25,19 @@ document.querySelector(".sc1").addEventListener("click",(e)=>{
 document.querySelector(".sc2").addEventListener("click",()=>{
  img.src="https://cdn-icons-png.flaticon.com/512/197/197484.png"
   country.style.display="none";
+  BotCountry.style.display="none";
 })
 document.querySelector(".sc3").addEventListener("click",()=>{
   img.src="https://cdn-icons-png.flaticon.com/512/197/197374.png"
   country.style.display="none";
+  BotCountry.style.display="none";
 })
 // slider1 active function
 let productContainers = [...document.querySelectorAll('.slider1')];
 let nxtBtn = [...document.querySelectorAll('.nxt-btn')];
 let preBtn = [...document.querySelectorAll('.pre-btn')];
+
+
 
 productContainers.forEach((item, i) => {
 
@@ -61,6 +65,7 @@ productContainers.forEach((item, i) => {
 
 
 // slider2 active function
+
 let firstImage = document.querySelector(".fImage1");
 let firstImage1 = document.querySelector(".fImage2");
 
@@ -105,5 +110,4 @@ function slideshow(slide,firstImage){
   // add event-listeners;
   });
    
-  
-  
+
