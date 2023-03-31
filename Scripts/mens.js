@@ -1,21 +1,32 @@
 
 // link with mens.html and write the funtionalities
 let urlMens="https://extinct-boa-zipper.cyclic.app/Dfabrica?sex=M";
-console.log("hi");
+let paginationwrapper=document.getElementById("pagination-wrapper");
 
 let cardContainer = document.getElementById("card-container");
 
-async function renderData(){
+let totalcount = document.getElementById("total-count");
+
+async function renderData(pageNumber){
   let totalData;
+  let totalButtons;
   try {
     let res = await fetch(urlMens);
     let data = await res.json();
-    console.log(data.length);
+    totalData=data.length;
+    totalcount.innerText=`(${totalData})`;
+    totalButtons= Math.ceil(totalData/9);
+    paginationwrapper.innerHTML = null;
+
+      for (let i = 1; i <= totalButtons; i++) {
+        paginationwrapper.append(getAsButton(i, i));
+        console.log(i);
+      }
   } catch (error) {
     console.log(error)
   }
     try {
-        let res = await fetch(`${urlMens}&_limit=9&_page=1`);
+        let res = await fetch(`${urlMens}&_limit=9&_page=${pageNumber}`);
         console.log(res.headers);
         let data = await res.json();
          displayData(data);
@@ -25,7 +36,7 @@ async function renderData(){
         console.log(error);
     }
 }
-renderData();
+renderData(1);
 
 function displayData(data){
     cardContainer.innerHTML=null;
@@ -42,9 +53,17 @@ function displayData(data){
         productName.innerText=ele.name;
 
         let price = document.createElement("h3");
-        price.innerText=ele["price-inr"]
+        price.innerText=`₹${Math.ceil(ele["price-inr"]-(ele["price-inr"]*ele.discount)/100)}`;
 
-        cardDiv.append(image,brandName,productName,price);
+        let discount=document.createElement("h4");
+        discount.innerText=`${ele.discount}% off`
+
+        let MRP= document.createElement("p");
+        let cutline=document.createElement("s");
+        cutline.innerText=`₹ ${ele["price-inr"]}`;
+        MRP.append(cutline);
+
+        cardDiv.append(image,brandName,productName,price,discount,MRP);
         cardContainer.append(cardDiv);
     })
 }
@@ -62,52 +81,20 @@ for (let i = 0; i < coll.length; i++) {
   });
 }
 
+function getAsButton(text, dataId) {
+  let btn = document.createElement("button");
+  btn.setAttribute("data-id", dataId);
+  btn.innerText = text;
+
+  btn.addEventListener("click", function (e) {
+    renderData(e.target.dataset.id);
+    console.log(e.target.dataset.id);
+  });
+
+  return btn;
+}
 
 
 
-// let paginationWrapper = document.getElementById("pagination-wrapper");
 
-// // Event listeners
-// fetchAndRenderUsers(2);
-
-// // Fetch & render users
-// function fetchAndRenderUsers(pageNumber) {
-//   fetch(
-//     `https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${pageNumber}`
-//   )
-//     .then((res) => {
-//       let totalPosts = res.headers.get("X-Total-Count");
-//       let totalButtons = Math.ceil(totalPosts / 10);
-
-//       paginationWrapper.innerHTML = null;
-
-//       for (let i = 1; i <= totalButtons; i++) {
-//         paginationWrapper.append(getAsButton(i, i));
-//       }
-
-//       return res.json();
-//     })
-//     .then((data) => {
-//       console.log(data);
-//       mainSection.innerHTML = null;
-
-//       const cardList = getCardList(data);
-//       mainSection.append(cardList);
-//     });
-// }
-
-// // utilites
-
-// function getAsButton(text, dataId) {
-//   let btn = document.createElement("button");
-//   btn.setAttribute("data-id", dataId);
-//   btn.innerText = text;
-
-//   btn.addEventListener("click", function (e) {
-//     fetchAndRenderUsers(e.target.dataset.id);
-//     console.log(e.target.dataset.id);
-//   });
-
-//   return btn;
-// }
 
