@@ -8,6 +8,9 @@ let flag=document.querySelector(".flag")
 let img=document.querySelector(".flag>img")
 let close=document.querySelector(".close")
 let BotCountry=document.querySelector(".botCountry")
+let countryData = JSON.parse(localStorage.getItem("userCountry"));
+
+
 flag.addEventListener("click",()=>{
   BotCountry.style.display="flex";
   country.style.display="flex";
@@ -16,22 +19,28 @@ close.addEventListener("click",()=>{
   BotCountry.style.display="none";
   country.style.display="none";
  })
-
+ 
+ 
 document.querySelector(".sc1").addEventListener("click",(e)=>{
-  img.src="https://cdn-icons-png.flaticon.com/512/3909/3909444.png"
   country.style.display="none";
   BotCountry.style.display="none";
+  localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/3909/3909444.png","India"]));
+  window.location.reload()
 })
 document.querySelector(".sc2").addEventListener("click",()=>{
- img.src="https://cdn-icons-png.flaticon.com/512/197/197484.png"
   country.style.display="none";
   BotCountry.style.display="none";
+  localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/197/197484.png","USA"]));
+  window.location.reload()
 })
 document.querySelector(".sc3").addEventListener("click",()=>{
-  img.src="https://cdn-icons-png.flaticon.com/512/197/197374.png"
   country.style.display="none";
   BotCountry.style.display="none";
+  localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/197/197374.png","UK"]));
+  window.location.reload()
 })
+
+img.src=countryData[0]
 // slider1 active function
 let productContainers = [...document.querySelectorAll('.slider1')];
 let nxtBtn = [...document.querySelectorAll('.nxt-btn')];
@@ -111,3 +120,4 @@ function slideshow(slide,firstImage){
   });
    
 
+    
