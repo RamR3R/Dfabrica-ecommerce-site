@@ -143,4 +143,24 @@ function verify(email){
     }).then(
       message => alert('OTP sent to mail :: dont forget to check the Spam :)')
     );
+
+    if(otp==inotp())
+    return true;
+    else
+    return false;
+}
+
+function inotp(){
+    let save = document.body.innerHTML;
+    document.body.innerHTML = `<div class="otp-container">
+    <form action="#">
+      <div class="input-field">
+        <input type="number" />
+        <input type="number" disabled />
+        <input type="number" disabled />
+        <input type="number" disabled />
+      </div>
+      <button>Verify OTP</button>
+</div>`;
+
 }
