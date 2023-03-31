@@ -3,6 +3,45 @@ const userAPIurl = `https://63f59a1b3f99f5855dc408c8.mockapi.io/Assets/users`;
 const inputs = document.querySelectorAll(".input");
 
 let dataBase;
+const inputnodes = document.querySelectorAll(".inputs"),
+button = document.querySelector("#otp-btn");
+
+inputnodes.forEach((input, index1) => {
+input.addEventListener("keyup", (e) => {
+  const currentInput = input,
+    nextInput = input.nextElementSibling,
+    prevInput = input.previousElementSibling;
+
+  if (currentInput.value.length > 1) {
+    currentInput.value = "";
+    return;
+  }
+
+  if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
+    nextInput.removeAttribute("disabled");
+    nextInput.focus();
+  }
+
+  if (e.key === "Backspace") {
+    inputnodes.forEach((input, index2) => {
+      if (index1 <= index2 && prevInput) {
+        input.setAttribute("disabled", true);
+        input.value = "";
+        prevInput.focus();
+      }
+    });
+  }
+
+  if (!inputnodes[3].disabled && inputnodes[3].value !== "") {
+    button.classList.add("active");
+    return;
+  }
+  button.classList.remove("active");
+});
+});
+
+window.addEventListener("load", () => inputnodes[0].focus());
+
 
 fetch(`https://63f59a1b3f99f5855dc408c8.mockapi.io/Assets/users`)
     .then(res=>res.json())
@@ -51,7 +90,7 @@ signupbtn.addEventListener("click",()=>{
     document.getElementById("submit").value = "Sign Up";
 })
 
-let form = document.querySelector("form");
+let form = document.querySelector("#form");
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
@@ -92,7 +131,7 @@ function logincall(user,pass){
     }
 })
 }
-function register(fname,lname,email,pass){
+async function register(fname,lname,email,pass){
     let obj = {
         firstname:fname,
         lastname : lname,
@@ -100,6 +139,7 @@ function register(fname,lname,email,pass){
         password: pass,
         id: dataBase.length+1
     }
+
     if(verify(obj.email)){
         alert("Email verified");
     fetch(`https://63f59a1b3f99f5855dc408c8.mockapi.io/Assets/users`,{
@@ -113,6 +153,7 @@ function register(fname,lname,email,pass){
     .then(data=>{
     console.log(data);
     localStorage.setItem("login-info",data);
+    window.location.href = "./index.html";
     })
     console.log(obj);
     }
@@ -122,7 +163,6 @@ function register(fname,lname,email,pass){
     }
 
 }
-
 
 function verify(email){
     const fname = document.getElementById('first-name');
@@ -140,27 +180,40 @@ function verify(email){
         From : "sanjucool1000@gmail.com",
         Subject : "Registration Verification DFabrica",
         Body : ebody
-    }).then(
-      message => alert('OTP sent to mail :: dont forget to check the Spam :)')
-    );
-
-    if(otp==inotp())
-    return true;
-    else
-    return false;
+    }).then(message => {
+        alert(`${message} , OTP sent to mail :: dont forget to check the Spam :)`);
+    });
+    let  check = displayOtp(otp);
+    if(check)
+    {
+        alert("Logged In");
+        localStorage.setItem("login-info",data);
+        window.location.href = "./index.html";
+    }
 }
 
-function inotp(){
-    let save = document.body.innerHTML;
-    document.body.innerHTML = `<div class="otp-container">
-    <form action="#">
-      <div class="input-field">
-        <input type="number" />
-        <input type="number" disabled />
-        <input type="number" disabled />
-        <input type="number" disabled />
-      </div>
-      <button>Verify OTP</button>
-</div>`;
+function displayOtp(n){
+    document.getElementById("otp-main").classList.add("show");
+    document.getElementById("otp-main").classList.remove("noshow");
+    button.addEventListener("click",()=>{
+        let otp = "";
+        for(let i = 0  ;i<4 ;i++)
+        {
+            otp+=inputnodes[i].value;
+        }    
+        console.log(otp);
+        if(n==otp){
+        alert("Email verified");
+        return true;
+        }
+        else{
+        alert("invalid OTP");
+        displayOtp(n);
+        }
+    })
 
+    let cancel = document.getElementById("cancel");
+    cancel.addEventListener("clcik",()=>{
+        window.location.href = "./ramLogin.html";
+    })
 }
