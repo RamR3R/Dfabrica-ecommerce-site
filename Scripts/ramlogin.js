@@ -1,4 +1,4 @@
-const userAPIurl = `https://63f59a1b3f99f5855dc408c8.mockapi.io/Assets/users`;
+const url = `https://dfabrica-data-app.onrender.com/users`;
 
 const inputs = document.querySelectorAll(".input");
 
@@ -43,7 +43,7 @@ input.addEventListener("keyup", (e) => {
 window.addEventListener("load", () => inputnodes[0].focus());
 
 
-fetch(`https://63f59a1b3f99f5855dc408c8.mockapi.io/Assets/users`)
+fetch(url)
     .then(res=>res.json())
     .then(data=>{
     console.log(data);
@@ -114,7 +114,7 @@ function signup(){
 
 function logincall(user,pass){
     console.log(user,pass);
-    fetch(`https://63f59a1b3f99f5855dc408c8.mockapi.io/Assets/users`)
+    fetch(url)
     .then(res=>res.json())
     .then(data=>{
     console.log(data);
@@ -131,89 +131,91 @@ function logincall(user,pass){
     }
 })
 }
-async function register(fname,lname,email,pass){
+
+function register(fname,lname,email,pass){
     let obj = {
-        firstname:fname,
-        lastname : lname,
         email:email,
-        password: pass,
-        id: dataBase.length+1
-    }
-
-    if(verify(obj.email)){
-        alert("Email verified");
-    fetch(`https://63f59a1b3f99f5855dc408c8.mockapi.io/Assets/users`,{
-        method:"POST",
-        headers:{
-            "Content-type" : "application/json"
-        },
-        body :JSON.stringify(obj)
-    })
-    .then(res=>res.json())
-    .then(data=>{
-    console.log(data);
-    localStorage.setItem("login-info",data);
-    window.location.href = "./index.html";
-    })
-    console.log(obj);
-    }
-    else
-    {
-        console.log("Error in login check the info provided");
-    }
-
+        firstname: fname,
+        lastname:lname,
+        password:pass
+        }
+    
+    
+          verify(obj);
+    
 }
 
-function verify(email){
-    const fname = document.getElementById('first-name');
-    const lname = document.getElementById('second-name');
-    const otp = Math.floor(Math.random() * 9000 + 1000);
-    let ebody = `
-    <h2>Hi</h2>
-    <h3>${fname.value}${lname.value},</h3>
-    <h1>YOUR OTP is ${otp}</h1>
-    `;
+async function verify(obj) {
 
-    Email.send({
-        SecureToken : "2521c93e-d04f-4e79-b347-e4320a19584f", //add your token here
-        To : email, 
-        From : "sanjucool1000@gmail.com",
-        Subject : "Registration Verification DFabrica",
-        Body : ebody
-    }).then(message => {
-        alert(`${message} , OTP sent to mail :: dont forget to check the Spam :)`);
+    let promise = new Promise((resolve, reject) => {
+        const otp = Math.floor(Math.random() * 9000 + 1000);
+        let ebody = `
+        <h2>Hi</h2>
+        <h3>${obj.firstname}${obj.lastname},</h3>
+        <h1>YOUR OTP is ${otp}</h1>
+        `;
+        Email.send({
+            SecureToken : "2521c93e-d04f-4e79-b347-e4320a19584f", //add your token here
+            To : obj.email, 
+            From : "sanjucool1000@gmail.com",
+            Subject : "Registration Verification DFabrica",
+            Body : ebody
+        }).then(message => {
+            alert(`${message} , OTP sent to mail :: dont forget to check the Spam :)`);
+        });
+
+
+        document.getElementById("otp-main").classList.add("show");
+        document.getElementById("otp-main").classList.remove("noshow");
+
+        let cancel = document.getElementById("cancel");
+        cancel.addEventListener("clcik",()=>{
+            // window.location.href = "./LoginNew.html";
+            alert("cancel clicked");
+        })
+
+        let button = document.getElementById("otp-btn");
+        button.addEventListener("click",()=>{
+            alert("verification clicked");
+            let OTP = "";
+            for(let i = 0  ;i<4 ;i++)
+            {
+                OTP+=inputnodes[i].value;
+            }    
+            console.log(OTP);
+            if(OTP==otp){
+                alert("Email verified");
+                localStorage.setItem("login-info",JSON.stringify(obj));
+
+                resolve("true")
+            }
+            else{
+                alert("Invalid OTP"); 
+                localStorage.setItem("login-info","no bro");  
+                reject("false");
+            }
+        })
+
+        
+
     });
-    let  check = displayOtp(otp);
-    if(check)
-    {
-        alert("Logged In");
-        localStorage.setItem("login-info",data);
-        window.location.href = "./index.html";
+  
+    let result = await promise; // wait until the promise resolves (*)
+  
+    alert(result); // "done!"
+    if(result=="true"){
+        fetch(url,{
+            method:"POST",
+            headers:{
+                "Content-type":"application/json"
+            },
+            body:JSON.stringify(obj)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            window.location.href = "./index.html";
+        })
     }
 }
-
-function displayOtp(n){
-    document.getElementById("otp-main").classList.add("show");
-    document.getElementById("otp-main").classList.remove("noshow");
-    button.addEventListener("click",()=>{
-        let otp = "";
-        for(let i = 0  ;i<4 ;i++)
-        {
-            otp+=inputnodes[i].value;
-        }    
-        console.log(otp);
-        if(n==otp){
-        alert("Email verified");
-        return true;
-        }
-        else{
-        alert("invalid OTP");
-        displayOtp(n);
-        }
-    })
-
-    let cancel = document.getElementById("cancel");
-    cancel.addEventListener("clcik",()=>{
-        window.location.href = "./ramLogin.html";
-    })
-}
+  
