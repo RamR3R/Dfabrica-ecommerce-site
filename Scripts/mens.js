@@ -1,6 +1,6 @@
 
 // link with mens.html and write the funtionalities
-let urlMens="https://extinct-boa-zipper.cyclic.app/Dfabrica?sex=M";
+let urlMens="https://dfabrica-data-app.onrender.com/products?sex=M";
 let paginationwrapper=document.getElementById("pagination-wrapper");
 
 let cardContainer = document.getElementById("card-container");
