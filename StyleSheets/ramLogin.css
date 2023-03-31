@@ -6,7 +6,7 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .wave{
@@ -25,7 +25,17 @@ body{
     grid-gap :7rem;
     padding: 0 2rem;
 }
-
+.otp-container{
+    width: 60%;
+    margin: auto;
+    position: fixed;
+    top: 20%;
+    left: 20%;
+    height: 300px;
+    border: 1px solid black;
+    background-color: transparent;
+    backdrop-filter: blur(100px);
+}
 .img{
 	display: flex;
 	justify-content: center;
