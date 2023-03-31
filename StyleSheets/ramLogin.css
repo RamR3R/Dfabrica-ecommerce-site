@@ -8,6 +8,9 @@ body{
     font-family: 'Poppins', sans-serif;
     /* overflow: hidden; */
 }
+.noshow{
+    display: none;
+}
 
 .wave{
 	position: fixed;
@@ -23,16 +26,18 @@ body{
 	top:80px;
 	left: 75%;
 }
+.container.show{
+	display: grid;
+}
 
 .container{
     width: 100vw;
     height: 100vh;
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap :7rem;
     padding: 0 2rem;
 }
-.otp-container{
+/* .otp-container{
     width: 70%;
     margin: auto;
     position: fixed;
@@ -46,7 +51,7 @@ body{
     backdrop-filter: blur(20px);
 	padding: 20px;
 	display: flex;
-}
+} */
 .img{
 	display: flex;
 	justify-content: center;
@@ -107,7 +112,7 @@ body{
     border: none;
     padding: 15px;
 }
-form{
+.form{
 	width: 360px;
 }
 
@@ -219,9 +224,6 @@ a{
 	font-size: 0.9rem;
 	transition: .3s;
 }
-.noshow{
-    display: none;
-}
 
 a:hover{
 	color: #FFEA00;
@@ -247,16 +249,109 @@ a:hover{
 .btn:hover{
 	background-position: right;
 }
+.show{
+	display: flex;
+}
+.main-container{
+	position: fixed;
+	overflow: hidden;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: 100vh;
+	width: 100vw;
+	margin: auto;
+	align-items: center;
+	justify-content: center;
+	background:transparent;
+	backdrop-filter: blur(15px)	;
+  }
+  :where(.container, #otp, .input-field) {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  }
+  .otp-container {
+	width: 40%;
+	height: 60%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: #fff;
+	padding: 30px 65px;
+	border-radius: 12px;
+	row-gap: 20px;
+	border: 3px solid gold;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  .otp-container h4 {
+	font-size: 1.5rem;
+	color: #333;
+	font-weight: bolder;
+	text-align: center;
+  }
+  #otp .input-field {
+	flex-direction: row;
+	column-gap: 10px;
+  }
+  .input-field input {
+	height: 45px;
+	width: 42px;
+	border-radius: 10px;
+	outline: none;
+	font-size: 1.3rem;
+	text-align: center;
+	border: 1px solid #d7d7d7;
+  }
+  .input-field input:focus {
+	box-shadow: 0px 0px 1px 1px rgb(0, 0, 0);
+  }
+  .input-field input::-webkit-inner-spin-button,
+  .input-field input::-webkit-outer-spin-button {
+	display: none;
+  }
+  #otp button {
+	margin-top: 25px;
+	width: 100%;
+	color: black;
+	font-size: 1rem;
+	border: none;
+	padding: 9px 0;
+	cursor: pointer;
+	border-radius: 6px;
+	pointer-events: none;
+	background: #e9dc4e;
+	transition: all 0.2s ease;
+  }
+  #otp button.active {
+	background: #FFEA00;
+	pointer-events: auto;
+  }
+  #otp button:nth-of-type(1):hover {
+	background: rgb(174, 255, 0);
+  }
+  #otp button:nth-of-type(2):hover {
+	background: red;
+  }
+  
+  #cancel{
+	background: #dbcb16;
+	pointer-events: auto;
+  }
 
 
 @media screen and (max-width: 1050px){
-	.container{
+	.otp-container{
 		grid-gap: 5rem;
 	}
 }
 
 @media screen and (max-width: 1000px){
-	form{
+	#otp{
 		width: 290px;
 	}
 
@@ -271,7 +366,7 @@ a:hover{
 }
 
 @media screen and (max-width: 900px){
-	.container{
+	.otp-container{
 		grid-template-columns: 1fr;
 	}
 
