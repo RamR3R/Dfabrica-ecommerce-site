@@ -9,7 +9,9 @@
     text-align: center;
 }
 #cart_main>h2{
-    font-size: 40px;
+    font-size: 60px;
+    text-align: center;
+    color:red;
 }
 .greater-reward{
     text-align: center;
@@ -62,16 +64,18 @@
     display: flex;
     margin-top: 10px;
     padding: 10px;
+    
 }
 .cart-product-image{
     width: 50%;
 }
 .cart-product-image > img{
-    width: 90%;
+    width: 150%;
     height: 100%;
 }
 .cart-product-title{
-    padding: 10px;
+    padding: 5px;
+    margin-left: 100px;
     margin-top: -35px;
 }
 .cart-table-data{
@@ -79,6 +83,7 @@
     text-align: center;
     vertical-align: top;
     padding-top: 15px;
+   
 }
 .cart-table-data > select{
     cursor: pointer;
@@ -90,7 +95,7 @@
     background-color: red;
     font-size: 14px;
     color: white;
-    margin-left: -5px;
+    /*margin-left: -5px;*/
     width: 30%;
     padding: 5px;
 }
@@ -101,7 +106,8 @@
 }
 #summary{
     width: 35%;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 20px;
     height: max-content;
 }
@@ -158,17 +164,6 @@
     font-size: 25px;
 }
 
-.select-delivery-address{
-    width: 30%;
-    display: block;
-    margin: auto;
-}
-#select-address{
-    width: 100%;
-    padding: 10px;
-    font-size: 26px;
-    margin-bottom: 10vh;
-}
 
   
 @media only screen and (max-width: 1150px){
