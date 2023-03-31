@@ -24,18 +24,24 @@ close.addEventListener("click",()=>{
 document.querySelector(".sc1").addEventListener("click",(e)=>{
   country.style.display="none";
   BotCountry.style.display="none";
+  flagDelivery.src="https://cdn-icons-png.flaticon.com/512/3909/3909444.png"
+  localStorage.setItem("currency","inr");
   localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/3909/3909444.png","India"]));
   window.location.reload()
 })
 document.querySelector(".sc2").addEventListener("click",()=>{
   country.style.display="none";
   BotCountry.style.display="none";
+  flagDelivery.src="https://cdn-icons-png.flaticon.com/512/197/197484.png"
+  localStorage.setItem("currency","usd");
   localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/197/197484.png","USA"]));
   window.location.reload()
 })
 document.querySelector(".sc3").addEventListener("click",()=>{
   country.style.display="none";
   BotCountry.style.display="none";
+  flagDelivery.src="https://cdn-icons-png.flaticon.com/512/197/197374.png"
+  localStorage.setItem("currency","pound");
   localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/197/197374.png","UK"]));
   window.location.reload()
 })
