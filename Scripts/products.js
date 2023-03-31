@@ -22,18 +22,21 @@ document.querySelector(".sc1").addEventListener("click",(e)=>{
   country.style.display="none";
   BotCountry.style.display="none";
   flagDelivery.src="https://cdn-icons-png.flaticon.com/512/3909/3909444.png"
+  localStorage.setItem("currency","inr");
 })
 document.querySelector(".sc2").addEventListener("click",()=>{
  img.src="https://cdn-icons-png.flaticon.com/512/197/197484.png"
   country.style.display="none";
   BotCountry.style.display="none";
   flagDelivery.src="https://cdn-icons-png.flaticon.com/512/197/197484.png"
+  localStorage.setItem("currency","usd");
 })
 document.querySelector(".sc3").addEventListener("click",()=>{
   img.src="https://cdn-icons-png.flaticon.com/512/197/197374.png"
   country.style.display="none";
   BotCountry.style.display="none";
   flagDelivery.src="https://cdn-icons-png.flaticon.com/512/197/197374.png"
+  localStorage.setItem("currency","pound");
 })
 // -----------------------------------------------------
 let data=[{
