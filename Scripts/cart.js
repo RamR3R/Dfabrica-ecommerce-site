@@ -1,5 +1,7 @@
-let cartTableBody = document.getElementById("cart-table-body");
-let currentUser = [{
+let cartTableBody = document.getElementById("cart-table-body")||[];
+let currentUser = JSON.parse(localStorage.getItem("current-user"));
+
+let dummyData=  [{
     "id": 1,
     "name": "Women's Pink Relaxed Fit Puffer Jacket",
     "image1": "https://images.bewakoof.com/t1080/women-s-rose-solid-puffer-jackets-498989-1665663674-6.jpg",
@@ -17,37 +19,42 @@ let currentUser = [{
     "size": "[S,M,L,XL,XXL]",
     "rating": 3.9
   }]
-let totalItems = document.getElementById("total-items");
-let userData = JSON.parse(localStorage.getItem("user"));
-let subTotalPrice = document.getElementById("sub-total-price");
+ let totalPrice
+ let subTotalPrice = document.getElementById("sub-total-price");
+ let subTotal
+ let totalItems = document.getElementById("total-items");
+let userData = JSON.parse(localStorage.getItem("user"));                                                       
 let cartTotal = document.getElementById("cart-total");
 let selectDeliveryAddress = document.getElementById("select-address");
 let checkoutBtn = document.getElementById("checkout-button");
 let updateCartText = document.getElementById("update-cart-text");
 
+
+//   localStorage.setItem("current-user", JSON.stringify(dummyData));
+  displayCart(currentUser)
+
 if(currentUser.length != 0){
     updateCartText.style.display = "none";
 }
 
-let count = 1;
-function createAddressList(adrs){
-    let option = document.createElement("option");
-        option.value = count;
-        option.text = adrs.addressType;
-    selectDeliveryAddress.append(option);
-}
-
-
-currentUser.address.forEach(adrs => {
-    createAddressList(adrs);
-    count++;
-})
+// let count = 1;
+// function createAddressList(adrs){
+//     let option = document.createElement("option");
+//         option.value = count;
+//         option.text = adrs.addressType;
+//     selectDeliveryAddress.append(option);
+// }
 
 
 
 
-let totalPrice = 0;
-let subTotal = 0;
+
+
+//displayCart(dummyData)
+
+ totalPrice = 0;
+ subTotal = 0;
+
 currentUser.forEach(product => {
     totalPrice += product.price;
 })
@@ -68,14 +75,34 @@ function displayCart(product){
                 let cartProductTitle = document.createElement("div");
                     cartProductTitle.classList.add("cart-product-title");
 
-                    let productName = document.createElement("h4");
+                    let productName = document.createElement("h2");
                         productName.innerText = product.name;
+
+                    let productCategory=document.createElement("h2");
+                        productCategory.innerText=product.category;
+
+                    let productDescription=document.createElement("h4");
+                        productDescription.innerText=product.description; 
+                       
+                    let productDiscount=document.createElement("p");
+                        productDiscount.innerText="Discount : "+product.discount; 
+
+                    let productPriceinr=document.createElement("p");
+                        productPriceinr.innerText="Price-INR : "+product["price-inr"]; 
+
+                    
+
+                    let productRating=document.createElement("p");
+                        productRating.innerText="Rating : "+product.rating; 
+
+                    let productsex=document.createElement("p");
+                        productsex.innerText="Gender : "+product.sex; 
 
                     let productSize = document.createElement("p");
                         productSize.innerText = "Size: " +product.size;
 
-                    let productType = document.createElement("p");
-                        productType.innerText = "Type: " + product.type;
+                    let productStock = document.createElement("p");
+                        productStock.innerText = "Stock : "  +product.stock;
 
                     let productDelete = document.createElement("button");
                         productDelete.setAttribute("id", "delete-cart-product");
@@ -91,21 +118,22 @@ function displayCart(product){
                             })
                             
                             currentUser.cart = deleteFromCart;
-                            localStorage.setItem("current-user", JSON.stringify(currentUser));
-                            let updatedUserData = JSON.parse(localStorage.getItem("current-user"));
+                            // localStorage.setItem("current-user", JSON.stringify(dummyData));
+                            // let updatedUserData = JSON.parse(localStorage.getItem("current-user///////////////////
                             cartTableBody.innerHTML = null;
                             location.reload();
                             updatedUserData.cart.forEach(p => {
                                 displayCart(p);
+
                             })
                         })
 
-                    cartProductTitle.append(productName, productSize, productType, productDelete);
+                    cartProductTitle.append(productName,productCategory,productDescription,productDiscount,productPriceinr,productRating,productsex, productSize, productStock, productDelete);
                 
                 cartProductImageTitle.append(cartProductImage, cartProductTitle);
             cartData.append(cartProductImageTitle);
             
-        let productPrice = document.createElement("td");
+       let productPrice = document.createElement("td");
             productPrice.classList.add("cart-table-data");
             productPrice.innerText = product.price;
 
@@ -117,26 +145,57 @@ function displayCart(product){
                 let option3 = document.createElement("option");
                 let option4 = document.createElement("option");
                 let option5 = document.createElement("option");
+                let option6 = document.createElement("option");
+                let option7 = document.createElement("option");
+                let option8 = document.createElement("option");
+                let option9 = document.createElement("option");
+                let option10 = document.createElement("option");
+                let option11 = document.createElement("option");
+                let option12 = document.createElement("option");
+
 
                 option1.innerText = 1;
                 option2.innerText = 2;
                 option3.innerText = 3;
                 option4.innerText = 4;
                 option5.innerText = 5;
+                option6.innerText = 6;
+                option7.innerText = 7;
+                option8.innerText = 8;
+                option9.innerText = 9;
+                option10.innerText = 10;
+                option11.innerText = 11;
+                option12.innerText = 12;
+
 
                 option1.value = 1;
                 option2.value = 2;
                 option3.value = 3;
                 option4.value = 4;
                 option5.value = 5;
+                option6.value = 6;
+                option7.value = 7;
+                option8.value = 8;
+                option9.value = 9;
+                option10.value = 10;
+                option11.value = 11;
+                option12.value = 12;
+                
 
                 selectQty.add(option1, null);
                 selectQty.add(option2, null);
                 selectQty.add(option3, null);
                 selectQty.add(option4, null);
                 selectQty.add(option5, null);
+                selectQty.add(option6, null);
+                selectQty.add(option7, null);
+                selectQty.add(option8, null);
+                selectQty.add(option9, null);
+                selectQty.add(option10, null);
+                selectQty.add(option11, null);
+                selectQty.add(option12, null);
 
-            productQuantity.append(selectQty);
+            productQuantity.append(selectQty); 
 
             
 
@@ -149,8 +208,8 @@ function displayCart(product){
                 totalItems.innerText = currentUser.cart.length + +selectQty.value - 1 + " ITEMS";
                 subTotal = +subTotalData.innerText;
                 product.subTotal = subTotal;
-                localStorage.setItem("current-user", JSON.stringify(currentUser));
-                let updatedUser = JSON.parse(localStorage.getItem("current-user"));
+                // localStorage.setItem("current-user", JSON.stringify(currentUser));
+                // let updatedUser = JSON.parse(localStorage.getItem("current-user"));
                 totalPrice = 0;
                 updatedUser.cart.forEach(prod => {
                     totalPrice += +prod.subTotal;
@@ -163,17 +222,18 @@ function displayCart(product){
         cartTableBody.append(cartRow);
         totalPrice += subTotal;
         subTotalPrice.innerText = "$" + (totalPrice).toFixed(2);
-        cartTotal.innerText = "$" + (totalPrice+6).toFixed(2);
-}
+        cartTotal.innerText = "$" + (totalPrice+6).toFixed(2); 
+} 
 
-totalItems.innerText = currentUser.length + " ITEMS";
+totalItems.innerText = currentUser.length + " ITEMS"; 
 currentUser.forEach(product => {
     displayCart(product);
 })
 
 
-checkoutBtn.addEventListener("click", () => {
+
+/checkoutBtn.addEventListener("click", () => {
     currentUser.totalPrice = (totalPrice+6).toFixed(2);
-    localStorage.setItem("current-user", JSON.stringify(currentUser));
-    window.location.href = "./payment.html";
-})
+    // localStorage.setItem("current-user", JSON.stringify(currentUser));
+    window.location.href = "./payment.html"; 
+}) 
