@@ -11,10 +11,17 @@ body{
 
 .wave{
 	position: fixed;
-	bottom: 0;
-	left: 0;
 	height: 100%;
 	z-index: -1;
+}
+.left{
+	bottom: 0;
+	left: 0;
+}
+.right{
+	transform: rotate(90deg);
+	top:80px;
+	left: 75%;
 }
 
 .container{
@@ -26,15 +33,19 @@ body{
     padding: 0 2rem;
 }
 .otp-container{
-    width: 60%;
+    width: 70%;
     margin: auto;
     position: fixed;
-    top: 20%;
-    left: 20%;
-    height: 300px;
+	z-index: 100;
+    top: 15%;
+    left: 15%;
+    height: 400px;
     border: 1px solid black;
+	border-radius: 20px;
     background-color: transparent;
-    backdrop-filter: blur(100px);
+    backdrop-filter: blur(20px);
+	padding: 20px;
+	display: flex;
 }
 .img{
 	display: flex;
