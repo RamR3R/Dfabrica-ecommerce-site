@@ -126,7 +126,7 @@ function logincall(user,pass){
         {
             alert("login Sucessfull");
             localStorage.setItem("login-info",dataBase[i]);
-            window.location.href = "./index.html";
+            // window.location.href = "./index.html";
         }
     }
 })
@@ -204,6 +204,7 @@ async function verify(obj) {
   
     alert(result); // "done!"
     if(result=="true"){
+        alert("in if");
         fetch(url,{
             method:"POST",
             headers:{
@@ -211,11 +212,17 @@ async function verify(obj) {
             },
             body:JSON.stringify(obj)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data);
-            window.location.href = "./index.html";
+        .then(res=>{
+            alert()
+            console.log(res.json())
+            return res.json();
         })
+        .then(data=>{
+            alert("in fetch");
+            console.log(data);
+            // window.location.href = "./index.html";
+        })
+        .catch(err=>console.log(err));
     }
 }
   
