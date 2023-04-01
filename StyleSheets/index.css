@@ -1,14 +1,476 @@
 *{
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 /* 
-    The main CSS file with the CSS prop of NAV header and footer part of the page 
-    and other Css for all the adds and things which is to be added in the Index.html page
-    
-    As this file is linked with all the pages of the website
-    So maintain it with care.
-    :)
-    <3
+  The main CSS file with the CSS prop of NAV header and footer part of the page 
+  and other Css for all the adds and things which is to be added in the Index.html page
+  
+  As this file is linked with all the pages of the website
+  So maintain it with care.
+  :)
+  <3
 */
+*{
+  
+ 
+  font-family: monospace;
+  text-align: center;
+  font-size: xx-large;
+ }
+ body{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  /* background-color: white; */
+ }
+  a{
+      text-decoration: none;
+      color: black;
+  }
+  
+  .navBar{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-bottom: 1px solid silver;
+      align-items: center;
+      padding: 5px;
+      height: 120px;
+     /* border-bottom: 1px solid violet; */
+     background-color: white;
+     position: fixed;
+     top: 0%;
+     z-index: 9;
+  }
+  .top{
+      width: 100%;
+      background-color: silver;
+      align-items: center;
+
+      
+  }
+  .topNav{
+      margin: auto;
+      width: 60%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+  }
+  .topNav>div{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topNav>div>a{
+      margin-right: 10px; 
+      font-size: 10px;
+  }
+ .container{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  align-items: center;
+  padding: 5px;
+  font-size:larger;
+  color: silver;
+ }
+ 
+ .childBar1{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+ }
+ .childBar1>a{
+  margin-right: 20px;
+ }
+ .childBar2{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+ }
+ .childBar2>a{
+  margin-left: 20px;
+ }
+ .navbarBrand{
+  width: 150px;
+  align-items: center;
+ }
+ .navbarBrand>img{
+  width: 120px;
+  border-radius: 10px;
+  
+ }
+ .search{
+  padding: 15px;
+  width: 300px;
+  background-color: rgb(245, 240, 240);
+  border: 0px;
+  border-radius: 10px;
+  padding: 10px 30px;
+ }
+ .category{
+  width: 50%;
+  /* border: 1px solid red; */
+  display: flex;
+  margin: 10px auto 10px auto;
+  justify-content: space-around;
+  border-bottom: 1px solid silver;
+  /* border-top: 1px solid silver; */
+  
+  padding-top: 150px;
+
+ }
+ .category>a{
+  font-size: x-large;
+ 
+ }
+
+/* --------------------------------------------------------------------- */
+.cont {
+position: relative;
+overflow: hidden;
+padding: 20px;
+}
+.mainSlider {
+width: 100%;
+display: flex;
+overflow-x: auto;
+scroll-behavior: smooth;
+}
+.slider1{
+display: flex;
+width: 100%;
+margin: auto;
+height: 600px;
+scroll-snap-type: x mandatory;
+padding: 0 10vw;
+overflow-x: auto;
+scroll-behavior: smooth;
+cursor: pointer;
+}
+.slider1::-webkit-scrollbar {
+display: none;
+}
+.slider1>div{
+width: 100%;
+display: flex;
+justify-content: center;
+padding: 5px;
+/* margin: auto; */
+position: relative;
+width: 100%;
+
+/* overflow: hidden; */
+margin-right: 40px;
+}
+.slider1 >div>img{
+
+object-fit: cover;
+}
+.pre-btn,
+.nxt-btn {
+border: none;
+width: 10vw;
+height: 100%;
+position: absolute;
+top: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+cursor: pointer;
+z-index: 8;
+
+}
+
+.pre-btn {
+left: 0;
+transform: rotate(180deg);
+background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+
+}
+
+.nxt-btn {
+right: 0;
+}
+
+.pre-btn img,
+.nxt-btn img {
+width: 50px;
+opacity: 0.2;
+/* opacity: 50%; */
+}
+
+.pre-btn:hover img,
+.nxt-btn:hover img {
+opacity: 100%;
+}
+
+/* -------------------------------------------------------------------------------------- */
+.wideAd1{
+width: 100%;
+display: flex;
+margin: auto;
+padding-top: 5px;
+
+}
+.wideAd1>img{
+width: 100%;
+margin: auto;
+cursor: pointer;
+}
+.wideAd2>h3{
+width: 1000px;
+  font-size: 50px;
+  margin: auto;
+  border: 5px solid violet;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background-color: white;
+  -webkit-box-shadow: 2px -6px 166px -1px rgba(255,51,255,1);
+  -moz-box-shadow: 2px -6px 166px -1px rgba(255,51,255,1);
+  box-shadow: 2px -6px 166px -1px rgba(255,51,255,1);
+
+}
+.bottom{
+display: flex;
+flex-direction: column;
+width: 100%;
+}
+.bottom div{
+width: 100%;
+}
+/* -------------------------------------------------------------------------------------- */
+
+.Tcat{
+  display: flex;
+  margin: auto;
+ 
+ }
+
+.high {
+width: 80%;
+margin: auto;
+display: flex;
+overflow: auto;
+overflow-y: hidden;
+scroll-snap-type: x mandatory;
+
+}
+.high::-webkit-scrollbar {
+display: none;
+}
+.high > div {
+display: flex;
+width: 300px;
+margin: 5px;
+align-items: center;
+cursor: pointer;
+}
+.high > div > img {
+width: 250px;
+}
+#DOW{
+display: flex;
+margin: auto;
+justify-content: center;
+width: 100%;
+}
+#DOW div{
+width:100%
+}
+#DOW div img{
+width: 100%;
+}
+.flag{
+width: 35px;
+/* border: 1px solid black; */
+border-radius: 50px;
+cursor: pointer;
+}
+.flag img{
+width: 100%;
+}
+.botCountry{
+
+ width: 100%;
+height: 6000px;
+position: fixed;
+z-index: 1000;
+display: none;
+background-color: black;
+opacity: 70%;
+position: fixed;
+margin-top: 0px;
+}
+.country{
+text-align: center;
+/* background: black; */
+width: 100%;
+height: 800px;
+position: fixed;
+z-index: 1000;
+display: none;
+/* padding: 100px; */
+/* opacity: 70%; */
+flex-direction: column;
+}
+.country>div>div{
+margin: auto;
+display: flex;
+justify-content: center;
+width: 150px;
+margin: auto;
+width: 300px;
+padding: 10px;
+
+}
+.country>div>div>div{
+background-color: aqua;
+border-radius: 5px;
+width: 80px;
+height: 100px;
+margin: 10px;
+padding: 5px;
+cursor: pointer;
+}
+.country>div>div>div>img{
+width: 100%;
+}
+.country>div:nth-child(2){
+  margin: 0 auto 0 auto;
+  text-align: center;
+justify-content: center;
+width: 150px;
+opacity: 100%;
+background-color: blueviolet;
+width: 500px;
+height: 200px;
+padding: 30px;
+border-radius: 50px;
+padding: 10px;
+
+}
+.country>div:nth-child(1){
+margin: 150px auto 0 auto;
+background-color: white;
+height: 40px;
+width: 40px;
+border-radius: 50px;
+padding: 10px;
+opacity: 20%;
+cursor: pointer;
+}
+.country>div:nth-child(1)>img{
+margin: auto;
+width: 100%;
+}
+.country>div:nth-child(1):hover{
+opacity: 60%;
+}
+.country h1{
+  background-color: yellowgreen;
+  padding: 10px;
+  border-radius: 10px;
+  width: 400px;
+  margin: auto;
+  opacity: 90%;
+  
+}
+
+.slider2>div{
+display: flex;
+margin: auto;
+justify-content: center;
+width: 80%;
+cursor: pointer;
+/* border: 1px solid red; */
+}
+.slider2>div>img{
+width: 50%;
+margin: 10px;
+}
+.slider3>div{
+display: flex;
+margin: auto;
+justify-content: center;
+width: 80%;
+/* border: 1px solid red; */
+cursor: pointer;
+}
+.slider3>div>img{
+width: 100%;
+margin: 10px;
+}
+.slider3>h3{
+width: 1000px;
+  font-size: 50px;
+  margin: auto;
+  border: 5px solid violet;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  background-color: white;
+  -webkit-box-shadow: 2px -6px 166px -1px rgba(255,51,255,1);
+  -moz-box-shadow: 2px -6px 166px -1px rgba(255,51,255,1);
+  box-shadow: 2px -6px 166px -1px rgba(255,51,255,1);
+}
+.parentFoot{
+margin-top: 5px;
+padding: 50px;
+background-color: rgb(37, 34, 37);
+
+opacity: 98%;
+}
+.parentFoot p{
+color: gold;
+}
+.childFoot{
+display: flex;
+justify-content: center;
+}
+.childFoot>div{
+display: flex;
+align-items: center;
+flex-direction: column;
+width: 300px;
+text-align: justify;
+margin: 5px;
+}
+.childFoot>div a{
+color: white;
+margin: 5px;
+}
+.childFoot>div>div{
+color: white;
+margin: 5px;
+}
+.parentFoot>div:nth-child(1){
+padding: 10px;
+width:80px;
+margin: auto;
+}
+.parentFoot>div:nth-child(1)>a>img{
+width:100%
+}
+.parentFoot button{
+background-color: rgb(253, 124, 124);
+border: 0;
+border-radius: 5px;
+padding: 5px;
+margin: 5px;
+}
+.parentFoot>div:nth-child(2) input{
+border: 0px;
+background-color: rgb(250, 250, 224);
+margin: 2px;
+padding: 2px;
+border-radius: 5px;
+}

@@ -4,9 +4,76 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Women's Page</title>
+    <link rel="stylesheet" href="StyleSheets/menwomen.css">
 </head>
 <body>
-    
+    <div id="navbar"></div>
+    <div id="main">
+        <h1 class="heading">Women Clothing <span id="total-count">(total count)</span></h1>
+        <div class="child1">
+            <h3 class="filter-heading">FILTERS</h3>
+            <div class="dropdown sort-by">
+                <span>SORT BY</span>
+                <div class="dropdown-content">
+                <p>Popular</p>
+                <p>Price: Low to High</p>
+                <p>Price: high to Low</p>
+                </div>
+            </div>
+        </div>
+        <div class="child2">
+            <div class="filters">
+                <button type="button" class="collapsible">Category</button>
+                <div class="content">
+                <button>Winterwear</button>
+                <button>Topwear</button>
+                <button>Bottomwear</button>
+                <button>Sportwear</button>
+                <button>Footwear</button>
+                </div>
+                <button type="button" class="collapsible">Rating</button>
+                <div class="content">
+                <button>4.5 and above</button>
+                <button>4 and above</button>
+                <button>3.5 and above</button>
+                <button>3 and above</button>
+                <button>2.5 and above</button>
+                <button>2 and above</button>
+                <button>1.5 and above</button>
+                <button>1 and above</button>
+                </div>
+                <button type="button" class="collapsible">Discount</button>
+                <div class="content">
+                <button>10% and more</button>
+                <button>20% and more</button>
+                <button>30% and more</button>
+                <button>40% and more</button>
+                <button>50% and more</button>
+                <button>60% and more</button>
+                <button>70% and more</button>
+                </div>
+            </div>
+            <div id="card-container">
+                <!-- appending all cards here -->
+            </div>
+            
+        </div>
+        <div id="pagination-wrapper">
+            <!-- appending all button here -->
+        </div> 
+
+    </div>
+
+
+
+
+<div>
+     
+</div>
+
+      
+    <script src="./scripts/womens.js" type="module"></script>
 </body>
+
 </html>

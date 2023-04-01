@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap");
+* {
+  font-family: "poppins", sans-serif;
+}
+body {
+  background-image: url("../Images/adminPageBackgroundImg.png");
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+#brandImg > img {
+  width: 10%;
+  background-color: transparent;
+}
+
+.box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+.container {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px 0 15px;
+}
+span {
+  color: #010101;
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 10px 0;
+}
+header {
+  color: #000000;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 10px 0;
+}
+.input-field-hide {
+  display: none;
+}
+
+.input-field-show {
+  height: 45px;
+  width: 87%;
+  border: none;
+  border-radius: 30px;
+  color: #000000;
+  font-size: 15px;
+  padding: 0 0 0 45px;
+  background: rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+.input-field .input {
+  height: 45px;
+  width: 87%;
+  border: none;
+  border-radius: 30px;
+  color: #000000;
+  font-size: 15px;
+  padding: 0 0 0 45px;
+  background: rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+i {
+  position: relative;
+  top: -33px;
+  left: 17px;
+  color: #000000;
+}
+::-webkit-input-placeholder {
+  color: #000000;
+}
+
+.top h2 {
+  text-align: center;
+}
+
+#formID {
+  box-sizing: border-box;
+  backdrop-filter: blur(50px);
+  border: 1px solid transparent;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+  border-bottom-left-radius: 5px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.btn {
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  color: rgb(123, 67, 234);
+  float: right;
+  margin-top: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.submit {
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  height: 45px;
+  outline: none;
+  width: 100%;
+  color: black;
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.submit:hover {
+  box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+}
+.two-col {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #000000;
+  font-size: small;
+  margin-top: 10px;
+}
+.one {
+  display: flex;
+}
+label a {
+  text-decoration: none;
+  color: #000000;
+}

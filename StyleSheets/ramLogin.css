@@ -1,0 +1,384 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    /* overflow: hidden; */
+}
+.noshow{
+    display: none;
+}
+
+.wave{
+	position: fixed;
+	height: 100%;
+	z-index: -1;
+}
+.left{
+	bottom: 0;
+	left: 0;
+}
+.right{
+	transform: rotate(90deg);
+	top:80px;
+	left: 75%;
+}
+.container.show{
+	display: grid;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap :7rem;
+    padding: 0 2rem;
+}
+/* .otp-container{
+    width: 70%;
+    margin: auto;
+    position: fixed;
+	z-index: 100;
+    top: 15%;
+    left: 15%;
+    height: 400px;
+    border: 1px solid black;
+	border-radius: 20px;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+	padding: 20px;
+	display: flex;
+} */
+.img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-content{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+}
+
+.img img{
+	width: 400px;
+}
+#logo{
+    position: absolute;
+    width: 150px;
+    left: 20%;
+    border-radius: 20px;
+    transform: rotate(-7deg)
+    
+}
+#login-change{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 20px;
+    /* border: 1px solid red; */
+    /* box-shadow: 0px 0px 5px 1px rgb(205, 196, 196); */
+    height: 8vh;
+}
+/* #login-change>button{
+    display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #FFEA00, #FFEA00, #FFEA00);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: black;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+    
+} */
+.selected{
+    background: #fff81f;
+    /* margin:10px 0px 10px 0px; */
+}
+.button-selector{
+    border-radius: 10px;
+    border: none;
+    padding: 15px;
+}
+.form{
+	width: 360px;
+}
+
+.login-content img{
+    height: 100px;
+}
+
+.login-content h2{
+	margin: 15px 0;
+	color: #333;
+	text-transform: uppercase;
+	font-size: 2.9rem;
+}
+
+.login-content .input-div{
+	position: relative;
+    display: grid;
+    grid-template-columns: 7% 93%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.login-content .input-div.one{
+	margin-top: 0;
+}
+
+.i{
+	color: #d9d9d9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.i i{
+	transition: .3s;
+}
+
+.input-div > div{
+    position: relative;
+	height: 45px;
+}
+
+.input-div > div > h5{
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #999;
+	font-size: 18px;
+	transition: .3s;
+}
+
+.input-div:before, .input-div:after{
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	width: 0%;
+	height: 2px;
+	background-color: #FFEA00;
+	transition: .4s;
+}
+
+.input-div:before{
+	right: 50%;
+}
+
+.input-div:after{
+	left: 50%;
+}
+
+.input-div.focus:before, .input-div.focus:after{
+	width: 50%;
+}
+
+.input-div.focus > div > h5{
+	top: -5px;
+	font-size: 15px;
+}
+
+.input-div.focus > .i > i{
+	color: #FFEA00;
+}
+
+.input-div > div > input{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
+	color: #555;
+	font-family: 'poppins', sans-serif;
+}
+
+.input-div.pass{
+	margin-bottom: 4px;
+}
+
+a{
+	display: block;
+	text-align: right;
+	text-decoration: none;
+	color: #999;
+	font-size: 0.9rem;
+	transition: .3s;
+}
+
+a:hover{
+	color: #FFEA00;
+}
+
+.btn{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #FFEA00, #FFEA00, #FFEA00);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: black;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+}
+.btn:hover{
+	background-position: right;
+}
+.show{
+	display: flex;
+}
+.main-container{
+	position: fixed;
+	overflow: hidden;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: 100vh;
+	width: 100vw;
+	margin: auto;
+	align-items: center;
+	justify-content: center;
+	background:transparent;
+	backdrop-filter: blur(15px)	;
+  }
+  :where(.container, #otp, .input-field) {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  }
+  .otp-container {
+	width: 40%;
+	height: 60%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: #fff;
+	padding: 30px 65px;
+	border-radius: 12px;
+	row-gap: 20px;
+	border: 3px solid gold;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  .otp-container h4 {
+	font-size: 1.5rem;
+	color: #333;
+	font-weight: bolder;
+	text-align: center;
+  }
+  #otp .input-field {
+	flex-direction: row;
+	column-gap: 10px;
+  }
+  .input-field input {
+	height: 45px;
+	width: 42px;
+	border-radius: 10px;
+	outline: none;
+	font-size: 1.3rem;
+	text-align: center;
+	border: 1px solid #d7d7d7;
+  }
+  .input-field input:focus {
+	box-shadow: 0px 0px 1px 1px rgb(0, 0, 0);
+  }
+  .input-field input::-webkit-inner-spin-button,
+  .input-field input::-webkit-outer-spin-button {
+	display: none;
+  }
+  #otp button {
+	margin-top: 25px;
+	width: 100%;
+	color: black;
+	font-size: 1rem;
+	border: none;
+	padding: 9px 0;
+	cursor: pointer;
+	border-radius: 6px;
+	pointer-events: none;
+	background: #e9dc4e;
+	transition: all 0.2s ease;
+  }
+  #otp button.active {
+	background: #FFEA00;
+	pointer-events: auto;
+  }
+  #otp button:nth-of-type(1):hover {
+	background: rgb(174, 255, 0);
+  }
+  #otp button:nth-of-type(2):hover {
+	background: red;
+  }
+  
+  #cancel{
+	background: #dbcb16;
+	pointer-events: auto;
+  }
+
+
+@media screen and (max-width: 1050px){
+	.otp-container{
+		grid-gap: 5rem;
+	}
+}
+
+@media screen and (max-width: 1000px){
+	#otp{
+		width: 290px;
+	}
+
+	.login-content h2{
+        font-size: 2.4rem;
+        margin: 8px 0;
+	}
+
+	.img img{
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 900px){
+	.otp-container{
+		grid-template-columns: 1fr;
+	}
+
+	.img{
+		display: none;
+	}
+
+	.wave{
+		display: none;
+	}
+
+	.login-content{
+		justify-content: center;
+	}
+}

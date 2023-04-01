@@ -2,6 +2,184 @@
     margin: 0px;
     padding: 0px;
 }
+.heading {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#main {
+    width: 90%;
+    margin: auto;
+}
+.child1,.child2  {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.child1 {
+    padding-right: 30px;
+    padding-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    align-items: center;
+}
+.filter-heading {
+    position: fixed;
+} 
+.sort-by {
+    position: relative;
+    left: 90%;
+}
+.filters {
+    padding-right: 20px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+}
+.filter{
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    height: 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.filter span {
+    font-size: 150%;
+}
+#card-container {
+width: 80%;
+display: grid;
+grid-template-columns: repeat(3,1fr);
+gap: 20px;
+position: relative;
+left: 23%;
+}
+#card-container div img{
+    width: 100%;
+    border-radius: 10px ;
+}
+#card-container div {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+border-radius: 10px;
+padding: 10px;
+}
 
+.dropdown {
+
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+  .dropdown-content > p:hover{
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+}  
+.dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  
+  .active, .collapsible:hover {
+    background-color: #555;
+  }
+  
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+  .content button {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 0px;
+  font-size: 15px;
+  cursor: pointer;
+  } 
+  .content button:hover {
+    color: red;
+    font-weight: bold;
+  }
+  #pagination-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  padding: 20px 0px;
+  /* padding-left: 300px; */
+  }
+ 
+  #pagination-wrapper > button {
+    padding: 1.0em 2em;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: bold;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  #pagination-wrapper >button:hover {
+    background-color: #23c483;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-5px);
+  }
+  
+  #pagination-wrapper > button:active {
+    transform: translateY(-1px);
+  }
+  .collapsible {
+    border: none;
+    color: #fff;
+    background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+    border-radius:  20px;
+    background-size: 100% auto;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 17px;
+    padding: 0.6em 1.5em;
+    margin-top: 10px;
+   }
+   
+   .collapsible:hover {
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse512 1.5s infinite;
+   }
+   
+   @keyframes pulse512 {
+    0% {
+     box-shadow: 0 0 0 0 #05bada66;
+    }
+   
+    70% {
+     box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+   
+    100% {
+     box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
+   }
 /* CSS for both the mens and womens page are same so one file is enough to be create 
 link both the index.css and this file with the mens and womens.html pages   */
