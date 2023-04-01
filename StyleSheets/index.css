@@ -2,7 +2,7 @@
   margin: 0px;
   padding: 0px;
 }
-
+@import url('https://fonts.googleapis.com/css?family=Poppins'); 
 /* 
   The main CSS file with the CSS prop of NAV header and footer part of the page 
   and other Css for all the adds and things which is to be added in the Index.html page
@@ -13,6 +13,50 @@
   <3
 */
 *{
+   font-family:'Poppins';
+    /* font-family: monospace; */
+    text-align: center;
+    /* font-size: xx-large; */
+   }
+   body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    /* background-color: white; */
+   }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    .navBar{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-bottom: 1px solid silver;
+        align-items: center;
+        padding: 5px;
+        height: 120px;
+       /* border-bottom: 1px solid violet; */
+       background-color: white;
+       position: fixed;
+       top: 0%;
+       z-index: 9;
+    }
+    .top{
+        width: 100%;
+        background-color: silver;
+        align-items: center;
+
+        
+    }
+    .topNav{
+        margin: auto;
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
   
  
   font-family: monospace;
@@ -48,9 +92,7 @@
   .top{
       width: 100%;
       background-color: silver;
-      align-items: center;
-
-      
+      align-items: center;      
   }
   .topNav{
       margin: auto;
