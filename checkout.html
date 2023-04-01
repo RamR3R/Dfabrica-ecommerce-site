@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Checkout</title>
+    <link rel="stylesheet" type="text/css" href="./StyleSheets/checkout.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <img class="wave right" src="./Images/Login img/pattern1.png" />
+    <img class="wave left" src="./Images/Login img/pattern.png" />
+    <div class="main-container noshow" id="otp-main">
+        <div class="otp-container">
+            <h4>Enter OTP Code</h4>
+            <form id="otp">
+            <div class="input-field">
+                <input class="inputs" type="number" />
+                <input class="inputs" type="number" disabled />
+                <input class="inputs" type="number" disabled />
+                <input class="inputs" type="number" disabled />
+            </div>
+            <button id="otp-btn">Verify OTP</button>
+            <button id="cancel" class="active">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <form id="checkout" class="main-container show">
+        <div>
+            <div><label for="name">Name<input id="name" type="text" required></label></div>
+            <div><label for="email">Email<input id="email" type="email" required disabled></label></div>
+            <div><label for="mobileno">Mobile<input id="mobileno" type="number" required></label></div>
+            <div><label for="line1">DoorNo/FlatNo<input id="drno" type="text" required ></label></div>
+            <div><label for="line2">Stree/Rood<input  id="street" type="text" ></label></div>
+            <div><label for="Area">Area/Locality<input id="area" type="text" required></label></div>
+            <div><label for="pincode">Pincode<input id="pincode" type="number" required maxlength="6"></label></div>
+            <div><label for="City">City<input id="city" type="text" disabled ></label></div>
+            <div><label for="City">District<input id="disrict" type="text" disabled ></label></div>
+            <div><label for="City">State<input id="state" type="text" disabled ></label></div>
+            <div><label for="City">Country<input id="country" type="text" disabled ></label></div>
+        </div>
+        <input type="submit" id="procced" value="Procced">
+    </form>
+    <div class="container show">
+      <div class="img">
+        <img src="./Images/Login img/shopping bag.png" />
+        <img src="./Images/logo.jpg" id="logo" alt="" />
+      </div>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="./Scripts/checkout.js"></script>
+  </body>
+</html>
