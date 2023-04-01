@@ -1,0 +1,43 @@
+
+#container{
+  
+    text-align: center;
+    color:purple;
+    font-size: 50px;
+    margin-bottom: 50px;
+    text-decoration: underline;
+}
+#topper{
+   
+    display: flex;
+    display: grid;
+    grid-template-columns:20% 20% 20% 20% ;
+    grid-gap: 20px;
+    /* margin: auto; */
+    justify-content: center;
+    
+   
+}
+#topper>div>img{
+    width:350px;
+    height:500px;
+
+}
+#topper>div{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    
+   
+        
+
+        width:350px;
+        
+}
+.dis{
+    padding-left: 30px;
+}
+.dis>button{
+    font-size: 20px;
+    margin-left: 30px;
+    background-color: red;
+    font-weight: 300;
+}

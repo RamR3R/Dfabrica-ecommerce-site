@@ -11,22 +11,9 @@
 #cart_main>h2{
     font-size: 60px;
     text-align: center;
-    color:red;
+    color:purple;
 }
-.greater-reward{
-    text-align: center;
-    border: 1px solid rgb(196, 196, 196);
-    padding: 20px 0px;
-    background-color: black;
-}
-.greater-reward > h1 {
-    font-size: 35px;
-    color:white;
-}
-.greater-reward > p {
-    font-size: 20px;
-    color:white;
-}
+
 #cart-items{
     width: 60%;
 }
@@ -36,30 +23,13 @@
     color:red;
 }
 
-.cart-table{
-    width: 100%;
-    text-align: left;
-    padding: 10px;
-    border-collapse: collapse;
-}
-#cart-table-head{
-    border-bottom: 1px solid black;
-    border-spacing: 10px;
-    font-size: 20px;
-}
-#cart-table-body > tr{
-    margin-top: 10px;
-    padding-top: 10px;
-    border-bottom: 1px solid black;
-}
-.cart-table > tbody::before{
-    line-height: 10px;
-    content: "\200C";
-    display: block;
-}
-#cart-table-head :first-child{
-    width: 70%;
-}
+
+
+
+
+
+
+
 .cart-product-image-title{
     display: flex;
     margin-top: 10px;
@@ -72,6 +42,7 @@
 .cart-product-image > img{
     width: 150%;
     height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .cart-product-title{
     padding: 5px;
@@ -110,6 +81,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 20px;
     height: max-content;
+    background-color: aqua;
 }
 #summary>h1{
     text-align: center;
@@ -117,8 +89,12 @@
     font-size: 40px;
 }
 #summary > img{
-    width: 40px;
-    margin-left: 30%;
+    width: 170px;
+    height: 70px;
+    margin-left: 33%;
+    margin-bottom: 30px;
+   
+   
 }
 #summary > a{
     font-size: 32px;
@@ -159,10 +135,41 @@
     color: white;
     padding: 15px;
     cursor: pointer;
-    margin-top: 40px;
+    margin-top: 60px;
     margin-bottom: 30px;
     font-size: 25px;
 }
+
+
+#cart-container{
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns:20% 20% 20% 20% ;
+    grid-gap: 20px;
+}
+
+
+#cart-container>div{
+    /* border: 2px solid red; */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+  }
+  #cart-container>div>img{
+    height: 200px;
+    width: 100%;
+
+  }
+  #cart-container>div>button{
+     /* display: block;
+     margin: auto; */
+     background-color: rgb(81, 201, 245);
+     color: white;
+     padding: 5px;
+     border: none;
+     border-radius: 3px;
+     margin: 10px;
+
+  }
 
 
   
