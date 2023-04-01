@@ -12,10 +12,13 @@ let state = document.getElementById("state");
 let country = document.getElementById("country");
 let formData = document.getElementById("checkout");
 rednerUserData();
+pincode.addEventListener("change",()=>{
+  renderCheckoutData();
+})
+
 formData.addEventListener("submit",(e)=>{
     e.preventDefault();
     console.log("form submitted");
-    renderCheckoutData();
 })
 
 
@@ -28,7 +31,6 @@ function rednerUserData(){
 function renderCheckoutData(){
   let pin = pincode.value;
   renderLocationData(pin);
-
 }
 
 function renderLocationData(pincode){
@@ -39,13 +41,12 @@ function renderLocationData(pincode){
         console.log(data.results[0])
         console.log(data.results[0].geometry.location)
         let location  = data.results[0].geometry.location;
-        console.log(location.lat);
-        console.log(location.lng);
         let l = data.results[0].address_components.length;
         city.value = data.results[0].address_components[l-3].long_name;
         state.value = data.results[0].address_components[l-2].long_name;
         country.value = data.results[0].address_components[l-1].long_name;
         // let l = document.getElementById("locate");
+        localStorage.setItem("user-location",JSON.stringify(location));
 
         // l.href =`https://maps.google.com/?q=${location.lat},${location.lng}`;
     })
