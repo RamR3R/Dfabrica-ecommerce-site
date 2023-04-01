@@ -7,7 +7,7 @@ let cardContainer = document.getElementById("card-container");
 
 let totalcount = document.getElementById("total-count");
 
-async function renderData(pageNumber){
+async function renderData(urlMens,pageNumber){
   let totalData;
   let totalButtons;
   try {
@@ -19,7 +19,7 @@ async function renderData(pageNumber){
     paginationwrapper.innerHTML = null;
 
       for (let i = 1; i <= totalButtons; i++) {
-        paginationwrapper.append(getAsButton(i, i));
+        paginationwrapper.append(getAsButton(urlMens,i, i));
         console.log(i);
       }
   } catch (error) {
@@ -36,7 +36,7 @@ async function renderData(pageNumber){
         console.log(error);
     }
 }
-renderData(1);
+renderData(urlMens,1);
 
 function displayData(data){
     cardContainer.innerHTML=null;
@@ -108,17 +108,25 @@ for (let i = 0; i < coll.length; i++) {
   });
 }
 
-function getAsButton(text, dataId) {
+function getAsButton(urlMens,text, dataId) {
   let btn = document.createElement("button");
   btn.setAttribute("data-id", dataId);
   btn.innerText = text;
 
   btn.addEventListener("click", function (e) {
-    renderData(e.target.dataset.id);
+    renderData(urlMens,e.target.dataset.id);
     console.log(e.target.dataset.id);
   });
 
   return btn;
+}
+
+let catfilter = document.getElementsByClassName("cat");
+for(let i=0;i<catfilter.length;i++){
+  catfilter[i].addEventListener("click",()=>{
+    let catUrl=`${urlMens}&category=${catfilter[i].innerText}`;
+    renderData(catUrl,1);
+  })
 }
 
 
