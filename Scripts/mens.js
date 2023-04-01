@@ -4,19 +4,22 @@ let urlMens="https://dfabrica-data-app.onrender.com/products?sex=M";
 let paginationwrapper=document.getElementById("pagination-wrapper");
 
 let cardContainer = document.getElementById("card-container");
-
+let loader = document.querySelector(".loader");
+loader.style.display = 'block';
 let totalcount = document.getElementById("total-count");
 
 async function renderData(urlMens,pageNumber){
   let totalData;
   let totalButtons;
   try {
-    let res = await fetch(urlMens);
+    loader.style.display = 'block';
+    let res = await fetch(urlMens)
     let data = await res.json();
     totalData=data.length;
     totalcount.innerText=`(${totalData})`;
     totalButtons= Math.ceil(totalData/9);
     paginationwrapper.innerHTML = null;
+    loader.style.display = 'none';
 
       for (let i = 1; i <= totalButtons; i++) {
         paginationwrapper.append(getAsButton(urlMens,i, i));
