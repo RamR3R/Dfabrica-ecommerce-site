@@ -44,7 +44,7 @@ window.addEventListener("load", () => inputnodes[0].focus());
 
 
 
-let userData = JSON.parse(localStorage.getItem("userdata"))||[];
+let userData = JSON.parse(localStorage.getItem("userdata"))||{firstname:"dummy",lastname:"name",email:"ram30101998@gmail.com"};
 
 let name = document.getElementById("name");
 let email = document.getElementById("email");
@@ -92,6 +92,7 @@ formData.addEventListener("submit",(e)=>{
 
 function rednerUserData(){
   let data = JSON.parse(localStorage.getItem("login-info"));
+  if(!data)data=userData;
   name.value = `${data.firstname} ${data.lastname}`;
   email.value = data.email;  
 }
