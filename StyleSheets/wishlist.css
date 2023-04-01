@@ -1,3 +1,4 @@
+
 *{
     margin: 0px;
     padding: 0px;
@@ -209,4 +210,4 @@ flex-direction: column;
 .parent{
     flex-direction: column;
 }
-}
+
