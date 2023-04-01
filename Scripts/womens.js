@@ -23,7 +23,6 @@ async function renderData(urlWomens,pageNumber){
 
       for (let i = 1; i <= totalButtons; i++) {
         paginationwrapper.append(getAsButton(urlWomens,i, i));
-        console.log(i);
       }
   } catch (error) {
     console.log(error)
@@ -103,9 +102,11 @@ for (let i = 0; i < coll.length; i++) {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
     if (content.style.display === "block") {
+      coll[i].style.borderRadius = "20px";
       content.style.display = "none";
     } else {
       content.style.display = "block";
+      coll[i].style.borderRadius = "20px 20px 0px 0px";
     }
   });
 }
