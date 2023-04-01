@@ -102,11 +102,60 @@ width: 100%;
     border: 1px solid silver;
     cursor: pointer;
 }
+.nameOfProduct{
+    text-decoration: underline;
+    color: #50a78a;
+}
 .price{
-    border: 1px solid silver;
-    width: 150px;
+    /* border: 1px solid silver; */
+    width: 300px;
     margin: auto;
     border-radius: 10px ;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+    position: relative;
+}
+.price .priceTag{
+    color: #bdc97d;
+    /* border: 1px solid ; */
+    border-radius: 10px;
+    padding: 5px;
+    margin-right: 5px;
+    position: relative;
+}
+.price .priceTag:before{
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    right: 0;
+    border-top: 1px solid;
+    border-color: inherit;
+    
+    -webkit-transform:rotate(-5deg);
+    -moz-transform:rotate(-5deg);
+    -ms-transform:rotate(-5deg);
+    -o-transform:rotate(-5deg);
+    transform:rotate(-5deg);
+}
+.price .discountedPrice{
+    color: rgb(181, 91, 204);
+    border: 1px solid ;
+    border-radius: 10px;
+    padding: 5px;
+    
+}
+
+.discount{
+    color: orangered;
+    background-color: #fcff5f;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid silver;
+    border-radius: 10px;
+    margin: auto;
 }
 .size{
     margin-top: 10px;
@@ -134,6 +183,7 @@ width: 100%;
     border: 0;
     border-radius: 10px;
     font-size: small;
+   
 
 }
 /* ------------------- */
@@ -151,7 +201,8 @@ width: 100%;
     padding: 5px;
     position: relative;
     width: 6.2em;
-    height: 2em;
+    /* height: 2em; */
+    height: 50px;
     transition: 0.5s;
     font-size: 17px;
     border-radius: 0.4em;
@@ -163,8 +214,8 @@ box-shadow: inset 15px 15px 29px rgb(198, 156, 236),
   
   .btns button p {
     position: absolute;
-    top: 0.8em;
-    left: 1.15em;
+    top: 1.5em;
+    left: 1.8em;
     margin: 0;
     padding: 0;
     transition: .5s;
@@ -251,6 +302,9 @@ cursor: pointer;
 
     
 }
+#pincode:focus {
+    outline: none;
+  }
 .detailsProduct>summary{
     color: rgb(167, 96, 233);
 }

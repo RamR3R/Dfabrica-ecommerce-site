@@ -64,6 +64,10 @@ function stringToArray(string){
 let mainImg=document.querySelector(".mainImg")
 let smallImg=document.getElementsByClassName("smallImg")
 let price=document.querySelector(".priceTag")
+
+let discountedPrice=document.querySelector(".discountedPrice");
+let discount=document.querySelector(".discount")
+
 let rating=document.querySelector(".rating h3")
 let item=document.querySelector(".big>div img");
 let zoomImg=document.querySelector(".zoomImg")
@@ -93,13 +97,18 @@ function displayData(data){
   
   if(countryData[1]==="India"){
     price.innerHTML="₹"+e["price-inr"]
+    discountedPrice.innerText=`₹${Math.ceil(e["price-inr"]-(e["price-inr"]*e.discount)/100)}`;
   }
   if(countryData[1]==="USA"){
     price.innerHTML="$"+e["price-usd"]
+    discountedPrice.innerText=`$${Math.ceil(e["price-usd"]-(e["price-usd"]*e.discount)/100)}`;
   }
   if(countryData[1]==="UK"){
     price.innerHTML="£"+e["price-pound"]
+    discountedPrice.innerText=`£${Math.ceil(e["price-pound"]-(e["price-pound"]*e.discount)/100)}`;
   }
+  
+  discount.innerText=e.discount+"%"
   rating.innerText=e.rating
   nameOfProduct.innerHTML=e.name
 
@@ -141,15 +150,21 @@ desc.forEach((ele) => {
 
 
 cartBtn.addEventListener("click",()=>{
-
+  cartBtn.innerHTML="Added To Bag"
+  cartBtn.style.backgroundColor="blueviolet";
+  cartBtn.style.padding="10px"
   cart.push(productData)
   localStorage.setItem("cart", JSON.stringify(cart));
         })
         
 console.log(productData.id)
         wishBtn.addEventListener("click",()=>{
-          // wish= new set(wish)
+          
+          wishBtn.innerHTML="Wishlisted"
+  wishBtn.style.backgroundColor="red";
+  wishBtn.style.padding="10px"
           wish.push(productData)
+
           
          localStorage.setItem("wish", JSON.stringify(wish));
          
