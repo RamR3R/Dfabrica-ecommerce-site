@@ -18,6 +18,26 @@ pincode.addEventListener("change",()=>{
 
 formData.addEventListener("submit",(e)=>{
     e.preventDefault();
+    const response = confirm(`Confirm your Delivery Address
+    to check it click Cancel`);
+    if (response) {
+    console.log('ok clicked bro');
+    let obj = {
+      name:name.value,
+      email :email.value,
+      mobile:mobile.value,
+      doorno : doorno.value,
+      street : street.value,
+      area : area.value,
+      pincode : pincode.value,
+      state :state.value,
+      country : country.value
+    }
+    localStorage.setItem("userAddress",JSON.stringify(obj))
+    } else {
+    console.log("cancel clicked broo!!");
+    return 0;
+    } 
     console.log("form submitted");
 })
 
