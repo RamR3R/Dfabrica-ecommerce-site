@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login / Siginup</title>
+    <link rel="stylesheet" type="text/css" href="./StyleSheets/ramLogin.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <img class="wave right" src="./Images/Login img/pattern1.png" />
+    <img class="wave left" src="./Images/Login img/pattern.png" />
+    <div class="main-container noshow" id="otp-main">
+      <div class="otp-container">
+        <h4>Enter OTP Code</h4>
+        <form id="otp">
+          <div class="input-field">
+            <input class="inputs" type="number" />
+            <input class="inputs" type="number" disabled />
+            <input class="inputs" type="number" disabled />
+            <input class="inputs" type="number" disabled />
+          </div>
+          <button id="otp-btn">Verify OTP</button>
+          <button id="cancel" class="active">Cancel</button>
+        </form>
+      </div>
+    </div>
+    <div class="container show">
+      <div class="img">
+        <img src="./Images/Login img/shopping bag.png" />
+        <img src="./Images/logo.jpg" id="logo" alt="" />
+      </div>
+      <div class="login-content">
+        <form id="form" class="form">
+          <h2 class="title">Welcome</h2>
+          <div id="login-change">
+            <div id="login" class="button-selector selected">Login</div>
+            <div id="signup" class="button-selector">SignUp</div>
+          </div>
+          <div class="" id="login-info">
+            <div class="input-div one">
+              <div class="i">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="div">
+                <h5>Username</h5>
+                <input type="text" class="input" id="username" />
+              </div>
+            </div>
+            <div class="input-div pass">
+              <div class="i">
+                <i class="fas fa-lock"></i>
+              </div>
+              <div class="div">
+                <h5>Password</h5>
+                <input type="password" class="input" id="password" />
+              </div>
+            </div>
+            <a href="#">Forgot Password?</a>
+          </div>
+          <div class="noshow" id="sigup-info">
+            <div class="input-div one">
+              <div class="i">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="div">
+                <h5>First Name</h5>
+                <input type="text" class="input" id="first-name" />
+              </div>
+            </div>
+            <div class="input-div one">
+              <div class="i">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="div">
+                <h5>Second Name</h5>
+                <input type="text" class="input" id="second-name" />
+              </div>
+            </div>
+            <div class="input-div one">
+              <div class="i">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="div">
+                <h5>Email</h5>
+                <input type="text" class="input" id="email" />
+              </div>
+            </div>
+            <div class="input-div pass">
+              <div class="i">
+                <i class="fas fa-lock"></i>
+              </div>
+              <div class="div">
+                <h5>Password</h5>
+                <input type="password" class="input" id="signpass" />
+              </div>
+            </div>
+            <div class="input-div pass">
+              <div class="i">
+                <i class="fas fa-lock"></i>
+              </div>
+              <div class="div">
+                <h5>Confirm Password</h5>
+                <input type="password" class="input" />
+              </div>
+            </div>
+            <a href="#">Forgot Password?</a>
+          </div>
+          <input type="submit" id="submit" class="btn" value="Login" />
+        </form>
+      </div>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script type="text/javascript" src="./Scripts/ramlogin.js"></script>
+  </body>
+</html>

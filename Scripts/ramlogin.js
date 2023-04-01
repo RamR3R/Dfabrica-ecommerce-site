@@ -1,10 +1,49 @@
-const userAPIurl = `https://63f59a1b3f99f5855dc408c8.mockapi.io/Assets/users`;
+const url = `https://dfabrica-data-app.onrender.com/users`;
 
 const inputs = document.querySelectorAll(".input");
 
 let dataBase;
+const inputnodes = document.querySelectorAll(".inputs"),
+button = document.querySelector("#otp-btn");
 
-fetch(`https://63f59a1b3f99f5855dc408c8.mockapi.io/Assets/users`)
+inputnodes.forEach((input, index1) => {
+input.addEventListener("keyup", (e) => {
+  const currentInput = input,
+    nextInput = input.nextElementSibling,
+    prevInput = input.previousElementSibling;
+
+  if (currentInput.value.length > 1) {
+    currentInput.value = "";
+    return;
+  }
+
+  if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
+    nextInput.removeAttribute("disabled");
+    nextInput.focus();
+  }
+
+  if (e.key === "Backspace") {
+    inputnodes.forEach((input, index2) => {
+      if (index1 <= index2 && prevInput) {
+        input.setAttribute("disabled", true);
+        input.value = "";
+        prevInput.focus();
+      }
+    });
+  }
+
+  if (!inputnodes[3].disabled && inputnodes[3].value !== "") {
+    button.classList.add("active");
+    return;
+  }
+  button.classList.remove("active");
+});
+});
+
+window.addEventListener("load", () => inputnodes[0].focus());
+
+
+fetch(url)
     .then(res=>res.json())
     .then(data=>{
     console.log(data);
@@ -51,7 +90,7 @@ signupbtn.addEventListener("click",()=>{
     document.getElementById("submit").value = "Sign Up";
 })
 
-let form = document.querySelector("form");
+let form = document.querySelector("#form");
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
@@ -75,7 +114,7 @@ function signup(){
 
 function logincall(user,pass){
     console.log(user,pass);
-    fetch(`https://63f59a1b3f99f5855dc408c8.mockapi.io/Assets/users`)
+    fetch(url)
     .then(res=>res.json())
     .then(data=>{
     console.log(data);
@@ -87,80 +126,103 @@ function logincall(user,pass){
         {
             alert("login Sucessfull");
             localStorage.setItem("login-info",dataBase[i]);
-            window.location.href = "./index.html";
+            // window.location.href = "./index.html";
         }
     }
 })
 }
+
 function register(fname,lname,email,pass){
     let obj = {
-        firstname:fname,
-        lastname : lname,
         email:email,
-        password: pass,
-        id: dataBase.length+1
-    }
-    if(verify(obj.email)){
-        alert("Email verified");
-    fetch(`https://63f59a1b3f99f5855dc408c8.mockapi.io/Assets/users`,{
-        method:"POST",
-        headers:{
-            "Content-type" : "application/json"
-        },
-        body :JSON.stringify(obj)
-    })
-    .then(res=>res.json())
-    .then(data=>{
-    console.log(data);
-    localStorage.setItem("login-info",data);
-    })
-    console.log(obj);
-    }
-    else
-    {
-        console.log("Error in login check the info provided");
-    }
-
+        firstname: fname,
+        lastname:lname,
+        password:pass
+        }
+    
+    
+          verify(obj);
+    
 }
 
+async function verify(obj) {
 
-function verify(email){
-    const fname = document.getElementById('first-name');
-    const lname = document.getElementById('second-name');
-    const otp = Math.floor(Math.random() * 9000 + 1000);
-    let ebody = `
-    <h2>Hi</h2>
-    <h3>${fname.value}${lname.value},</h3>
-    <h1>YOUR OTP is ${otp}</h1>
-    `;
+    let promise = new Promise((resolve, reject) => {
+        const otp = Math.floor(Math.random() * 9000 + 1000);
+        let ebody = `
+        <h2>Hi</h2>
+        <h3>${obj.firstname}${obj.lastname},</h3>
+        <h1>YOUR OTP is ${otp}</h1>
+        `;
+        Email.send({
+            SecureToken : "2521c93e-d04f-4e79-b347-e4320a19584f", //add your token here
+            To : obj.email, 
+            From : "sanjucool1000@gmail.com",
+            Subject : "Registration Verification DFabrica",
+            Body : ebody
+        }).then(message => {
+            alert(`${message} , OTP sent to mail :: dont forget to check the Spam :)`);
+        });
 
-    Email.send({
-        SecureToken : "2521c93e-d04f-4e79-b347-e4320a19584f", //add your token here
-        To : email, 
-        From : "sanjucool1000@gmail.com",
-        Subject : "Registration Verification DFabrica",
-        Body : ebody
-    }).then(
-      message => alert('OTP sent to mail :: dont forget to check the Spam :)')
-    );
 
-    if(otp==inotp())
-    return true;
-    else
-    return false;
+        document.getElementById("otp-main").classList.add("show");
+        document.getElementById("otp-main").classList.remove("noshow");
+
+        let cancel = document.getElementById("cancel");
+        cancel.addEventListener("clcik",()=>{
+            // window.location.href = "./LoginNew.html";
+            alert("cancel clicked");
+        })
+
+        let button = document.getElementById("otp-btn");
+        button.addEventListener("click",()=>{
+            alert("verification clicked");
+            let OTP = "";
+            for(let i = 0  ;i<4 ;i++)
+            {
+                OTP+=inputnodes[i].value;
+            }    
+            console.log(OTP);
+            if(OTP==otp){
+                alert("Email verified");
+                localStorage.setItem("login-info",JSON.stringify(obj));
+
+                resolve("true")
+            }
+            else{
+                alert("Invalid OTP"); 
+                localStorage.setItem("login-info","no bro");  
+                reject("false");
+            }
+        })
+
+        
+
+    });
+  
+    let result = await promise; // wait until the promise resolves (*)
+  
+    alert(result); // "done!"
+    if(result=="true"){
+        alert("in if");
+        fetch(url,{
+            method:"POST",
+            headers:{
+                "Content-type":"application/json"
+            },
+            body:JSON.stringify(obj)
+        })
+        .then(res=>{
+            alert()
+            console.log(res.json())
+            return res.json();
+        })
+        .then(data=>{
+            alert("in fetch");
+            console.log(data);
+            // window.location.href = "./index.html";
+        })
+        .catch(err=>console.log(err));
+    }
 }
-
-function inotp(){
-    let save = document.body.innerHTML;
-    document.body.innerHTML = `<div class="otp-container">
-    <form action="#">
-      <div class="input-field">
-        <input type="number" />
-        <input type="number" disabled />
-        <input type="number" disabled />
-        <input type="number" disabled />
-      </div>
-      <button>Verify OTP</button>
-</div>`;
-
-}
+  

@@ -64,6 +64,32 @@ function displayData(data){
         MRP.append(cutline);
 
         cardDiv.append(image,brandName,productName,price,discount,MRP);
+// --------------------------------------------------------------------------------------------
+// data will be use for product page
+// --------------------------Do Not Touch---------------------------------------------------
+        let productData=[{
+          "id": 1,
+          "name": ele.name,
+          "image1": ele.image1,
+          "image2": ele.image2,
+          "image3": ele.image3,
+          "image4": ele.image4,
+          "price-inr": ele["price-inr"],
+          "price-usd": ele["price-usd"],
+          "price-pound": ele["price-pound"],
+          "discount": ele.discount,
+          "description": ele.description,
+          "sex": ele.sex,
+          "category": ele.category,
+          "stock": ele.stock,
+          "size": ele.size,
+          "rating":ele.rating
+      }]
+              cardDiv.addEventListener("click",()=>{
+                localStorage.setItem("product", JSON.stringify(productData));
+                window. location. replace("product.html") 
+              })
+//  ---------------------------------------------------------------------------------------------------             
         cardContainer.append(cardDiv);
     })
 }
