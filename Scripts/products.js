@@ -374,4 +374,6 @@ function setArrivalTime(distance){
       console.log(`Arriving on  ${months[currentDate.getMonth()]} ${day}`);
 
       esti.innerText = `${day+days} ${months[currentDate.getMonth()]}`;
+      let ddate = `${day+days} ${months[currentDate.getMonth()]}`;
+      localStorage.setItem("delivery-data",`${day+days} ${months[currentDate.getMonth()]}`);
 }
