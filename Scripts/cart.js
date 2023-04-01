@@ -1,5 +1,6 @@
-let cartTableBody = document.getElementById("cart-table-body");
-let currentUser = [{
+let currentUser = JSON.parse(localStorage.getItem("current-user"));
+
+let dummyData=  [{
     "id": 1,
     "name": "Women's Pink Relaxed Fit Puffer Jacket",
     "image1": "https://images.bewakoof.com/t1080/women-s-rose-solid-puffer-jackets-498989-1665663674-6.jpg",
@@ -17,163 +18,98 @@ let currentUser = [{
     "size": "[S,M,L,XL,XXL]",
     "rating": 3.9
   }]
-let totalItems = document.getElementById("total-items");
-let userData = JSON.parse(localStorage.getItem("user"));
-let subTotalPrice = document.getElementById("sub-total-price");
-let cartTotal = document.getElementById("cart-total");
-let selectDeliveryAddress = document.getElementById("select-address");
-let checkoutBtn = document.getElementById("checkout-button");
-let updateCartText = document.getElementById("update-cart-text");
 
-if(currentUser.length != 0){
-    updateCartText.style.display = "none";
-}
+  
 
-let count = 1;
-function createAddressList(adrs){
-    let option = document.createElement("option");
-        option.value = count;
-        option.text = adrs.addressType;
-    selectDeliveryAddress.append(option);
-}
-
-
-currentUser.address.forEach(adrs => {
-    createAddressList(adrs);
-    count++;
-})
-
-
-
-
-let totalPrice = 0;
-let subTotal = 0;
-currentUser.forEach(product => {
-    totalPrice += product.price;
-})
+  let Container = document.getElementById("cart-container");
+  
+ 
+ 
 
 function displayCart(product){
-    let cartRow = document.createElement("tr");
-        let cartData = document.createElement("td");
-            let cartProductImageTitle = document.createElement("div");
-                cartProductImageTitle.classList.add("cart-product-image-title");
+    
+                        /* my code start here */
+ 
+                        let total=document.getElementById("cart-total");
+                        Container.innerHTML="";
 
-                let cartProductImage = document.createElement("div");
-                    cartProductImage.classList.add("cart-product-image");
+                        currentUser.forEach((product) =>{
+                            let card = document.createElement("div");
+                            let image=document.createElement("img");
+                            let cartProductTitle = document.createElement("h2");
+                            let productName = document.createElement("h2");
+                            let productCategory=document.createElement("h2");
+                            let productDescription=document.createElement("h4");
+                        let productDiscount=document.createElement("p");
+                       let productPriceinr=document.createElement("p");
+                       let productRating=document.createElement("p");
+                    let productsex=document.createElement("p");
+                       let productSize = document.createElement("p");
+                      let productStock = document.createElement("p");
+                      let quantity = document.createElement("span");
 
-                    let productImage = document.createElement("img");
-                        productImage.setAttribute("src", product.image1);
-                    cartProductImage.append(productImage);
+                      let Remove = document.createElement("button");
+                     let Increment = document.createElement("button");
+                     let Decrement = document.createElement("button");
 
-                let cartProductTitle = document.createElement("div");
-                    cartProductTitle.classList.add("cart-product-title");
+                     quantity.textContent=product.quantity
 
-                    let productName = document.createElement("h4");
-                        productName.innerText = product.name;
+                     Remove.textContent = "Remove";
+                     Increment.textContent="+";
+                     Decrement.textContent="-";
 
-                    let productSize = document.createElement("p");
-                        productSize.innerText = "Size: " +product.size;
+                      image.src = product.img;
+                      cartProductTitle.textContent=product.cartProductTitle;
+                      productName.textContent=product.productName;
+                      productCategory.textContent=product.productCategory;
+                      productDescription.textContent=product.productDescription;
+                      productDiscount.textContent="Discount : "+product.discount; 
+                      productPriceinr.textContent="Price-INR : "+product["price-inr"];
+                      productRating.textContent="Rating : "+product.rating;
+                      productsex.textContent=="Gender : "+product.sex; 
+                      productSize.textContent="Size: " +product.size;
+                      productStock.textContent="Stock : "  +product.stock;
 
-                    let productType = document.createElement("p");
-                        productType.innerText = "Type: " + product.type;
-
-                    let productDelete = document.createElement("button");
-                        productDelete.setAttribute("id", "delete-cart-product");
-                        productDelete.innerText = "DELETE";
-
-                        productDelete.addEventListener("click", () => {
-                            let deleteFromCart = currentUser.cart.filter(pdt => {
-                                if(product.name == pdt.name){
-                                    return false;
-                                }else{
-                                    return true;
-                                }
-                            })
-                            
-                            currentUser.cart = deleteFromCart;
-                            localStorage.setItem("current-user", JSON.stringify(currentUser));
-                            let updatedUserData = JSON.parse(localStorage.getItem("current-user"));
-                            cartTableBody.innerHTML = null;
-                            location.reload();
-                            updatedUserData.cart.forEach(p => {
-                                displayCart(p);
-                            })
+                      Remove.addEventListener("click", () => {
+                        currentUser=currentUser.filter((ele)=>{
+                          return ele.id!==product.id
                         })
+                        localStorage.setItem("current-user",JSON.stringify(currentUser))
+                        displayCart();
+                    });
 
-                    cartProductTitle.append(productName, productSize, productType, productDelete);
+
+                    Increment.addEventListener("click", () => {
+                        product=product.quantity++
+                        localStorage.setItem("current-user",JSON.stringify(currentUser))
+                        displayCart();
+                      });
+                      Decrement.addEventListener("click", () => {
+                        if(product.quantity>1){
+                          product=product.quantity--
+                        localStorage.setItem("current-user",JSON.stringify(currentUser))
+                        displayCart();
+                        }
+                      });
+                      card.append(image,cartProductTitle,productName,productCategory,productDescription,productDiscount,productPriceinr,productRating,productsex,productSize,productStock,quantity,Increment,Decrement,Remove);
+                      Container.append(card);
+                    });
+                    let sum=0
+                      for(let i=0;i<currentUser.length;i++){
+                         sum+=currentUser[i].productPriceinr*currentUser[i].quantity
+                     }
+                    total.textContent=sum
+
+                     }
+                     displayCart();
+
+
                 
-                cartProductImageTitle.append(cartProductImage, cartProductTitle);
-            cartData.append(cartProductImageTitle);
-            
-        let productPrice = document.createElement("td");
-            productPrice.classList.add("cart-table-data");
-            productPrice.innerText = product.price;
-
-        let productQuantity = document.createElement("td");
-            productQuantity.classList.add("cart-table-data");
-            let selectQty = document.createElement("select");
-                let option1 = document.createElement("option");
-                let option2 = document.createElement("option");
-                let option3 = document.createElement("option");
-                let option4 = document.createElement("option");
-                let option5 = document.createElement("option");
-
-                option1.innerText = 1;
-                option2.innerText = 2;
-                option3.innerText = 3;
-                option4.innerText = 4;
-                option5.innerText = 5;
-
-                option1.value = 1;
-                option2.value = 2;
-                option3.value = 3;
-                option4.value = 4;
-                option5.value = 5;
-
-                selectQty.add(option1, null);
-                selectQty.add(option2, null);
-                selectQty.add(option3, null);
-                selectQty.add(option4, null);
-                selectQty.add(option5, null);
-
-            productQuantity.append(selectQty);
-
-            
-
-        let subTotalData = document.createElement("td");
-            subTotalData.classList.add("cart-table-data");
-            subTotalData.innerText = product.price;
-
-            selectQty.addEventListener("change", () => {
-                subTotalData.innerText = selectQty.value*product.price;
-                totalItems.innerText = currentUser.cart.length + +selectQty.value - 1 + " ITEMS";
-                subTotal = +subTotalData.innerText;
-                product.subTotal = subTotal;
-                localStorage.setItem("current-user", JSON.stringify(currentUser));
-                let updatedUser = JSON.parse(localStorage.getItem("current-user"));
-                totalPrice = 0;
-                updatedUser.cart.forEach(prod => {
-                    totalPrice += +prod.subTotal;
-                })
-                subTotalPrice.innerText = "$" + (totalPrice).toFixed(2);
-                cartTotal.innerText = "$"+ (totalPrice+6).toFixed(2);
-            })
-
-        cartRow.append(cartData, productPrice, productQuantity, subTotalData);
-        cartTableBody.append(cartRow);
-        totalPrice += subTotal;
-        subTotalPrice.innerText = "$" + (totalPrice).toFixed(2);
-        cartTotal.innerText = "$" + (totalPrice+6).toFixed(2);
-}
-
-totalItems.innerText = currentUser.length + " ITEMS";
-currentUser.forEach(product => {
-    displayCart(product);
-})
 
 
-checkoutBtn.addEventListener("click", () => {
-    currentUser.totalPrice = (totalPrice+6).toFixed(2);
-    localStorage.setItem("current-user", JSON.stringify(currentUser));
-    window.location.href = "./payment.html";
-})
+                    
+
+               
+               
+
+       

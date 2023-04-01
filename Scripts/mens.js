@@ -1,13 +1,13 @@
 
 // link with mens.html and write the funtionalities
-let urlMens="https://extinct-boa-zipper.cyclic.app/Dfabrica?sex=M";
+let urlMens="https://dfabrica-data-app.onrender.com/products?sex=M";
 let paginationwrapper=document.getElementById("pagination-wrapper");
 
 let cardContainer = document.getElementById("card-container");
 
 let totalcount = document.getElementById("total-count");
 
-async function renderData(pageNumber){
+async function renderData(urlMens,pageNumber){
   let totalData;
   let totalButtons;
   try {
@@ -19,7 +19,7 @@ async function renderData(pageNumber){
     paginationwrapper.innerHTML = null;
 
       for (let i = 1; i <= totalButtons; i++) {
-        paginationwrapper.append(getAsButton(i, i));
+        paginationwrapper.append(getAsButton(urlMens,i, i));
         console.log(i);
       }
   } catch (error) {
@@ -36,7 +36,7 @@ async function renderData(pageNumber){
         console.log(error);
     }
 }
-renderData(1);
+renderData(urlMens,1);
 
 function displayData(data){
     cardContainer.innerHTML=null;
@@ -64,6 +64,33 @@ function displayData(data){
         MRP.append(cutline);
 
         cardDiv.append(image,brandName,productName,price,discount,MRP);
+
+        // --------------------------------------------------------------------------------------------
+// data will be use for product page
+// --------------------------Do Not Touch---------------------------------------------------
+let productData=[{
+    "id": ele.id,
+    "name": ele.name,
+    "image1": ele.image1,
+    "image2": ele.image2,
+    "image3": ele.image3,
+    "image4": ele.image4,
+    "price-inr": ele["price-inr"],
+    "price-usd": ele["price-usd"],
+    "price-pound": ele["price-pound"],
+    "discount": ele.discount,
+    "description": ele.description,
+    "sex": ele.sex,
+    "category": ele.category,
+    "stock": ele.stock,
+    "size": ele.size,
+    "rating":ele.rating
+}]
+        cardDiv.addEventListener("click",()=>{
+          localStorage.setItem("product", JSON.stringify(productData));
+          window. location. replace("product.html") 
+        })
+    // ------------------------------------------------------------------------------------------------------
         cardContainer.append(cardDiv);
     })
 }
@@ -81,18 +108,27 @@ for (let i = 0; i < coll.length; i++) {
   });
 }
 
-function getAsButton(text, dataId) {
+function getAsButton(urlMens,text, dataId) {
   let btn = document.createElement("button");
   btn.setAttribute("data-id", dataId);
   btn.innerText = text;
 
   btn.addEventListener("click", function (e) {
-    renderData(e.target.dataset.id);
+    renderData(urlMens,e.target.dataset.id);
     console.log(e.target.dataset.id);
   });
 
   return btn;
 }
+
+let catfilter = document.getElementsByClassName("cat");
+for(let i=0;i<catfilter.length;i++){
+  catfilter[i].addEventListener("click",()=>{
+    let catUrl=`${urlMens}&category=${catfilter[i].innerText}`;
+    renderData(catUrl,1);
+  })
+}
+
 
 
 

@@ -9,31 +9,328 @@
     all the Pages.
 */
 
-
-.parent{
-    margin-top: 60px;
+button{
+    cursor: pointer;
+}
+.parentDiv{
+    margin: auto;
+    width: 80%;
+    padding: 50px;
+    padding-top: 150px;
+    margin-bottom: 150px;
     display: flex;
     justify-content: center;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 81px 52px 34px rgba(245,157,245,0.14);
+-moz-box-shadow: 0px 81px 52px 34px rgba(245,157,245,0.14);
+box-shadow: 0px 81px 52px 34px rgba(245,157,245,0.14);
+
+    
 }
-.parent>.picture{
+.parentDiv>.picture{
     display: flex;
 
 }
-.parent>.big{
-margin: 10px;
+.parentDiv .big{
+margin: 20px;
+width: 500px;
 }
-.parent .small{
+.parentDiv .big img{
+    object-fit: contain;
+    width: 100%;
+    margin-right: 10px;
+}
+.parentDiv .small{
     display: flex;
-    width: 300px;
-    height: 1400px;
+    width:150px;
+    height: 650px;
     flex-direction: column;
-    margin-right: 20px;
-    justify-content: space-between;
     align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid;
+}
+
+.zoomImg{
+  display: none;
+  height: 500px;
+  width: 500px;
+  justify-content: center;
+  overflow: hidden;
+  background-color: transparent;
+  position: fixed;
+  margin-left: 80px;
+    border: 1px solid silver;
+    z-index: 10;
+    /* padding-bottom: 45vh; */
+}
+.zoomImg>img{
+   /* width:120vw; */
+    height: 100vw;
+    transform: translate3d(0px, 0px, 0px);
+}
+.parentDiv .small::-webkit-scrollbar{
+    display: none;
 }
 .small>div{
-width: 300px;
+width: 100%;
 }
 .small>div>img{
     width: 100%;
+}
+/* ---------------------------- */
+
+.content{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    /* padding: 20px; */
+    width: 50%;
+    text-align: justify;
+}
+
+.logoSmall{
+    display: flex;
+    width: 100px;
+    margin: auto;
+    margin-bottom: 10px;
+    
+}
+.logoSmall>img{
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid silver;
+    cursor: pointer;
+}
+.nameOfProduct{
+    text-decoration: underline;
+    color: #50a78a;
+}
+.price{
+    /* border: 1px solid silver; */
+    width: 300px;
+    margin: auto;
+    border-radius: 10px ;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+    position: relative;
+}
+.price .priceTag{
+    color: #bdc97d;
+    /* border: 1px solid ; */
+    border-radius: 10px;
+    padding: 5px;
+    margin-right: 5px;
+    position: relative;
+}
+.price .priceTag:before{
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    right: 0;
+    border-top: 1px solid;
+    border-color: inherit;
+    
+    -webkit-transform:rotate(-5deg);
+    -moz-transform:rotate(-5deg);
+    -ms-transform:rotate(-5deg);
+    -o-transform:rotate(-5deg);
+    transform:rotate(-5deg);
+}
+.price .discountedPrice{
+    color: rgb(181, 91, 204);
+    border: 1px solid ;
+    border-radius: 10px;
+    padding: 5px;
+    
+}
+
+.discount{
+    color: orangered;
+    background-color: #fcff5f;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid silver;
+    border-radius: 10px;
+    margin: auto;
+}
+.size{
+    margin-top: 10px;
+}
+.size>.sizeBox{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.sizeBox>div{
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    margin: 5px;
+    padding: 10px;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.btns>button{
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 0;
+    border-radius: 10px;
+    font-size: small;
+   
+
+}
+/* ------------------- */
+.cart p,.wish p{
+    font-size: small;
+}
+.btns>div{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.btns button {
+    
+    /* border: 1px solid silver; */
+    padding: 5px;
+    position: relative;
+    width: 6.2em;
+    /* height: 2em; */
+    height: 50px;
+    transition: 0.5s;
+    font-size: 17px;
+    border-radius: 0.4em;
+    border-radius: 49px;
+/* background: #e0e0e0; */
+box-shadow: inset 15px 15px 29px rgb(198, 156, 236),
+            inset -15px -15px 29px #e49ceb;
+  }
+  
+  .btns button p {
+    position: absolute;
+    top: 1.5em;
+    left: 1.8em;
+    margin: 0;
+    padding: 0;
+    transition: .5s;
+    color: black;
+    text-align: center;
+    
+
+  }
+  
+  .btns button svg {
+    position: absolute;
+    top: 0.25em;
+    left: 2.9em;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transition: 0.5s;
+    height: 1em;
+    /* fill: #fff */
+  }
+  
+  .btns button:hover p {
+    left: 0.5em;
+    /* color: #fff */
+  }
+  
+  .btns button:hover svg {
+    opacity: 100%;
+    bottom: 0.5em;
+   
+  }
+  
+  .btns button:hover {
+    /* background: #e0e0e0; */
+box-shadow: inset 15px 15px 29px #fcff5f,
+            inset -15px -15px 29px gold;
+   
+  }
+  
+/* ------------------------ */
+.content .location{
+    margin: 20px;
+}
+.content>.location p{
+    font-size: large;
+}
+.location>.locationDiv1 span,label{
+    font-size: x-large;
+}
+
+    
+
+.location>.locationDiv1 >div{
+    border: 1px solid silver;
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+    margin: 20px;
+    width: 500px;
+    margin: auto;
+    padding-right: 50px;
+    width: 300px;
+}
+.location>.locationDiv1 input,span{
+    border: 0px;
+    font-size: large;
+}
+.location>.locationDiv1 input{
+    width: 60%;
+}
+.location>.locationDiv1 span{
+cursor: pointer;
+}
+
+.flagDelivery{
+    width: 25px;
+}
+.content>.detailsProduct{
+    margin: auto;
+    /* border: 1px solid red; */
+    padding: 10px;
+    width: 50%;
+    cursor: pointer;
+
+    
+}
+#pincode:focus {
+    outline: none;
+  }
+.detailsProduct>summary{
+    color: rgb(167, 96, 233);
+}
+.content>.detailsProduct li{
+    text-align: left;
+    font-size: large;
+}
+.detailsProduct p{
+    margin: 10px;
+    color: rgb(248, 165, 109);
+    text-decoration: underline;
+}
+.rating{
+    width: 100px;
+    border: 1px solid gold;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: space-around;
+}
+.star{
+    width: 30px;
+}
+.star>img{
+width: 100%;
 }
