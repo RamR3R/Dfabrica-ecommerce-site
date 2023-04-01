@@ -1,0 +1,212 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+button{
+    cursor: pointer;
+}
+#cart-filter{
+    /* height: 100px; */
+    /* margin-top: 300px; */
+    /* margin-left: auto; */
+    margin-right: 50px;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid red; */
+    /* align-items: top; */
+    -webkit-box-shadow: 2px -6px 166px -1px rgb(255, 171, 171);
+  -moz-box-shadow: 2px -6px 166px -1px rgb(255, 171, 171);
+  box-shadow: 2px -6px 166px -1px rgb(255, 171, 171);
+  border-radius: 10px;
+  
+  /* margin-top: 500px; */
+  padding: 20px;
+}
+#cart-filter h3{
+    font-size: large;
+}
+#cart-filter select{
+margin: 5px;
+
+}
+.rating{
+    color: #4135ac;
+    
+}
+h1{
+    margin: auto;
+    margin-top: 150px;
+    width: 1000px;
+  font-size: 50px;
+  /* margin: auto; */
+  /* border: 5px solid rgb(238, 183, 183); */
+  border-radius: 10px;
+  /* margin-top: 30px; */
+  /* margin-bottom: 20px; */
+  background:transparent;
+  -webkit-box-shadow: 2px -6px 166px -1px rgb(255, 209, 209);
+  -moz-box-shadow: 2px -6px 166px -1px rgb(250, 204, 204);
+  box-shadow: 2px -6px 166px -1px rgb(243, 131, 234);
+  color: rgb(223, 91, 113);
+  /* text-decoration: underline; */
+}
+.advertise{
+    width: 200px;
+    /* margin: auto; */
+}
+.advertise>img{
+    width: 100%;
+    border-radius: 5px;
+    /* margin: auto; */
+}
+
+.cartParent{
+    width: 90%;
+    display: flex;
+   margin-left: auto;
+   margin-right: auto;
+    /* margin-top: 90px; */
+   /* justify-content: center; */
+   /* padding: 50px; */
+ /* border: 1px solid #50a78a; */
+ 
+
+}
+#container{
+    width: 80%;
+    display: grid;
+    /* margin: auto; */
+    /* justify-content: center; */
+    margin-bottom: 50px;
+/* border: 1px solid yellow; */
+padding: 80px;
+grid-template-columns: repeat(4,20%);
+row-gap: 50px;
+column-gap: 25px;
+-webkit-box-shadow: 1px 147px 143px -34px rgb(218, 120, 248);
+-moz-box-shadow: 1px 147px 143px -34px rgb(218, 130, 245);
+box-shadow: 1px 147px 143px -34px rgb(228, 151, 252);
+border-radius: 30px;
+/* border: 1px solid; */
+
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    border: 1px solid silver;
+    padding: 10px;
+    border-radius: 10px;
+    /* margin: auto; */
+    height: 650px;
+    /* width: 20%; */
+}
+.img{
+    width: 80%;
+    margin: auto;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.buy{
+    width: 200px;
+    background-color: greenyellow;
+    border-radius: 5px;
+    padding: 10px;
+    border: 0px;
+    margin: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+.buy:hover{
+    left: 0.5em;
+    /* color: #fff */
+  }
+  
+  
+  
+  .buy:hover {
+    /* background: #e0e0e0; */
+box-shadow: inset 15px 15px 29px #fcff5f,
+            inset -15px -15px 29px gold;
+   
+  }
+  
+.Delbutton{
+    width: 150px;
+    background-color: rgb(228, 102, 102);
+    border-radius: 5px;
+    padding: 10px;
+    border: 0px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+.title{
+    text-decoration: underline;
+    color: #50a78a;
+    cursor: pointer;
+}
+.discountedPrice{
+    /* border: 1px solid silver; */
+    width: 100px;
+    margin: auto;
+    border-radius: 10px ;
+    padding: 10px;
+    color: rgb(181, 91, 204);
+    border: 1px solid ;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.price {
+    color: #bdc97d;
+    width: 100px;
+    /* border: 1px solid ; */
+    border-radius: 10px;
+    padding: 5px;
+    margin-right: 5px;
+    position: relative;
+    margin: auto;
+}
+.price:before{
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    right: 0;
+    border-top: 1px solid;
+    border-color: inherit;
+    -webkit-transform:rotate(-5deg);
+    -moz-transform:rotate(-5deg);
+    -ms-transform:rotate(-5deg);
+    -o-transform:rotate(-5deg);
+    transform:rotate(-5deg);
+}
+
+
+.discount{
+    width: 50px;
+    color: orangered;
+    background-color: #fcff5f;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid silver;
+    border-radius: 10px;
+    margin: auto;
+}
+#cart-filter{
+display: flex;
+flex-direction: column;
+}
+
+@media screen and (max-width:500px){
+
+#container{
+    grid-template-columns: repeat(2,1fr);
+    /* width: 100%; */
+}
+.parent{
+    flex-direction: column;
+}
+}
