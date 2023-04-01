@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Create Account</title>
+    <title> Cart Page</title>
     <link rel="stylesheet" href="./StyleSheets/cart.css">
 </head>
 <body>
@@ -23,39 +23,48 @@
 
         <div id="cart-items">
             <h3 id="update-cart-text">Your Shopping Cart is Empty</h3>
-            <table class="cart-table">
+           <!--- <table class="cart-table">
               <thead id="cart-table-head">
                 <th id="total-items">0 ITEMS</th>
                 <th>PRICE</th>
                 <th>QTY</th>
                 <th>SUBTOTAL</th>
               </thead>
-              <tbody id="cart-table-body">
-                <!-- Append Data from User -->
+              <tbody id="cart-table-body">-->
+                <!-- Append Data from User 
               </tbody>
-            </table>
+            </table> -->
 
         </div>
 
+        <div id="cart-container">
+            <!-- Here Append All the cart Products  -->
+            
+
+          </div>
+
         <div id="summary">
         
-          <h1>D Fabrica</h1> 
-          <!--<img src="" alt=""/> --->
-          <div class="order-summary">
+          <!--<h1>D Fabrica</h1> -->
+         <img src="./Images/logo.jpg" alt=""/> 
+         <!-- <div class="order-summary"> -->
             <div class="order-summary-heading">
-              <p>SUBTOTAL</p>
+             <!-- <p>SUBTOTAL</p>
               <p>STANDARD DELIVERY</p>
               <P>ESTIMATED TAX</P>
               <hr>
               <h5>ESTIMATED TOTAL</h5>
-            </div>
-            <div class="order-summary-pricing">
+            </div>-->
+            <h1 id="total">
+                Your Total cart Price is:- <span id="cart-total">0</span>
+              </h1>
+           <!-- <div class="order-summary-pricing">
               <p id="sub-total-price">$0</p>
               <p>$6</p>
               <p>$0</p>
               <hr>
               <h5 id="cart-total">$0</h5>
-            </div>
+            </div>-->
           </div>
           <button id="checkout-button">CHECKOUT</button>
         </div>
