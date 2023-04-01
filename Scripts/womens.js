@@ -2,7 +2,8 @@
 // link with mens.html and write the funtionalities
 let urlWomens="https://dfabrica-data-app.onrender.com/products?sex=F";
 let paginationwrapper=document.getElementById("pagination-wrapper");
-
+let loader = document.querySelector(".loader");
+loader.style.display = 'block';
 let cardContainer = document.getElementById("card-container");
 
 let totalcount = document.getElementById("total-count");
@@ -11,9 +12,11 @@ async function renderData(urlWomens,pageNumber){
   let totalData;
   let totalButtons;
   try {
+    loader.style.display = 'block';
     let res = await fetch(urlWomens);
     let data = await res.json();
     totalData=data.length;
+    loader.style.display = 'none';
     totalcount.innerText=`(${totalData})`;
     totalButtons= Math.ceil(totalData/9);
     paginationwrapper.innerHTML = null;
