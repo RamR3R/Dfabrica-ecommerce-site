@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./StyleSheets/adminDashboard.css" />
     <link rel="stylesheet" href="./addProducts.css" />
     <link
       rel="stylesheet"
@@ -21,7 +21,7 @@
       <div class="sidebar-menu">
         <ul>
           <li>
-            <a href="index.html"
+            <a href="./adminDashboard.html"
               ><span class="las la-igloo"></span>
               <span>Dashboard</span>
             </a>
@@ -112,7 +112,6 @@
             id="name"
             name="name"
             placeholder=" Please Add Product Name Here"
-            required
           /><br /><br />
 
           <label for="image1">Image 1:</label>
@@ -121,7 +120,6 @@
             id="image1"
             name="image1"
             placeholder="Product Image with Model"
-            required
           /><br /><br />
 
           <label for="image2">Image 2:</label>
@@ -130,7 +128,6 @@
             id="image2"
             name="image2"
             placeholder="Product Image Having Front Side"
-            required
           /><br /><br />
 
           <label for="image3">Image 3:</label>
@@ -139,7 +136,6 @@
             id="image3"
             name="image3"
             placeholder="Product Image Having Back Side"
-            required
           /><br /><br />
 
           <label for="image4">Image 4:</label>
@@ -148,43 +144,38 @@
             id="image4"
             name="image4"
             placeholder="Product Image Having Lateral Side"
-            required
           /><br /><br />
 
           <label for="price-inr">Price (INR):</label>
           <input
-            type="number"
+            type="text"
             id="price-inr"
             name="price-inr"
             placeholder="₹"
-            required
           /><br /><br />
 
           <label for="price-usd">Price (USD):</label>
           <input
-            type="number"
+            type="text"
             id="price-usd"
             name="price-usd"
             placeholder="$"
-            required
           /><br /><br />
 
           <label for="price-pound">Price (Pound):</label>
           <input
-            type="number"
+            type="text"
             id="price-pound"
             name="price-pound"
             placeholder="£"
-            required
           /><br /><br />
 
           <label for="discount">Discount:</label>
           <input
-            type="number"
+            type="text"
             id="discount"
             name="discount"
             placeholder=" Rounded Number"
-            required
           /><br /><br />
 
           <label for="description">Description:</label>
@@ -193,7 +184,6 @@
             name="description"
             rows="5"
             placeholder=" Description of the item"
-            required
           ></textarea
           ><br /><br />
 
@@ -210,16 +200,14 @@
             id="category"
             name="category"
             placeholder=" M or F"
-            required
           /><br /><br />
 
           <label for="stock">Stock:</label>
           <input
-            type="number"
+            type="text"
             id="stock"
             name="stock"
             placeholder="Total number of items"
-            required
           /><br /><br />
 
           <label for="size">Size:</label>
@@ -228,16 +216,21 @@
             id="size"
             name="size"
             placeholder="XS,S,M,L,XL,XXL"
-            required
           /><br /><br />
 
           <label for="rating">Rating:</label>
           <input
-            type="number"
+            type="text"
             id="rating"
             name="rating"
             placeholder=""
-            required
+          /><br /><br />
+          <label for="color">Rating:</label>
+          <input
+            type="text"
+            id="color"
+            name="color"
+            placeholder="pink,yellow"
           /><br /><br />
 
           <input type="submit" value="Add" />
@@ -247,4 +240,4 @@
   </body>
 </html>
 
-<script src="./addProducts.js"></script>
+<script src="./Scripts/addItemAdmin.js"></script>
