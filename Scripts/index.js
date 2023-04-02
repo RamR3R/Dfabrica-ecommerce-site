@@ -83,7 +83,8 @@ let firstImage1 = document.querySelector(".fImage2");
 function slideshow(slide,firstImage){
   Imagein = 0;
   let upImage = document.createElement("img");
-  upImage.src = slide[0]
+  upImage.src = slide[0];
+  upImage.id = "outflow";
   firstImage.append(upImage)
   
   setInterval(function(){

@@ -80,11 +80,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-  
- 
-  font-family: monospace;
-  text-align: center;
-  font-size: xx-large;
+        font-family: monospace;
+        text-align: center;
+        font-size: xx-large;
  }
  body{
   margin: 0px;
@@ -114,16 +112,22 @@
   }
   .top{
       width: 100%;
+      margin-left: -10px;
       background-color: silver;
-      align-items: center;      
+      align-items: center;
+      /* border: 1px solid red;   */
+      margin-top: -10px;
+      margin-bottom: 10px;    
   }
   .topNav{
+    width: 100%;
+    height: 10px;
       margin: auto;
-      width: 60%;
+      padding: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-
+      border-bottom: 1px solid black;
   }
   .topNav>div{
     display: flex;
@@ -137,26 +141,32 @@
   }
  .container{
   display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
   justify-content: space-between;
-  width: 80%;
+  width: 95%;
   align-items: center;
-  padding: 5px;
-  font-size:larger;
+  font-size:18px;
+  font-weight: bold;
   color: silver;
+  /* border: 1px solid red; */
  }
  
  .childBar1{
   width: 50%;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: space-around;
+  /* border: 1px solid red;  */
  }
  .childBar1>a{
   margin-right: 20px;
  }
  .childBar2{
+  width: 50%;
   display: flex;
-  justify-content: end;
+  justify-content: space-evenly;
+  /* border: 1px solid red ; */
   align-items: center;
  }
  .childBar2>a{
@@ -172,12 +182,18 @@
   
  }
  .search{
-  padding: 15px;
-  width: 300px;
+  width: 20%;
   background-color: rgb(245, 240, 240);
-  border: 0px;
   border-radius: 10px;
-  padding: 10px 30px;
+  font-size: 12px;
+ }
+ .search input{
+  padding: 10px;
+ }
+ main{
+  width: 100%;
+  margin-top: 50px;
+  padding: 0px;
  }
  .category{
   width: 50%;
@@ -197,15 +213,11 @@
  }
 
 /* --------------------------------------------------------------------- */
-.cont {
-position: relative;
-overflow: hidden;
-padding: 20px;
-}
 .mainSlider {
-width: 100%;
+width: 80%;
+margin: auto;
+margin-top: 160px;
 display: flex;
-overflow-x: auto;
 scroll-behavior: smooth;
 }
 .slider1{
@@ -228,16 +240,25 @@ display: flex;
 justify-content: center;
 padding: 5px;
 /* margin: auto; */
-position: relative;
+/* position: relative; */
 width: 100%;
 
 /* overflow: hidden; */
 margin-right: 40px;
 }
-.slider1 >div>img{
+.fImage1,.fImage2 image{
+  width: 20%;
+  margin: auto;
+  display: flex;
+  border: 1px solid blue;
+}
+.fImage1,.fImage2{
+  width: 100%;
+}
+/* .slider1 >div>img{
 
 object-fit: cover;
-}
+} */
 .pre-btn,
 .nxt-btn {
 border: none;
@@ -282,7 +303,7 @@ opacity: 100%;
 width: 100%;
 display: flex;
 margin: auto;
-padding-top: 5px;
+/* padding-top: 5px; */
 
 }
 .wideAd1>img{
@@ -291,7 +312,7 @@ margin: auto;
 cursor: pointer;
 }
 .wideAd2>h3{
-width: 1000px;
+width: 98%;
   font-size: 50px;
   margin: auto;
   border: 5px solid violet;
@@ -302,13 +323,6 @@ width: 1000px;
   -webkit-box-shadow: 2px -6px 166px -1px rgba(255,51,255,1);
   -moz-box-shadow: 2px -6px 166px -1px rgba(255,51,255,1);
   box-shadow: 2px -6px 166px -1px rgba(255,51,255,1);
-
-}
-.search {
-  position: relative;
-  width: 200px;
-  height: 15px;
-  
 }
 
 .search input {
@@ -318,48 +332,9 @@ width: 1000px;
   border: none;
   color: #222;
   padding: 8px;
-  font-size: large;
-  top: 4em;
+  font-size: 1em;
 }
 
-.search label {
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: rgba(105, 105, 105, 0.7);
-  text-transform: uppercase;
-  pointer-events: none;
-  transition: .5s;
-  font-weight: bold;
-}
-
-.search input:valid ~ label,
-.search input:focus ~ label {
-  color: rgb(10, 131, 212);
-  transform: translateY(-5px);
-  font-size: .8rem;
-}
-
-.search i {
-  position: absolute;
-  
-  top: 1em;
-  width: 80%;
-  height: 2px;
-  /* background: #222; */
-  bottom: 0.4em;
-}
-
-.search i:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, #ff1b69, #ff0, #2196f3, #9c27b0, #ff1b69);
-  animation: animate 3s linear infinite;
-  top: 0.3em;
-  right: 3.5em;
-}
 .bottom{
 display: flex;
 flex-direction: column;
@@ -421,13 +396,13 @@ width: 100%;
 }
 .botCountry{
 
- width: 100%;
+width: 100%;
 height: 6000px;
 position: fixed;
 z-index: 1000;
 display: none;
 background-color: black;
-opacity: 70%;
+opacity: 80%;
 position: fixed;
 margin-top: 0px;
 }
@@ -454,13 +429,13 @@ padding: 10px;
 
 }
 .country>div>div>div{
-background-color: aqua;
 border-radius: 5px;
 width: 80px;
 height: 100px;
 margin: 10px;
 padding: 5px;
 cursor: pointer;
+color: white;
 }
 .country>div>div>div>img{
 width: 100%;
@@ -471,7 +446,7 @@ width: 100%;
 justify-content: center;
 width: 150px;
 opacity: 100%;
-background-color: blueviolet;
+background:transparent;
 width: 500px;
 height: 200px;
 padding: 30px;
@@ -497,13 +472,12 @@ width: 100%;
 opacity: 60%;
 }
 .country h1{
-  background-color: yellowgreen;
   padding: 10px;
   border-radius: 10px;
   width: 400px;
   margin: auto;
   opacity: 90%;
-  
+  color: white;
 }
 
 .slider2>div{
@@ -526,12 +500,16 @@ width: 80%;
 /* border: 1px solid red; */
 cursor: pointer;
 }
-.slider3>div>img{
-width: 100%;
-margin: 10px;
+.slider3 img{
+width: 70%;
 }
+#outflow{
+  width:80%;
+  height: 300px;
+  border: 1px solid blue;
+}
+
 .slider3>h3{
-width: 1000px;
   font-size: 50px;
   margin: auto;
   border: 5px solid violet;
@@ -596,7 +574,7 @@ padding: 2px;
 border-radius: 5px;
 }
 
-@media screen and (max-width:415px){
+@media screen and (max-width:500px){
   .parentFoot div{
     justify-content: center;
     margin: auto;
@@ -637,13 +615,7 @@ border-radius: 5px;
  }
  
   .search{
-    width: 15vw;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-  }
-  .search>input{
-    width: 100%;
+    display: none;
   }
   .childBar2{
     display: flex;
@@ -652,9 +624,6 @@ border-radius: 5px;
   .container{
     display: flex;
     justify-content: center;
-  }
-  .search i:before {
-    display: none;
   }
   footer{
     margin: auto;
