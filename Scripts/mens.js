@@ -44,9 +44,9 @@ let paginationwrapper=document.getElementById("pagination-wrapper");
 let cardContainer = document.getElementById("card-container");
 let loader = document.querySelector(".loader");
 loader.style.display = 'block';
-let totalcount = document.getElementById("total-count");
+// let totalcount = document.getElementById("total-count");
 let cat ="";
-let rate = 0;
+let rat = 0;
 let dis = 0;
 let sort = document.getElementById("filter-sorting-whole");
 
@@ -66,14 +66,6 @@ async function renderData(urlMen,pageNumber){
     loader.style.display = 'block';
     let res = await fetch(urlMen);
     let data = await res.json(); 
-    totalcount.innerText=`(${data.length})`;
-    totalButtons= Math.ceil(totalData/9);
-    paginationwrapper.innerHTML = null;
-    loader.style.display = 'none';
-
-      for (let i = 1; i <= totalButtons; i++) {
-        paginationwrapper.append(getAsButton(urlMen,i, i));
-      }
   } catch (error) {
     console.log(error)
   }
@@ -82,6 +74,7 @@ async function renderData(urlMen,pageNumber){
         let res = await fetch(`${urlMen}&_limit=9&_page=${pageNumber}`);
         console.log(res.headers);
         let data = await res.json();
+
         if(sort)
         {
             if(sort.value=="rating")
@@ -95,6 +88,33 @@ async function renderData(urlMen,pageNumber){
             else{
               data.sort((a,b)=>b.discountPriceInr-a.discountPriceInr);
         }
+        
+        }
+        if(rat)
+        {
+          data = data.filter((item)=>{
+              if(item.rating>rat)
+              return true;
+              else
+              return false;
+          })
+        }
+        if(dis)
+        {
+          data = data.filter((item)=>{
+              if(item.discount>dis)
+              return true;
+              else
+              return false;
+          })
+        }
+        let totalData= data.length;
+        totalButtons= Math.ceil(totalData/9);
+        paginationwrapper.innerHTML = null;
+        loader.style.display = 'none';
+
+        for (let i = 1; i <= totalButtons; i++) {
+          paginationwrapper.append(getAsButton(urlMen,i, i));
         }
          displayData(data);
          console.log(data);
@@ -216,7 +236,25 @@ for(let i=0;i<catfilter.length;i++){
   })
 }
 
-let rateFilter = document.getElementsByClassName("")
+let ratfilter = document.getElementsByClassName("rat");
+for(let i=0;i<ratfilter.length;i++){
+  ratfilter[i].addEventListener("click",(e)=>{
+    rat = ratfilter[i].dataset.id;
+    let disprat = document.getElementById("rat-filters");
+    disprat.innerText = `/ Rating > ${rat}* `;
+    renderData(urlMens,1);
+  })
+}
+
+let disfilter = document.getElementsByClassName("discfil");
+for(let i=0;i<disfilter.length;i++){
+  disfilter[i].addEventListener("click",(e)=>{
+    dis = disfilter[i].dataset.id;
+    let disprat = document.getElementById("disc-filters");
+    disprat.innerText = `/ Discount > ${dis}% `;
+    renderData(urlMens,1);
+  })
+}
 
 
 

@@ -1,42 +1,42 @@
 
-let country=document.querySelector(".country")
-let flag=document.querySelector(".flag")
-let img=document.querySelector(".flag>img")
-let close=document.querySelector(".close")
-let BotCountry=document.querySelector(".botCountry")
-let countryData = JSON.parse(localStorage.getItem("userCountry"));
+let countrys=document.querySelector(".country")
+let flags=document.querySelector(".flag")
+let imgs=document.querySelector(".flag>img")
+let closes=document.querySelector(".close")
+let BotCountrys=document.querySelector(".botCountry")
+let countryData = JSON.parse(localStorage.getItem("userCountry"))||["https://cdn-icons-png.flaticon.com/512/3909/3909444.png","India"];
 
 
-flag.addEventListener("click",()=>{
-  BotCountry.style.display="flex";
-  country.style.display="flex";
+flags.addEventListener("click",()=>{
+  BotCountrys.style.display="flex";
+  countrys.style.display="flex";
 })
-close.addEventListener("click",()=>{
-  BotCountry.style.display="none";
-  country.style.display="none";
+closes.addEventListener("click",()=>{
+  BotCountrys.style.display="none";
+  countrys.style.display="none";
  })
  
  
 document.querySelector(".sc1").addEventListener("click",(e)=>{
-  country.style.display="none";
-  BotCountry.style.display="none";
+  countrys.style.display="none";
+  BotCountrys.style.display="none";
   localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/3909/3909444.png","India"]));
   window.location.reload()
 })
 document.querySelector(".sc2").addEventListener("click",()=>{
-  country.style.display="none";
-  BotCountry.style.display="none";
+  countrys.style.display="none";
+  BotCountrys.style.display="none";
   localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/197/197484.png","USA"]));
   window.location.reload()
 })
 document.querySelector(".sc3").addEventListener("click",()=>{
-  country.style.display="none";
-  BotCountry.style.display="none";
+  countrys.style.display="none";
+  BotCountrys.style.display="none";
   localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/197/197374.png","UK"]));
   window.location.reload()
 })
 
-img.src=countryData[0]
+imgs.src=countryData[0]
 // link with mens.html and write the funtionalities
 let urlMens="https://dfabrica-data-app.onrender.com/products?sex=F";
 let paginationwrapper=document.getElementById("pagination-wrapper");
@@ -44,50 +44,78 @@ let paginationwrapper=document.getElementById("pagination-wrapper");
 let cardContainer = document.getElementById("card-container");
 let loader = document.querySelector(".loader");
 loader.style.display = 'block';
-let totalcount = document.getElementById("total-count");
+// let totalcount = document.getElementById("total-count");
+let cat ="";
+let rat = 0;
+let dis = 0;
+let sort = document.getElementById("filter-sorting-whole");
 
-let lTh = document.getElementById("lowTohigh");
-let hTl = document.getElementById("highTolow");
-
-let popular = document.getElementById("popular");
-popular.addEventListener("click",()=>{
+sort.addEventListener("change",()=>{
   renderData(urlMens,1);
 })
 
-let url;
 
-lTh.addEventListener("click",()=>{
-  url=`${urlMens}&_sort=discountPriceInr&_order=asc`;
-  renderData(url,1);
-});
-hTl.addEventListener("click",()=>{
- url=`${urlMens}&_sort=discountPriceInr&_order=desc`;
-  renderData(url,1);
-})
 async function renderData(urlMen,pageNumber){
   let totalData;
   let totalButtons;
+  if(cat)
+      {
+        urlMen +=cat;
+      }
   try {
     loader.style.display = 'block';
     let res = await fetch(urlMen);
     let data = await res.json(); 
-    totalData=data.length;
-    totalcount.innerText=`(${totalData})`;
-    totalButtons= Math.ceil(totalData/9);
-    paginationwrapper.innerHTML = null;
-    loader.style.display = 'none';
-
-      for (let i = 1; i <= totalButtons; i++) {
-        paginationwrapper.append(getAsButton(urlMen,i, i));
-      }
   } catch (error) {
     console.log(error)
   }
     try {
-      
+      console.log(urlMen);
         let res = await fetch(`${urlMen}&_limit=9&_page=${pageNumber}`);
         console.log(res.headers);
         let data = await res.json();
+
+        if(sort)
+        {
+            if(sort.value=="rating")
+            {
+              data.sort((a,b)=>a.rating-b.rating);
+            }
+            else if(sort.value=="asc")
+            {
+              data.sort((a,b)=>a.discountPriceInr-b.discountPriceInr);
+            }
+            else{
+              data.sort((a,b)=>b.discountPriceInr-a.discountPriceInr);
+        }
+        
+        }
+        if(rat)
+        {
+          data = data.filter((item)=>{
+              if(item.rating>rat)
+              return true;
+              else
+              return false;
+          })
+        }
+        if(dis)
+        {
+          data = data.filter((item)=>{
+              if(item.discount>dis)
+              return true;
+              else
+              return false;
+          })
+        }
+        let totalData= data.length;
+        totalButtons= Math.ceil(totalData/9);
+        paginationwrapper.innerHTML = null;
+        loader.style.display = 'none';
+
+        for (let i = 1; i <= totalButtons; i++) {
+          paginationwrapper.append(getAsButton(urlMen,i, i));
+        }
          displayData(data);
          console.log(data);
          console.log(data.length);
@@ -196,11 +224,37 @@ function getAsButton(urlMen,text, dataId) {
 let catfilter = document.getElementsByClassName("cat");
 for(let i=0;i<catfilter.length;i++){
   catfilter[i].addEventListener("click",()=>{
-    let catUrl=`${urlMens}&category=${catfilter[i].innerText}`;
-    renderData(catUrl,1);
+    console.log(cat,catfilter[i].innerText);
+    if(cat == `&category=${catfilter[i].innerText}`){
+    cat = "";
+    }
+    else
+    cat = `&category=${catfilter[i].innerText}`;
+    let dispcat = document.getElementById("cat-filters");
+    dispcat.innerText = `/ ${catfilter[i].innerText} `;
+    renderData(urlMens,1);
   })
 }
 
+let ratfilter = document.getElementsByClassName("rat");
+for(let i=0;i<ratfilter.length;i++){
+  ratfilter[i].addEventListener("click",(e)=>{
+    rat = ratfilter[i].dataset.id;
+    let disprat = document.getElementById("rat-filters");
+    disprat.innerText = `/ Rating > ${rat}* `;
+    renderData(urlMens,1);
+  })
+}
+
+let disfilter = document.getElementsByClassName("discfil");
+for(let i=0;i<disfilter.length;i++){
+  disfilter[i].addEventListener("click",(e)=>{
+    dis = disfilter[i].dataset.id;
+    let disprat = document.getElementById("disc-filters");
+    disprat.innerText = `/ Discount > ${dis}% `;
+    renderData(urlMens,1);
+  })
+}
 
 
 
