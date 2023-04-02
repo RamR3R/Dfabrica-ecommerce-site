@@ -250,7 +250,7 @@ margin-right: 40px;
   width: 20%;
   margin: auto;
   display: flex;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 .fImage1,.fImage2{
   width: 100%;
@@ -506,7 +506,8 @@ width: 70%;
 #outflow{
   width:80%;
   height: 300px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
+  margin: bottom 5px; 
 }
 
 .slider3>h3{
@@ -577,12 +578,14 @@ border-radius: 5px;
 @media screen and (max-width:500px){
   .parentFoot div{
     justify-content: center;
+
     margin: auto;
   }
  
   .navBar{
     
     height: 35vh;
+
     width: 100%;
     margin-left: -10px;
     margin-right: -10px;
@@ -636,6 +639,10 @@ border-radius: 5px;
   }
   .parentFoot{
     margin: auto ;
+  }
+  .slider2>div{
+    display: flex;
+    flex-wrap: wrap;
   }
  }
  @media screen and (max-width:768px) and (min-width:415px){
