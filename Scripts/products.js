@@ -315,7 +315,7 @@ function renderLocationData(pincode){
         console.log(data.results[0])
         let location  = data.results[0].geometry.location;
         let l = data.results[0].address_components.length;
-        deliveryCity = data.results[0].address_components[l-3].long_name +" , " +data.results[0].address_components[l-2].long_name;;
+        deliveryCity = data.results[0].address_components[1].long_name +" , " +data.results[0].address_components[l-2].long_name;;
         localStorage.setItem("user-location",JSON.stringify(location));
 
         let source = `12.93423191547288,77.61282013902306`; //masai office coordinates    
