@@ -3,14 +3,37 @@ let hide = document.querySelector(".input-field-show");
 let form = document.getElementById("formID");
 let navImg = document.getElementById("brandImg");
 
+let adminData;
+let adminUrl = `https://dfabrica-data-app.onrender.com/admin`;
+fetch(adminUrl)
+.then(res=>res.json())
+.then(data=>{
+  adminData = data;
+  console.log(data);
+})
+
 navImg.addEventListener("click", function () {
   window.location.href = "index.html";
 });
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  window.location.href = "index.html";
+  let user = document.getElementById("username");
+  let pass = document.getElementById("password");
+
+  adminData.forEach(element => {
+    if(element.username == user.value && element.password == pass.value)
+    {
+      localStorage.setItem("admin-info",JSON.stringify(element));
+      alert("Login as Super Admin");
+      window.location.href = "./adminDashboard.html";
+    }  
+  });
 });
+
+
+
+
 let button = document.getElementsByClassName("btn");
 let input_field = document.getElementsByClassName("cont1");
 window.addEventListener("load", function () {
