@@ -658,10 +658,14 @@ a {
   }
 
   .wideAd1 {
-    width: 100vw;
+    width: 100%;
     display: flex;
+    margin: auto;
   }
-
+.wideAd1 img{
+  margin: auto;
+  width: 100%;
+}
   .wideAd2>h3{
     width: 100vw;}
     .slider2>div{
@@ -789,11 +793,9 @@ width: 30vw;}
   main{
     margin-top: 100px;
     margin: auto;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* flex-wrap: wrap; */
+
   }
-  
+ 
 }
 @media screen and (max-width: 768px) and (min-width: 415px) {
 }
