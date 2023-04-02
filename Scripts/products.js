@@ -8,7 +8,7 @@ let img=document.querySelector(".flag>img")
 let close=document.querySelector(".close")
 let BotCountry=document.querySelector(".botCountry")
 // let flagDelivery=document.querySelector(".flagDelivery")
-let countryData = JSON.parse(localStorage.getItem("userCountry"));
+let countryData = JSON.parse(localStorage.getItem("userCountry"))||["https://cdn-icons-png.flaticon.com/512/3909/3909444.png","India"];
 
 
 flag.addEventListener("click",()=>{
