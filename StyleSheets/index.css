@@ -1,8 +1,8 @@
-* {
+*{
   margin: 0px;
   padding: 0px;
 }
-@import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url('https://fonts.googleapis.com/css?family=Poppins'); 
 /* 
   The main CSS file with the CSS prop of NAV header and footer part of the page 
   and other Css for all the adds and things which is to be added in the Index.html page
@@ -12,40 +12,35 @@
   :)
   <3
 */
-* {
-  font-family: "Poppins";
-  /* font-family: monospace; */
-  text-align: center;
-  /* font-size: xx-large; */
-}
-body {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  /* background-color: white; */
-}
-.loader {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 100000;
-  top: 50%;
-  bottom: 50%;
-  left: 50%;
-  right: 50%;
-}
-#loader {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #0099ff;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+*{
+   font-family:'Poppins';
+    /* font-family: monospace; */
+    text-align: center;
+    /* font-size: xx-large; */
+   }
+   body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    /* background-color: white; */
+   }
+   .loader{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100000;
+    top: 50%;
+    bottom: 50%;
+    left:50%;
+    right:50%
+   }
+   #loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #0099ff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
   }
   
   @keyframes spin {
@@ -89,7 +84,8 @@ body {
         text-align: center;
         font-size: xx-large;
  }
- margin: 0px;
+ body{
+  margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   /* background-color: white; */
@@ -172,17 +168,21 @@ body {
   justify-content: space-evenly;
   /* border: 1px solid red ; */
   align-items: center;
-}
-.childBar2 > a {
+ }
+ .childBar2>a{
   margin-left: 20px;
-}
-.navbarBrand {
+ }
+ .navbarBrand{
   width: 150px;
   align-items: center;
-}
-.navbarBrand > img {
+ }
+ .navbarBrand>img{
   width: 120px;
   border-radius: 10px;
+  
+ }
+ .search{
+  width: 20%;
   background-color: rgb(245, 240, 240);
   border-radius: 10px;
   font-size: 12px;
@@ -203,12 +203,14 @@ body {
   justify-content: space-around;
   border-bottom: 1px solid silver;
   /* border-top: 1px solid silver; */
-
+  
   padding-top: 150px;
-}
-.category > a {
+
+ }
+ .category>a{
   font-size: x-large;
-}
+ 
+ }
 
 /* --------------------------------------------------------------------- */
 .mainSlider {
@@ -218,19 +220,19 @@ margin-top: 160px;
 display: flex;
 scroll-behavior: smooth;
 }
-.slider1 {
-  display: flex;
-  width: 100%;
-  margin: auto;
-  height: 600px;
-  scroll-snap-type: x mandatory;
-  padding: 0 10vw;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  cursor: pointer;
+.slider1{
+display: flex;
+width: 100%;
+margin: auto;
+height: 600px;
+scroll-snap-type: x mandatory;
+padding: 0 10vw;
+overflow-x: auto;
+scroll-behavior: smooth;
+cursor: pointer;
 }
 .slider1::-webkit-scrollbar {
-  display: none;
+display: none;
 }
 .slider1>div{
 width: 100%;
@@ -241,14 +243,14 @@ padding: 5px;
 /* position: relative; */
 width: 100%;
 
-  /* overflow: hidden; */
-  margin-right: 40px;
+/* overflow: hidden; */
+margin-right: 40px;
 }
 .fImage1,.fImage2 image{
   width: 20%;
   margin: auto;
   display: flex;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 .fImage1,.fImage2{
   width: 100%;
@@ -259,39 +261,41 @@ object-fit: cover;
 } */
 .pre-btn,
 .nxt-btn {
-  border: none;
-  width: 10vw;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
-  cursor: pointer;
-  z-index: 8;
+border: none;
+width: 10vw;
+height: 100%;
+position: absolute;
+top: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+cursor: pointer;
+z-index: 8;
+
 }
 
 .pre-btn {
-  left: 0;
-  transform: rotate(180deg);
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+left: 0;
+transform: rotate(180deg);
+background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+
 }
 
 .nxt-btn {
-  right: 0;
+right: 0;
 }
 
 .pre-btn img,
 .nxt-btn img {
-  width: 50px;
-  opacity: 0.2;
-  /* opacity: 50%; */
+width: 50px;
+opacity: 0.2;
+/* opacity: 50%; */
 }
 
 .pre-btn:hover img,
 .nxt-btn:hover img {
-  opacity: 100%;
+opacity: 100%;
 }
 
 /* -------------------------------------------------------------------------------------- */
@@ -302,10 +306,10 @@ margin: auto;
 /* padding-top: 5px; */
 
 }
-.wideAd1 > img {
-  width: 100%;
-  margin: auto;
-  cursor: pointer;
+.wideAd1>img{
+width: 100%;
+margin: auto;
+cursor: pointer;
 }
 .wideAd2>h3{
 width: 98%;
@@ -336,37 +340,138 @@ display: flex;
 flex-direction: column;
 width: 100%;
 }
-.bottom div {
-  width: 100%;
+.bottom div{
+width: 100%;
 }
 /* -------------------------------------------------------------------------------------- */
 
-.Tcat {
+.Tcat{
   display: flex;
   margin: auto;
-}
+ 
+ }
 
 .high {
-  width: 80%;
-  margin: auto;
-  display: flex;
-  overflow: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
+width: 80%;
+margin: auto;
+display: flex;
+overflow: auto;
+overflow-y: hidden;
+scroll-snap-type: x mandatory;
+
 }
 .high::-webkit-scrollbar {
-  display: none;
+display: none;
 }
 .high > div {
-  display: flex;
-  width: 300px;
-  margin: 5px;
-  align-items: center;
-  cursor: pointer;
+display: flex;
+width: 300px;
+margin: 5px;
+align-items: center;
+cursor: pointer;
 }
 .high > div > img {
-  width: 250px;
+width: 250px;
 }
+#DOW{
+display: flex;
+margin: auto;
+justify-content: center;
+width: 100%;
+}
+#DOW div{
+width:100%
+}
+#DOW div img{
+width: 100%;
+}
+.flag{
+width: 35px;
+/* border: 1px solid black; */
+border-radius: 50px;
+cursor: pointer;
+}
+.flag img{
+width: 100%;
+}
+.botCountry{
+
+width: 100%;
+height: 6000px;
+position: fixed;
+z-index: 1000;
+display: none;
+background-color: black;
+opacity: 80%;
+position: fixed;
+margin-top: 0px;
+}
+.country{
+text-align: center;
+/* background: black; */
+width: 100%;
+height: 800px;
+position: fixed;
+z-index: 1000;
+display: none;
+/* padding: 100px; */
+/* opacity: 70%; */
+flex-direction: column;
+}
+.country>div>div{
+margin: auto;
+display: flex;
+justify-content: center;
+width: 150px;
+margin: auto;
+width: 300px;
+padding: 10px;
+
+}
+.country>div>div>div{
+border-radius: 5px;
+width: 80px;
+height: 100px;
+margin: 10px;
+padding: 5px;
+cursor: pointer;
+color: white;
+}
+.country>div>div>div>img{
+width: 100%;
+}
+.country>div:nth-child(2){
+  margin: 0 auto 0 auto;
+  text-align: center;
+justify-content: center;
+width: 150px;
+opacity: 100%;
+background:transparent;
+width: 500px;
+height: 200px;
+padding: 30px;
+border-radius: 50px;
+padding: 10px;
+
+}
+.country>div:nth-child(1){
+margin: 150px auto 0 auto;
+background-color: white;
+height: 40px;
+width: 40px;
+border-radius: 50px;
+padding: 10px;
+opacity: 20%;
+cursor: pointer;
+}
+.country>div:nth-child(1)>img{
+margin: auto;
+width: 100%;
+}
+.country>div:nth-child(1):hover{
+opacity: 60%;
+}
+.country h1{
   padding: 10px;
   border-radius: 10px;
   width: 400px;
@@ -375,18 +480,37 @@ width: 100%;
   color: white;
 }
 
-.slider2 > div {
-  display: flex;
-  margin: auto;
-  justify-content: center;
-  width: 80%;
-  cursor: pointer;
-  /* border: 1px solid red; */
+.slider2>div{
+display: flex;
+margin: auto;
+justify-content: center;
+width: 80%;
+cursor: pointer;
+/* border: 1px solid red; */
 }
-.slider2 > div > img {
-  width: 50%;
-  margin: 10px;
+.slider2>div>img{
+width: 50%;
+margin: 10px;
 }
+.slider3>div{
+display: flex;
+margin: auto;
+justify-content: center;
+width: 80%;
+/* border: 1px solid red; */
+cursor: pointer;
+}
+.slider3 img{
+width: 70%;
+}
+#outflow{
+  width:80%;
+  height: 300px;
+  /* border: 1px solid blue; */
+  margin: bottom 5px; 
+}
+
+.slider3>h3{
   font-size: 50px;
   margin: auto;
   border: 5px solid violet;
@@ -394,158 +518,133 @@ width: 100%;
   margin-top: 30px;
   margin-bottom: 10px;
   background-color: white;
-  -webkit-box-shadow: 2px -6px 166px -1px rgba(255, 51, 255, 1);
-  -moz-box-shadow: 2px -6px 166px -1px rgba(255, 51, 255, 1);
-  box-shadow: 2px -6px 166px -1px rgba(255, 51, 255, 1);
+  -webkit-box-shadow: 2px -6px 166px -1px rgba(255,51,255,1);
+  -moz-box-shadow: 2px -6px 166px -1px rgba(255,51,255,1);
+  box-shadow: 2px -6px 166px -1px rgba(255,51,255,1);
 }
-.parentFoot {
-  margin-top: 5px;
-  padding: 50px;
-  background-color: rgb(37, 34, 37);
+.parentFoot{
+margin-top: 5px;
+padding: 50px;
+background-color: rgb(37, 34, 37);
 
-  opacity: 98%;
+opacity: 98%;
 }
-.parentFoot p {
-  color: gold;
+.parentFoot p{
+color: gold;
 }
-.childFoot {
-  display: flex;
-  justify-content: center;
+.childFoot{
+display: flex;
+justify-content: center;
 }
-.childFoot > div {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 300px;
-  text-align: justify;
-  margin: 5px;
+.childFoot>div{
+display: flex;
+align-items: center;
+flex-direction: column;
+width: 300px;
+text-align: justify;
+margin: 5px;
 }
-.childFoot > div a {
-  color: white;
-  margin: 5px;
+.childFoot>div a{
+color: white;
+margin: 5px;
 }
-.childFoot > div > div {
-  color: white;
-  margin: 5px;
+.childFoot>div>div{
+color: white;
+margin: 5px;
 }
-.parentFoot > div:nth-child(1) {
-  padding: 10px;
-  width: 80px;
-  margin: auto;
+.parentFoot>div:nth-child(1){
+padding: 10px;
+width:80px;
+margin: auto;
 }
-.parentFoot > div:nth-child(1) > a > img {
-  width: 100%;
+.parentFoot>div:nth-child(1)>a>img{
+width:100%
 }
-.parentFoot button {
-  background-color: rgb(253, 124, 124);
-  border: 0;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 5px;
+.parentFoot button{
+background-color: rgb(253, 124, 124);
+border: 0;
+border-radius: 5px;
+padding: 5px;
+margin: 5px;
 }
-.parentFoot > div:nth-child(2) input {
-  border: 0px;
-  background-color: rgb(250, 250, 224);
-  margin: 2px;
-  padding: 2px;
-  border-radius: 5px;
+.parentFoot>div:nth-child(2) input{
+border: 0px;
+background-color: rgb(250, 250, 224);
+margin: 2px;
+padding: 2px;
+border-radius: 5px;
 }
 
-@media screen and (max-width: 415px) {
-  .navBar {
-    width: 100vw;
-    display: flex;
-   
-  }
-  .top {
-    width: 100vw;
-    background-color: silver;
-    align-items: center;
-    display: none;
-  }
-  .topNav {
-    display: none;
-  }
-  .navBar {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
+@media screen and (max-width:500px){
+  .parentFoot div{
     justify-content: center;
-    /* justify-content: space-between; */
-  }
 
-  .top {
-    width: 100vh;
     margin: auto;
-  } 
-  .navBar{ 
+  }
+ 
+  .navBar{
+    
     height: 35vh;
 
     width: 100%;
     margin-left: -10px;
     margin-right: -10px;
   }
-  .childBar1 {
+  .childBar1{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     gap: 10px;
     margin-left: 80px;
   }
-  .childBar2 {
+  .childBar2{
     width: 50vw;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     margin-right: 100px;
   }
-  #categoryBox {
+  #categoryBox{
     display: none;
     z-index: 0;
   }
-  .slider3 div {
+  .slider3 div{
     flex-wrap: wrap;
   }
-  .childFoot {
+  .childFoot{
     flex-wrap: wrap;
     flex-direction: column;
     margin: auto;
   }
+ main{
+  margin-top: 230px;
+ }
+ 
+  .search{
+    display: none;
   }
-  .childBar2 {
+  .childBar2{
     display: flex;
     justify-content: center;
   }
-  .container {
-    width: 100%;
+  .container{
     display: flex;
-    justify-content: space-between;
-  }
-    margin: auto;
-  }
-  .wideAd1 {
-    margin: auto;
-  }
-  .parentFoot {
-    width: 100%;
-    margin: auto;
-    height: 100%;
-  }
-  body{
-    overflow-x: hidden;
-    margin: auto;
-
+    justify-content: center;
   }
   footer{
-    width: 100%;
     margin: auto;
   }
-  main{
-    margin-top: 100px;
+  .wideAd1{
     margin: auto;
-
   }
- 
-}
-@media screen and (max-width: 768px) and (min-width: 415px) {
-}
+  .parentFoot{
+    margin: auto ;
+  }
+  .slider2>div{
+    display: flex;
+    flex-wrap: wrap;
+  }
+ }
+ @media screen and (max-width:768px) and (min-width:415px){
+  
+ }
