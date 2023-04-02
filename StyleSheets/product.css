@@ -334,3 +334,81 @@ cursor: pointer;
 .star>img{
 width: 100%;
 }
+@media screen and (max-width:500px){
+    .parentDiv{
+        margin: auto;
+        flex-direction: column;
+        width: 100%;
+
+    }
+    .picture .big{
+        width: 80vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        flex-wrap: wrap;
+    }
+   .big div{
+    margin: auto;
+    width: 100vw;
+   }
+   .mainImg{
+    object-fit: contain;
+   }
+    .picture img{
+        margin: auto;
+        width: 100%;
+    }
+    .content{
+        margin: auto;
+        width: 100%;
+    }
+    #pincode{
+        width: 50vw;
+    }
+    .location>.locationDiv1 >div{
+        margin: auto;
+    }
+    .box{
+        display: flex;
+        width: 10vw;
+        margin: auto;
+        flex-wrap: wrap;
+        border: 0px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    #check{
+        width: 5vw;
+    }
+    .locationDiv1{
+display: flex;
+flex-wrap: wrap;
+margin: auto;
+    }
+    .picture{
+        justify-content: center;
+        width: 100vw;
+        margin: auto;
+        margin-top: 150px;
+        flex-direction: column-reverse;
+    }
+    .parentDiv>.picture .small{
+        /* display: flex; */
+        /* flex-wrap: wrap; */
+        flex-direction: row;
+        width: 100vw;
+        height: 30vw;
+        margin: auto;
+    }
+    .picture{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .content{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
