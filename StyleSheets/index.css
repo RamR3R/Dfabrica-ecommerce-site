@@ -578,12 +578,14 @@ border-radius: 5px;
 @media screen and (max-width:500px){
   .parentFoot div{
     justify-content: center;
+
     margin: auto;
   }
  
   .navBar{
     
     height: 35vh;
+
     width: 100%;
     margin-left: -10px;
     margin-right: -10px;

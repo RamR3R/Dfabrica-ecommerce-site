@@ -91,16 +91,16 @@
       </div>
     </div>
     <div id="main">
-        <h1 class="heading">Men Clothing <span id="total-count">(total count)</span></h1>
+        <h1 class="heading">Men Clothing <span id="cat-filters"></span><span id="total-count">(total count)</span></h1>
         <div class="child1">
             <h3 class="filter-heading">FILTERS</h3>
             <div class="dropdown">
                 <span>SORT BY</span>
-                <div class="dropdown-content">
-                <p id="popular">Popular</p>
-                <p id="lowTohigh">Price: Low to High</p>
-                <p id="highTolow">Price: high to Low</p>
-                </div>
+                <select class="dropdown-content" id="filter-sorting-whole">
+                <option id="optionopular" value="rating">Popular</option>
+                <option id="lowTohigh" value="asc">Price: Low to High</option>
+                <option id="highTolow" value="desc">Price: high to Low</option>
+                </select>
             </div>
         </div>
         
