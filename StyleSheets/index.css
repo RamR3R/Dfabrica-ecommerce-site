@@ -477,105 +477,10 @@ width: 100%;
   .top {
     width: 100vh;
     margin: auto;
-  }
-  .topNav {
-    margin: auto;
-    width: 60%;
-    display: flex;
-  }
-  .search {
-    padding: 15px;
-    width: 30vw;
-    display: flex;
-    flex-wrap: wrap;
-  }
+  } 
+  .navBar{ 
+    height: 35vh;
 
-  .category {
-    width: 50vw;
-    display: flex;
-  }
-
-  .cont {
-    
-    width: 100vw;
-    display: flex;
-  }
-
-  .mainSlider {
-    width: 100vw;
-    display: flex;
-    padding: 10px;
-  }
-
-  .slider1 {
-    display: flex;
-    /* flex-wrap: wrap; */
-    width: 80%;
-    margin: auto;
-    height: 80%;
-    scroll-snap-type: x mandatory;
-    padding: 0 10vw;
-  }
-
-  .slider1 div {
-    width: 100%;
-    display: flex;
-    padding: 5px;
-    flex-wrap: wrap;
-    margin: auto;
-    position: relative;
-    
-  }
-
-  .wideAd1 {
-    width: 100%;
-    display: flex;
-    margin: auto;
-  }
-.wideAd1 img{
-  margin: auto;
-  width: 100%;
-}
-  .wideAd2>h3{
-    width: 100vw;}
-    .slider2>div{
-      display: flex;
-      margin: auto;
-      justify-content: center;
-      width: 80vw;}
-
-
-      .slider2>div>img{
-        width: 50vw;
-        margin: 10px;
-        }
-        .slider3{
-          display: flex;
-          justify-content: center;
-          width: 100vw;
-          margin: auto;
-          flex-wrap: wrap;
-        }
-        .slider3>div{
-          display: flex;
-          margin: auto;
-          justify-content: center;
-          width: 80vw;
-          /* border: 1px solid red; */
-          cursor: pointer;
-          }
-
-          .slider3>div>img{
-            width: 50vw;
-            margin: 10px;
-            }
-            .slider3>h3{
-              width: 100vw;}
-
-.childFoot>div{
-display: flex;
-align-items: center;
-flex-direction: column;
     width: 100%;
     margin-left: -10px;
     margin-right: -10px;
