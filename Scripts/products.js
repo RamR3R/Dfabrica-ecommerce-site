@@ -298,6 +298,7 @@ item.addEventListener("mouseleave",()=>{
 
 let pincode = document.getElementById("pincode");
 let check = document.getElementById("check");
+let deliveryCity = "";
 
 check.addEventListener("click",(e)=>{
   renderLocationData(pincode.value);
@@ -313,6 +314,8 @@ function renderLocationData(pincode){
         console.log(data);
         console.log(data.results[0])
         let location  = data.results[0].geometry.location;
+        let l = data.results[0].address_components.length;
+        deliveryCity = data.results[0].address_components[l-3].long_name +" , " +data.results[0].address_components[l-2].long_name;;
         localStorage.setItem("user-location",JSON.stringify(location));
 
         let source = `12.93423191547288,77.61282013902306`; //masai office coordinates    
@@ -352,7 +355,6 @@ function setArrivalTime(distance){
   distance = distance.split(",").join("");
       distance = Number(distance);
       let esti = document.getElementById("estimated-arrival");
-      esti.innerText = "";
       let days = 1;
       while(distance>0){
         days++;
@@ -371,8 +373,8 @@ function setArrivalTime(distance){
       console.log(currentDate);
       const day = currentDate.getDate();
       console.log(`Arriving on  ${months[currentDate.getMonth()]} ${day}`);
-
-      esti.innerText = `${day+days} ${months[currentDate.getMonth()]}`;
+      esti.innerText = "";
+      esti.innerText = `Delivered By ${day+days} ${months[currentDate.getMonth()]} in ${deliveryCity}`;
       let ddate = `${day+days} ${months[currentDate.getMonth()]}`;
       localStorage.setItem("delivery-data",`${day+days} ${months[currentDate.getMonth()]}`);
 }

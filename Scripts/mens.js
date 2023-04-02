@@ -8,7 +8,7 @@ let countryData = JSON.parse(localStorage.getItem("userCountry"))||["https://cdn
 
 
 flags.addEventListener("click",()=>{
-  BotCountry.style.display="flex";
+  BotCountrys.style.display="flex";
   countrys.style.display="flex";
 })
 closes.addEventListener("click",()=>{
@@ -58,12 +58,15 @@ sort.addEventListener("change",()=>{
 async function renderData(urlMen,pageNumber){
   let totalData;
   let totalButtons;
+  if(cat)
+      {
+        urlMen +=cat;
+      }
   try {
     loader.style.display = 'block';
     let res = await fetch(urlMen);
     let data = await res.json(); 
-    totalData=data.length;
-    totalcount.innerText=`(${totalData})`;
+    totalcount.innerText=`(${data.length})`;
     totalButtons= Math.ceil(totalData/9);
     paginationwrapper.innerHTML = null;
     loader.style.display = 'none';
@@ -75,10 +78,6 @@ async function renderData(urlMen,pageNumber){
     console.log(error)
   }
     try {
-      if(cat)
-      {
-        urlMen +=cat;
-      }
       console.log(urlMen);
         let res = await fetch(`${urlMen}&_limit=9&_page=${pageNumber}`);
         console.log(res.headers);
@@ -206,11 +205,18 @@ let catfilter = document.getElementsByClassName("cat");
 for(let i=0;i<catfilter.length;i++){
   catfilter[i].addEventListener("click",()=>{
     console.log(cat,catfilter[i].innerText);
-    cat = catfilter[i].innerText;
+    if(cat == `&category=${catfilter[i].innerText}`){
+    cat = "";
+    }
+    else
+    cat = `&category=${catfilter[i].innerText}`;
+    let dispcat = document.getElementById("cat-filters");
+    dispcat.innerText = `/ ${catfilter[i].innerText} `;
     renderData(urlMens,1);
   })
 }
 
+let rateFilter = document.getElementsByClassName("")
 
 
 
