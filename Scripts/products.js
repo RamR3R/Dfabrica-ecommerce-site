@@ -7,8 +7,8 @@ let flag=document.querySelector(".flag")
 let img=document.querySelector(".flag>img")
 let close=document.querySelector(".close")
 let BotCountry=document.querySelector(".botCountry")
-let flagDelivery=document.querySelector(".flagDelivery")
-let countryData = JSON.parse(localStorage.getItem("userCountry"));
+// let flagDelivery=document.querySelector(".flagDelivery")
+let countryData = JSON.parse(localStorage.getItem("userCountry"))||["https://cdn-icons-png.flaticon.com/512/3909/3909444.png","India"];
 
 
 flag.addEventListener("click",()=>{
@@ -24,7 +24,7 @@ close.addEventListener("click",()=>{
 document.querySelector(".sc1").addEventListener("click",(e)=>{
   country.style.display="none";
   BotCountry.style.display="none";
-  flagDelivery.src="https://cdn-icons-png.flaticon.com/512/3909/3909444.png"
+  // flagDelivery.src="https://cdn-icons-png.flaticon.com/512/3909/3909444.png"
   localStorage.setItem("currency","inr");
   localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/3909/3909444.png","India"]));
   window.location.reload()
@@ -32,7 +32,7 @@ document.querySelector(".sc1").addEventListener("click",(e)=>{
 document.querySelector(".sc2").addEventListener("click",()=>{
   country.style.display="none";
   BotCountry.style.display="none";
-  flagDelivery.src="https://cdn-icons-png.flaticon.com/512/197/197484.png"
+  // flagDelivery.src="https://cdn-icons-png.flaticon.com/512/197/197484.png"
   localStorage.setItem("currency","usd");
   localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/197/197484.png","USA"]));
   window.location.reload()
@@ -40,17 +40,38 @@ document.querySelector(".sc2").addEventListener("click",()=>{
 document.querySelector(".sc3").addEventListener("click",()=>{
   country.style.display="none";
   BotCountry.style.display="none";
-  flagDelivery.src="https://cdn-icons-png.flaticon.com/512/197/197374.png"
+  // flagDelivery.src="https://cdn-icons-png.flaticon.com/512/197/197374.png"
   localStorage.setItem("currency","pound");
   localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/197/197374.png","UK"]));
   window.location.reload()
 })
 
 img.src=countryData[0]
-flagDelivery.src=countryData[0]
+// flagDelivery.src=countryData[0]
 
 // -----------------------------------------------------
-let data=JSON.parse(localStorage.getItem("product"))
+let productObj = {
+  "id": 1,
+  "name": "Women's Pink Relaxed Fit Puffer Jacket",
+  "image1": "https://images.bewakoof.com/t1080/women-s-rose-solid-puffer-jackets-498989-1665663674-6.jpg",
+  "image2": "https://images.bewakoof.com/t1080/women-s-rose-solid-puffer-jackets-498989-1665663658-3.jpg",
+  "image3": "https://images.bewakoof.com/t1080/women-s-rose-solid-puffer-jackets-498989-1665663669-5.jpg",
+  "image4": "https://images.bewakoof.com/t1080/women-s-rose-solid-puffer-jackets-498989-1665663664-4.jpg",
+  "price-inr": 3499,
+  "price-usd": 44,
+  "price-pound": 35,
+  "discount": 70,
+  "discountPriceInr": 1050,
+  "discountPriceUsd": 13,
+  "discountPricePound": 11,
+  "description": "[`Relaxed fit - Fits just right, not too tight not too loose`,`100% Nylon fabric is strong, durable and lightweight.`]",
+  "sex": "F",
+  "category": "Winterwear",
+  "stock": 31,
+  "size": "[S,M,L,XL,XXL]",
+  "rating": 3.9
+}
+let data=JSON.parse(localStorage.getItem("product")) || productObj
 console.log(data)
 // data=data[0]
 function stringToArray(string){
@@ -93,19 +114,19 @@ function displayData(data){
     smallImg[1].src=e.image3;
     smallImg[2].src=e.image2;
     smallImg[3].src=e.image1;
-
-    if(countryData[1]==="India"){
-      price.innerHTML="₹"+e["price-inr"];
-      discountedPrice.innerText=`₹${Math.ceil(e["price-inr"]-(e["price-inr"]*e.discount)/100)}`;
-    }
-    if(countryData[1]==="USA"){
-      price.innerHTML="$"+e["price-usd"];
-      discountedPrice.innerText=`$${Math.ceil(e["price-usd"]-(e["price-usd"]*e.discount)/100)}`;
-    }
-    if(countryData[1]==="UK"){
-      price.innerHTML="£"+e["price-pound"];
-      discountedPrice.innerText=`£${Math.ceil(e["price-pound"]-(e["price-pound"]*e.discount)/100)}`;
-    }
+  
+  if(countryData[1]==="India"){
+    price.innerHTML="₹"+e["price-inr"]
+    discountedPrice.innerText=`₹${productObj.discountPriceInr}`;
+  }
+  if(countryData[1]==="USA"){
+    price.innerHTML="$"+e["price-usd"]
+    discountedPrice.innerText=`$${productObj.discountPriceUsd}`;
+  }
+  if(countryData[1]==="UK"){
+    price.innerHTML="£"+e["price-pound"]
+    discountedPrice.innerText=`£${productObj.discountPricePound}`;
+  }
 
     discount.innerText=e.discount+"%";
     rating.innerText=e.rating;
@@ -271,3 +292,87 @@ item.addEventListener("mouseleave",()=>{
 
 // ------------------------------------------------
 // add to cart function
+
+//____________________________________________________________________________________________________
+//  geting delivery status using google api don't Edit bro
+
+let pincode = document.getElementById("pincode");
+let check = document.getElementById("check");
+
+check.addEventListener("click",(e)=>{
+  renderLocationData(pincode.value);
+})
+
+
+
+function renderLocationData(pincode){
+  console.log(pincode);
+  fetch(`https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAiLQ70ekD061TSmXQK007xKOCJHaUystk&components=postal_code:${pincode}`)
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data);
+        console.log(data.results[0])
+        let location  = data.results[0].geometry.location;
+        localStorage.setItem("user-location",JSON.stringify(location));
+
+        let source = `12.93423191547288,77.61282013902306`; //masai office coordinates    
+        var destination = new google.maps.LatLng(location.lat,location.lng);
+
+        var service = new google.maps.DistanceMatrixService();
+        service.getDistanceMatrix(
+          {
+            origins: [source],
+            destinations: [destination],
+            travelMode: 'DRIVING',            
+            unitSystem: google.maps.UnitSystem.METRIC,
+            durationInTraffic: true,
+            avoidHighways: false,
+            avoidTolls: false
+          }, response_out);
+    
+          function response_out(response, status) {
+          if (status !== google.maps.DistanceMatrixStatus.OK || status != "OK"){
+            console.log('Error:', status);
+            alert(status);
+          }else{
+               distance = response.rows[0].elements[0].distance.text;
+               duration = response.rows[0].elements[0].duration.text;
+               console.log(distance.slice(0,-2));
+               setArrivalTime(distance.slice(0,-2));
+               
+          }
+        }
+      
+      })
+      .catch(err=>console.log(err));
+}
+
+
+function setArrivalTime(distance){
+  distance = distance.split(",").join("");
+      distance = Number(distance);
+      let esti = document.getElementById("estimated-arrival");
+      esti.innerText = "";
+      let days = 1;
+      while(distance>0){
+        days++;
+        distance-= 200;
+        console.log(days);
+      }
+      console.log(days);
+      if(days>10)
+      {
+        alert("Product Not avilable in the given Pincode change and check it");
+        return 0;
+      }
+      
+      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      const currentDate = new Date();
+      console.log(currentDate);
+      const day = currentDate.getDate();
+      console.log(`Arriving on  ${months[currentDate.getMonth()]} ${day}`);
+
+      esti.innerText = `${day+days} ${months[currentDate.getMonth()]}`;
+      let ddate = `${day+days} ${months[currentDate.getMonth()]}`;
+      localStorage.setItem("delivery-data",`${day+days} ${months[currentDate.getMonth()]}`);
+}

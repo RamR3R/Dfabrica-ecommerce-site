@@ -9,11 +9,13 @@
 #main {
     width: 90%;
     margin: auto;
+    margin-top: 150px;
 }
 .child1,.child2  {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    /* border: 1px solid red; */
 }
 .child1 {
     padding-right: 30px;
@@ -23,38 +25,71 @@
     box-sizing: border-box;
     align-items: center;
 }
-.filter-heading {
+/* .filter-heading {
     position: fixed;
-} 
-.sort-by {
-    position: relative;
-    left: 90%;
-}
+}  */
 .filters {
     padding-right: 20px;
     width: 20%;
     display: flex;
     flex-direction: column;
-    position: fixed;
+    /* position: fixed; */
+    /* border: 1px solid red; */
+
 }
-.filter{
-    align-items: center;
-    padding: 20px;
-    border-radius: 10px;
-    height: 30px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-.filter span {
-    font-size: 150%;
-}
+
 #card-container {
 width: 80%;
 display: grid;
 grid-template-columns: repeat(3,1fr);
 gap: 20px;
-position: relative;
-left: 23%;
+/* position: relative;
+left: 23%; */
+/* border: 1px solid red; */
+
 }
+
+@media screen and (max-width:500px){
+  .content {
+    /* display: block; */
+    flex-direction: column;
+  }
+  .child1 {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 60%;
+  }
+  .child2 {
+    display: block;
+    align-items: center;
+    margin: auto;
+  }
+  #card-container {
+    grid-template-columns: repeat(1,1fr);
+    margin-top: 30px;
+    position: static;
+    margin: auto;
+    }
+  .filters {
+    box-sizing: border-box;
+    margin: auto;
+    position: static;
+    flex-direction: row;
+    width: 100%;
+  }
+  .filter-heading {
+    position: static;
+} 
+.collapsible {
+  display: flex;
+  flex-direction: column;
+}
+
+ }
+
+
+
 #card-container div img{
     width: 100%;
     border-radius: 10px ;
@@ -66,9 +101,8 @@ padding: 10px;
 }
 
 .dropdown {
-
-    position: relative;
-    display: inline-block;
+  display: inline-block;
+  margin-right: 50px;
   }
   
   .dropdown-content {
@@ -181,5 +215,7 @@ padding: 10px;
      box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
     }
    }
+
+   
 /* CSS for both the mens and womens page are same so one file is enough to be create 
 link both the index.css and this file with the mens and womens.html pages   */

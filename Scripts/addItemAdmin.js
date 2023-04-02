@@ -75,6 +75,7 @@ form.addEventListener("submit", async (e) => {
       let productTotalData = parseInt(totalProduct.innerText);
       totalProduct.innerText = ++productTotalData;
 
+      alert("Item added Successfully");
       form.reset();
     }
   } catch (error) {
