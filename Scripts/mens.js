@@ -1,42 +1,42 @@
 
-let country=document.querySelector(".country")
-let flag=document.querySelector(".flag")
-let img=document.querySelector(".flag>img")
-let close=document.querySelector(".close")
-let BotCountry=document.querySelector(".botCountry")
+let countrys=document.querySelector(".country")
+let flags=document.querySelector(".flag")
+let imgs=document.querySelector(".flag>img")
+let closes=document.querySelector(".close")
+let BotCountrys=document.querySelector(".botCountry")
 let countryData = JSON.parse(localStorage.getItem("userCountry"))||["https://cdn-icons-png.flaticon.com/512/3909/3909444.png","India"];
 
 
-flag.addEventListener("click",()=>{
+flags.addEventListener("click",()=>{
   BotCountry.style.display="flex";
-  country.style.display="flex";
+  countrys.style.display="flex";
 })
-close.addEventListener("click",()=>{
-  BotCountry.style.display="none";
-  country.style.display="none";
+closes.addEventListener("click",()=>{
+  BotCountrys.style.display="none";
+  countrys.style.display="none";
  })
  
  
 document.querySelector(".sc1").addEventListener("click",(e)=>{
-  country.style.display="none";
-  BotCountry.style.display="none";
+  countrys.style.display="none";
+  BotCountrys.style.display="none";
   localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/3909/3909444.png","India"]));
   window.location.reload()
 })
 document.querySelector(".sc2").addEventListener("click",()=>{
-  country.style.display="none";
-  BotCountry.style.display="none";
+  countrys.style.display="none";
+  BotCountrys.style.display="none";
   localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/197/197484.png","USA"]));
   window.location.reload()
 })
 document.querySelector(".sc3").addEventListener("click",()=>{
-  country.style.display="none";
-  BotCountry.style.display="none";
+  countrys.style.display="none";
+  BotCountrys.style.display="none";
   localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/197/197374.png","UK"]));
   window.location.reload()
 })
 
-img.src=countryData[0]
+imgs.src=countryData[0]
 // link with mens.html and write the funtionalities
 let urlMens="https://dfabrica-data-app.onrender.com/products?sex=M";
 let paginationwrapper=document.getElementById("pagination-wrapper");
@@ -45,25 +45,16 @@ let cardContainer = document.getElementById("card-container");
 let loader = document.querySelector(".loader");
 loader.style.display = 'block';
 let totalcount = document.getElementById("total-count");
+let cat ="";
+let rate = 0;
+let dis = 0;
+let sort = document.getElementById("filter-sorting-whole");
 
-let lTh = document.getElementById("lowTohigh");
-let hTl = document.getElementById("highTolow");
-
-let popular = document.getElementById("popular");
-popular.addEventListener("click",()=>{
+sort.addEventListener("change",()=>{
   renderData(urlMens,1);
 })
 
-let url;
 
-lTh.addEventListener("click",()=>{
-  url=`${urlMens}&_sort=discountPriceInr&_order=asc`;
-  renderData(url,1);
-});
-hTl.addEventListener("click",()=>{
- url=`${urlMens}&_sort=discountPriceInr&_order=desc`;
-  renderData(url,1);
-})
 async function renderData(urlMen,pageNumber){
   let totalData;
   let totalButtons;
@@ -84,10 +75,28 @@ async function renderData(urlMen,pageNumber){
     console.log(error)
   }
     try {
-      
+      if(cat)
+      {
+        urlMen +=cat;
+      }
+      console.log(urlMen);
         let res = await fetch(`${urlMen}&_limit=9&_page=${pageNumber}`);
         console.log(res.headers);
         let data = await res.json();
+        if(sort)
+        {
+            if(sort.value=="rating")
+            {
+              data.sort((a,b)=>a.rating-b.rating);
+            }
+            else if(sort.value=="asc")
+            {
+              data.sort((a,b)=>a.discountPriceInr-b.discountPriceInr);
+            }
+            else{
+              data.sort((a,b)=>b.discountPriceInr-a.discountPriceInr);
+        }
+        }
          displayData(data);
          console.log(data);
          console.log(data.length);
@@ -196,8 +205,9 @@ function getAsButton(urlMen,text, dataId) {
 let catfilter = document.getElementsByClassName("cat");
 for(let i=0;i<catfilter.length;i++){
   catfilter[i].addEventListener("click",()=>{
-    let catUrl=`${urlMens}&category=${catfilter[i].innerText}`;
-    renderData(catUrl,1);
+    console.log(cat,catfilter[i].innerText);
+    cat = catfilter[i].innerText;
+    renderData(urlMens,1);
   })
 }
 
