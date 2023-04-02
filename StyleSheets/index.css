@@ -582,13 +582,16 @@ border-radius: 5px;
  
   .navBar{
     
-    height: 30vh;
+    height: 35vh;
     width: 100%;
+    margin-left: -10px;
+    margin-right: -10px;
   }
   .childBar1{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    gap: 10px;
     margin-left: 80px;
   }
   .childBar2{
