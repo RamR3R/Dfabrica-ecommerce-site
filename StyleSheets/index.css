@@ -2,7 +2,7 @@
   margin: 0px;
   padding: 0px;
 }
-@import url('https://fonts.googleapis.com/css?family=Poppins'); 
+
 /* 
   The main CSS file with the CSS prop of NAV header and footer part of the page 
   and other Css for all the adds and things which is to be added in the Index.html page
@@ -13,74 +13,6 @@
   <3
 */
 *{
-   font-family:'Poppins';
-    /* font-family: monospace; */
-    text-align: center;
-    /* font-size: xx-large; */
-   }
-   body{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    /* background-color: white; */
-   }
-   .loader{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: 100000;
-    top: 50%;
-    bottom: 50%;
-    left:50%;
-    right:50%
-   }
-   #loader {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #0099ff;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 2s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-    a{
-        text-decoration: none;
-        color: black;
-    }
-    
-    .navBar{
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        border-bottom: 1px solid silver;
-        align-items: center;
-        padding: 5px;
-        height: 120px;
-       /* border-bottom: 1px solid violet; */
-       background-color: white;
-       position: fixed;
-       top: 0%;
-       z-index: 9;
-       margin: auto;
-    }
-    .top{
-        width: 100vw;
-        background-color: silver;
-        align-items: center;
-
-        
-    }
-    .topNav{
-        margin: auto;
-        width: 60vw;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
   
  
   font-family: monospace;
@@ -99,7 +31,7 @@
   }
   
   .navBar{
-      width: 100vw;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -114,10 +46,11 @@
      z-index: 9;
   }
   .top{
-      width: 100vh;
-      margin: auto;
+      width: 100%;
       background-color: silver;
-      align-items: center;      
+      align-items: center;
+
+      
   }
   .topNav{
       margin: auto;
@@ -146,27 +79,24 @@
   font-size:larger;
   color: silver;
  }
-
-
-
-
+ 
  .childBar1{
   width: 50%;
   display: flex;
   align-items: center;
   justify-content: start;
-  /* margin-top:100px ; */
  }
  .childBar1>a{
   margin-right: 20px;
  }
  .childBar2{
   display: flex;
-  flex-direction: row;
   justify-content: end;
   align-items: center;
  }
-
+ .childBar2>a{
+  margin-left: 20px;
+ }
  .navbarBrand{
   width: 150px;
   align-items: center;
@@ -178,16 +108,14 @@
  }
  .search{
   padding: 15px;
-  width: 30vw;
+  width: 300px;
   background-color: rgb(245, 240, 240);
   border: 0px;
   border-radius: 10px;
-  display: flex;
-  flex-wrap: wrap;
   padding: 10px 30px;
  }
  .category{
-  width: 50vw;
+  width: 50%;
   /* border: 1px solid red; */
   display: flex;
   margin: 10px auto 10px auto;
@@ -205,31 +133,21 @@
 
 /* --------------------------------------------------------------------- */
 .cont {
-  width: 100vw;
-  display: flex;
 position: relative;
 overflow: hidden;
 padding: 20px;
-margin: auto;
 }
 .mainSlider {
-width: 100vw;
+width: 100%;
 display: flex;
 overflow-x: auto;
 scroll-behavior: smooth;
-margin: auto;
-}
-.mainSlider div{
-
-  display: flex;
-  margin: auto;
 }
 .slider1{
 display: flex;
-/* flex-wrap: wrap; */
-width: 100vw;
+width: 100%;
 margin: auto;
-/* height: 100vw; */
+height: 600px;
 scroll-snap-type: x mandatory;
 padding: 0 10vw;
 overflow-x: auto;
@@ -239,23 +157,20 @@ cursor: pointer;
 .slider1::-webkit-scrollbar {
 display: none;
 }
-.slider1 div{
+.slider1>div{
 width: 100%;
-/* display: flex; */
-/* justify-content: center; */
+display: flex;
+justify-content: center;
 padding: 5px;
-flex-wrap: wrap;
 /* margin: auto; */
 position: relative;
-width: 80%;
-height: 100vh;
+width: 100%;
 
 /* overflow: hidden; */
-/* margin-right: 4vw; */
+margin-right: 40px;
 }
 .slider1 >div>img{
-  /* width: 100%; */
-/* height: 100%; */
+
 object-fit: cover;
 }
 .pre-btn,
@@ -299,7 +214,7 @@ opacity: 100%;
 
 /* -------------------------------------------------------------------------------------- */
 .wideAd1{
-width: 100vw;
+width: 100%;
 display: flex;
 margin: auto;
 padding-top: 5px;
@@ -311,7 +226,7 @@ margin: auto;
 cursor: pointer;
 }
 .wideAd2>h3{
-width: 100vw;
+width: 1000px;
   font-size: 50px;
   margin: auto;
   border: 5px solid violet;
@@ -373,8 +288,8 @@ width: 100vw;
 .search i:before {
   content: '';
   position: absolute;
-  width: 80%;
-  height: 1px;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(90deg, #ff1b69, #ff0, #2196f3, #9c27b0, #ff1b69);
   animation: animate 3s linear infinite;
   top: 0.3em;
@@ -395,6 +310,7 @@ width: 100%;
   margin: auto;
  
  }
+
 .high {
 width: 80%;
 margin: auto;
@@ -529,35 +445,28 @@ opacity: 60%;
 display: flex;
 margin: auto;
 justify-content: center;
-width: 80vw;
+width: 80%;
 cursor: pointer;
 /* border: 1px solid red; */
 }
 .slider2>div>img{
-width: 50vw;
+width: 50%;
 margin: 10px;
-}
-.slider3{
-  display: flex;
-  justify-content: center;
-  width: 100vw;
-  margin: auto;
-  flex-wrap: wrap;
 }
 .slider3>div{
 display: flex;
 margin: auto;
 justify-content: center;
-width: 80vw;
+width: 80%;
 /* border: 1px solid red; */
 cursor: pointer;
 }
 .slider3>div>img{
-width: 50vw;
+width: 100%;
 margin: 10px;
 }
 .slider3>h3{
-width: 100vw;
+width: 1000px;
   font-size: 50px;
   margin: auto;
   border: 5px solid violet;
@@ -570,10 +479,10 @@ width: 100vw;
   box-shadow: 2px -6px 166px -1px rgba(255,51,255,1);
 }
 .parentFoot{
-  /* display: flex; */
 margin-top: 5px;
 padding: 50px;
 background-color: rgb(37, 34, 37);
+
 opacity: 98%;
 }
 .parentFoot p{
@@ -581,14 +490,13 @@ color: gold;
 }
 .childFoot{
 display: flex;
-flex-wrap: wrap;
 justify-content: center;
 }
 .childFoot>div{
 display: flex;
 align-items: center;
 flex-direction: column;
-width: 30vw;
+width: 300px;
 text-align: justify;
 margin: 5px;
 }
@@ -606,7 +514,7 @@ width:80px;
 margin: auto;
 }
 .parentFoot>div:nth-child(1)>a>img{
-width:10vw;
+width:100%
 }
 .parentFoot button{
 background-color: rgb(253, 124, 124);
@@ -623,8 +531,6 @@ padding: 2px;
 border-radius: 5px;
 }
 
-
-
 @media screen and (max-width:415px){
   .parentFoot div{
     justify-content: center;
@@ -634,7 +540,7 @@ border-radius: 5px;
   .navBar{
     
     height: 30vh;
-    /* width: 100%; */
+    width: 100%;
   }
   .childBar1{
     display: flex;
@@ -693,12 +599,6 @@ border-radius: 5px;
   }
   .parentFoot{
     margin: auto ;
-  }
-  .footer{
-    margin: auto;
-  }
-  .parentFoot{
-    margin: auto;
   }
  }
  @media screen and (max-width:768px) and (min-width:415px){
