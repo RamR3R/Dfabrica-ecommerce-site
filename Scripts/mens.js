@@ -42,7 +42,8 @@ let urlMens="https://dfabrica-data-app.onrender.com/products?sex=M";
 let paginationwrapper=document.getElementById("pagination-wrapper");
 
 let cardContainer = document.getElementById("card-container");
-
+let loader = document.querySelector(".loader");
+loader.style.display = 'block';
 let totalcount = document.getElementById("total-count");
 
 let lTh = document.getElementById("lowTohigh");
@@ -66,16 +67,17 @@ async function renderData(urlMen,pageNumber){
   let totalData;
   let totalButtons;
   try {
-    let res = await fetch(urlMen);
+    loader.style.display = 'block';
+    let res = await fetch(urlMens)
     let data = await res.json();
     totalData=data.length;
     totalcount.innerText=`(${totalData})`;
     totalButtons= Math.ceil(totalData/9);
     paginationwrapper.innerHTML = null;
+    loader.style.display = 'none';
 
       for (let i = 1; i <= totalButtons; i++) {
-        paginationwrapper.append(getAsButton(urlMen,i, i));
-        console.log(i);
+        paginationwrapper.append(getAsButton(urlMens,i, i));
       }
   } catch (error) {
     console.log(error)
@@ -176,9 +178,11 @@ for (let i = 0; i < coll.length; i++) {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
     if (content.style.display === "block") {
+      coll[i].style.borderRadius = "20px";
       content.style.display = "none";
     } else {
       content.style.display = "block";
+      coll[i].style.borderRadius = "20px 20px 0px 0px";
     }
   });
 }

@@ -2,7 +2,8 @@
 // link with mens.html and write the funtionalities
 let urlMens="https://dfabrica-data-app.onrender.com/products?sex=F";
 let paginationwrapper=document.getElementById("pagination-wrapper");
-
+let loader = document.querySelector(".loader");
+loader.style.display = 'block';
 let cardContainer = document.getElementById("card-container");
 
 let totalcount = document.getElementById("total-count");
@@ -28,16 +29,17 @@ async function renderData(urlMen,pageNumber){
   let totalData;
   let totalButtons;
   try {
-    let res = await fetch(urlMen);
+    loader.style.display = 'block';
+    let res = await fetch(urlWomens);
     let data = await res.json();
     totalData=data.length;
+    loader.style.display = 'none';
     totalcount.innerText=`(${totalData})`;
     totalButtons= Math.ceil(totalData/9);
     paginationwrapper.innerHTML = null;
 
       for (let i = 1; i <= totalButtons; i++) {
-        paginationwrapper.append(getAsButton(urlMen,i, i));
-        console.log(i);
+        paginationwrapper.append(getAsButton(urlWomens,i, i));
       }
   } catch (error) {
     console.log(error)
@@ -119,9 +121,11 @@ for (let i = 0; i < coll.length; i++) {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
     if (content.style.display === "block") {
+      coll[i].style.borderRadius = "20px";
       content.style.display = "none";
     } else {
       content.style.display = "block";
+      coll[i].style.borderRadius = "20px 20px 0px 0px";
     }
   });
 }
