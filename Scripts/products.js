@@ -107,14 +107,13 @@ let cart=JSON.parse(localStorage.getItem("cart"))||[];
 let wish=JSON.parse(localStorage.getItem("wish"))||[];
 
 function displayData(data){
-  data.forEach((e) => {
-    mainImg.src=e.image4
-  smallImg[0].src=e.image4
-  smallImg[1].src=e.image3
-  smallImg[2].src=e.image2  
-  smallImg[3].src=e.image1  
 
-  
+  data.forEach((e) => {
+    mainImg.src=e.image4;
+    smallImg[0].src=e.image4;
+    smallImg[1].src=e.image3;
+    smallImg[2].src=e.image2;
+    smallImg[3].src=e.image1;
   
   if(countryData[1]==="India"){
     price.innerHTML="₹"+e["price-inr"]
@@ -128,75 +127,75 @@ function displayData(data){
     price.innerHTML="£"+e["price-pound"]
     discountedPrice.innerText=`£${productObj.discountPricePound}`;
   }
-  
-  discount.innerText=e.discount+"%"
-  rating.innerText=e.rating
-  nameOfProduct.innerHTML=e.name
 
-  
-let ul = document.createElement("ul");
-let desc = stringToArray(e.description);
-console.log(desc);
-desc.forEach((ele) => {
-  
-  let li = document.createElement("li");
-  li.innerText = ele;
-  ul.append(li);
-});
-  detailsProduct.append(ul)
-  categoryOfProduct.innerText=`Category:${e.category}`
+    discount.innerText=e.discount+"%";
+    rating.innerText=e.rating;
+    nameOfProduct.innerHTML=e.name;
 
+    let ul = document.createElement("ul");
+    let desc = stringToArray(e.description);
+    console.log(desc);
+    desc.forEach((ele) => {
+      let li = document.createElement("li");
+      li.innerText = ele;
+      ul.append(li);
+    });
+    detailsProduct.append(ul);
+    categoryOfProduct.innerText=`Category:${e.category}`;
 
+    let productData={
+      "id": e.id,
+      "name": e.name,
+      "image1": e.image1,
+      "image2": e.image2,
+      "image3": e.image3,
+      "image4": e.image4,
+      "price-inr": e["price-inr"],
+      "price-usd": e["price-usd"],
+      "price-pound": e["price-pound"],
+      "discount": e.discount,
+      "description": e.description,
+      "sex": e.sex,
+      "category": e.category,
+      "stock": e.stock,
+      "size": e.size,
+      "rating":e.rating,
+      "quantity":1,
+    };
 
+    cartBtn.addEventListener("click",()=>{
+      cartBtn.innerHTML="Added To Bag";
+      cartBtn.style.backgroundColor="blueviolet";
+      cartBtn.style.padding="10px";
 
-  let productData={
-    "id": e.id,
-    "name": e.name,
-    "image1": e.image1,
-    "image2": e.image2,
-    "image3": e.image3,
-    "image4": e.image4,
-    "price-inr": e["price-inr"],
-    "price-usd": e["price-usd"],
-    "price-pound": e["price-pound"],
-    "discount": e.discount,
-    "description": e.description,
-    "sex": e.sex,
-    "category": e.category,
-    "stock": e.stock,
-    "size": e.size,
-    "rating":e.rating
-};
-
-
-
-cartBtn.addEventListener("click",()=>{
-  cartBtn.innerHTML="Added To Bag"
-  cartBtn.style.backgroundColor="blueviolet";
-  cartBtn.style.padding="10px"
-  cart.push(productData)
-  localStorage.setItem("cart", JSON.stringify(cart));
-        })
+      // Check if the product is already in the cart
+      let itemInCart = cart.find((item) => item.id === productData.id);
+      if (itemInCart) {
+        alert("This item is already in your cart!");
+      } else {
+        cart.push(productData);
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }
+    });
         
-console.log(productData.id)
-        wishBtn.addEventListener("click",()=>{
-          
-          wishBtn.innerHTML="Wishlisted"
-  wishBtn.style.backgroundColor="red";
-  wishBtn.style.padding="10px"
-          wish.push(productData)
+    console.log(productData.id);
+    wishBtn.addEventListener("click",()=>{
+      wishBtn.innerHTML="Wishlisted";
+      wishBtn.style.backgroundColor="red";
+      wishBtn.style.padding="10px";
 
-          
-         localStorage.setItem("wish", JSON.stringify(wish));
-         
-          })
-         
-
-                })
-
-
- 
+      // Check if the product is already in the wish list
+      let itemInWishList = wish.find((item) => item.id === productData.id);
+      if (itemInWishList) {
+        alert("This item is already in your wish list!");
+      } else {
+        wish.push(productData);
+        localStorage.setItem("wish", JSON.stringify(wish));
+      }
+    });
+  });
 }
+
 
 displayData(data)
 // displayData(dummyData)
