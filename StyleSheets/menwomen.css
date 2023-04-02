@@ -9,6 +9,7 @@
 #main {
     width: 90%;
     margin: auto;
+    margin-top: 150px;
 }
 .child1,.child2  {
     width: 100%;
@@ -180,6 +181,17 @@ padding: 10px;
     100% {
      box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
     }
+   }
+
+   @media screen and (max-width:414px){
+    #card-container {
+      grid-template-columns: repeat(1,1fr);
+      }
+   }
+   @media screen and (max-width:768px) and (min-width:415px){
+    #card-container {
+      grid-template-columns: repeat(2,1fr);
+      }
    }
 /* CSS for both the mens and womens page are same so one file is enough to be create 
 link both the index.css and this file with the mens and womens.html pages   */
