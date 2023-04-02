@@ -48,6 +48,7 @@ let totalcount = document.getElementById("total-count");
 
 let lTh = document.getElementById("lowTohigh");
 let hTl = document.getElementById("highTolow");
+
 let popular = document.getElementById("popular");
 popular.addEventListener("click",()=>{
   renderData(urlMens,1);
@@ -68,8 +69,8 @@ async function renderData(urlMen,pageNumber){
   let totalButtons;
   try {
     loader.style.display = 'block';
-    let res = await fetch(urlMens)
-    let data = await res.json();
+    let res = await fetch(urlMen);
+    let data = await res.json(); 
     totalData=data.length;
     totalcount.innerText=`(${totalData})`;
     totalButtons= Math.ceil(totalData/9);
@@ -77,7 +78,7 @@ async function renderData(urlMen,pageNumber){
     loader.style.display = 'none';
 
       for (let i = 1; i <= totalButtons; i++) {
-        paginationwrapper.append(getAsButton(urlMens,i, i));
+        paginationwrapper.append(getAsButton(urlMen,i, i));
       }
   } catch (error) {
     console.log(error)
@@ -130,14 +131,6 @@ function displayData(data){
     cutline.innerText="£"+ele["price-pound"]
     price.innerText=`£${Math.ceil(ele["price-pound"]-(ele["price-pound"]*ele.discount)/100)}`;
   }
-
-        // price.innerText=`₹${Math.ceil(ele["price-inr"]-(ele["price-inr"]*ele.discount)/100)}`;
-
-        
-        
-
-        
-        // cutline.innerText=`₹ ${ele["price-inr"]}`;
         MRP.append(cutline);
 
         cardDiv.append(image,brandName,productName,price,discount,MRP);

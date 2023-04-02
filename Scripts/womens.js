@@ -1,15 +1,54 @@
 
+let country=document.querySelector(".country")
+let flag=document.querySelector(".flag")
+let img=document.querySelector(".flag>img")
+let close=document.querySelector(".close")
+let BotCountry=document.querySelector(".botCountry")
+let countryData = JSON.parse(localStorage.getItem("userCountry"));
+
+
+flag.addEventListener("click",()=>{
+  BotCountry.style.display="flex";
+  country.style.display="flex";
+})
+close.addEventListener("click",()=>{
+  BotCountry.style.display="none";
+  country.style.display="none";
+ })
+ 
+ 
+document.querySelector(".sc1").addEventListener("click",(e)=>{
+  country.style.display="none";
+  BotCountry.style.display="none";
+  localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/3909/3909444.png","India"]));
+  window.location.reload()
+})
+document.querySelector(".sc2").addEventListener("click",()=>{
+  country.style.display="none";
+  BotCountry.style.display="none";
+  localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/197/197484.png","USA"]));
+  window.location.reload()
+})
+document.querySelector(".sc3").addEventListener("click",()=>{
+  country.style.display="none";
+  BotCountry.style.display="none";
+  localStorage.setItem("userCountry", JSON.stringify(["https://cdn-icons-png.flaticon.com/512/197/197374.png","UK"]));
+  window.location.reload()
+})
+
+img.src=countryData[0]
 // link with mens.html and write the funtionalities
 let urlMens="https://dfabrica-data-app.onrender.com/products?sex=F";
 let paginationwrapper=document.getElementById("pagination-wrapper");
+
+let cardContainer = document.getElementById("card-container");
 let loader = document.querySelector(".loader");
 loader.style.display = 'block';
-let cardContainer = document.getElementById("card-container");
-
 let totalcount = document.getElementById("total-count");
 
 let lTh = document.getElementById("lowTohigh");
 let hTl = document.getElementById("highTolow");
+
 let popular = document.getElementById("popular");
 popular.addEventListener("click",()=>{
   renderData(urlMens,1);
@@ -30,16 +69,16 @@ async function renderData(urlMen,pageNumber){
   let totalButtons;
   try {
     loader.style.display = 'block';
-    let res = await fetch(urlWomens);
-    let data = await res.json();
+    let res = await fetch(urlMen);
+    let data = await res.json(); 
     totalData=data.length;
-    loader.style.display = 'none';
     totalcount.innerText=`(${totalData})`;
     totalButtons= Math.ceil(totalData/9);
     paginationwrapper.innerHTML = null;
+    loader.style.display = 'none';
 
       for (let i = 1; i <= totalButtons; i++) {
-        paginationwrapper.append(getAsButton(urlWomens,i, i));
+        paginationwrapper.append(getAsButton(urlMen,i, i));
       }
   } catch (error) {
     console.log(error)
@@ -50,6 +89,7 @@ async function renderData(urlMen,pageNumber){
         console.log(res.headers);
         let data = await res.json();
          displayData(data);
+         console.log(data);
          console.log(data.length);
 
     } catch (error) {
@@ -73,14 +113,24 @@ function displayData(data){
         productName.innerText=ele.name;
 
         let price = document.createElement("h3");
-        price.innerText=`₹${Math.ceil(ele["price-inr"]-(ele["price-inr"]*ele.discount)/100)}`;
 
         let discount=document.createElement("h4");
         discount.innerText=`${ele.discount}% off`
 
         let MRP= document.createElement("p");
         let cutline=document.createElement("s");
-        cutline.innerText=`₹ ${ele["price-inr"]}`;
+  if(countryData[1]==="India"){
+    cutline.innerText="₹"+ele["price-inr"]
+    price.innerText=`₹${Math.ceil(ele["price-inr"]-(ele["price-inr"]*ele.discount)/100)}`;
+  }
+  if(countryData[1]==="USA"){
+    cutline.innerText="$"+ele["price-usd"]
+    price.innerText=`$${Math.ceil(ele["price-usd"]-(ele["price-usd"]*ele.discount)/100)}`;
+  }
+  if(countryData[1]==="UK"){
+    cutline.innerText="£"+ele["price-pound"]
+    price.innerText=`£${Math.ceil(ele["price-pound"]-(ele["price-pound"]*ele.discount)/100)}`;
+  }
         MRP.append(cutline);
 
         cardDiv.append(image,brandName,productName,price,discount,MRP);
