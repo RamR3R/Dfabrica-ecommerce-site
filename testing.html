@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .masterContainer {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 5px;
+      }
+
+      .card {
+        width: 400px;
+        background: #ffffff;
+        box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01),
+          0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09),
+          0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+      }
+
+      .title {
+        width: 100%;
+        height: 40px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        border-bottom: 1px solid #efeff3;
+        font-weight: 700;
+        font-size: 20px;
+        color: #63656b;
+      }
+
+      /* cart */
+      .cart {
+        border-radius: 19px 19px 7px 7px;
+      }
+
+      .cart .products {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .cart .products .product {
+        display: grid;
+        grid-template-columns: 60px 1fr 80px 1fr;
+        gap: 10px;
+      }
+
+      .cart .products .product span {
+        font-size: 18px;
+        font-weight: 600;
+        color: #47484b;
+        margin-bottom: 8px;
+        display: block;
+        margin: 5px;
+      }
+
+      .cart .products .product p {
+        font-size: 15px;
+        font-weight: 600;
+        color: #7a7c81;
+      }
+
+      .cart .quantity {
+        height: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: auto;
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+        border-radius: 7px;
+        filter: drop-shadow(0px 1px 0px #efefef)
+          drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+      }
+
+      .cart .quantity label {
+        width: 20px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 2px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #47484b;
+      }
+
+      .cart .quantity button {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        outline: none;
+        background-color: transparent;
+        padding-bottom: 2px;
+      }
+
+      .card .small {
+        font-size: 50px;
+        margin: 0 0 auto auto;
+      }
+
+      
+
+      
+
+      /* Checkout */
+      .checkout {
+        border-radius: 9px 9px 19px 19px;
+      }
+
+      .checkout .details {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        padding: 10px;
+        gap: 5px;
+      }
+
+      .checkout .details span {
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .checkout .details span:nth-child(odd) {
+        font-size: 11px;
+        font-weight: 700;
+        color: #707175;
+        margin: auto auto auto 0;
+        font-size: large;
+      }
+
+      .checkout .details span:nth-child(even) {
+        font-size: 13px;
+        font-weight: 600;
+        color: #47484b;
+        margin: auto 0 auto auto;
+        font-size: x-large;
+      }
+      .checkout--footer{
+        display: flex;
+        flex-direction: row-reverse;
+      }
+      .checkout .checkout--footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 10px 10px 20px;
+        background-color: #efeff3;
+      }
+
+      .price {
+        position: relative;
+        font-size: 22px;
+        color: #2b2b2f;
+        font-weight: 900;
+        font-size: xx-large;
+      }
+
+      .price sup {
+        font-size: 13px;
+      }
+
+      .price sub {
+        width: fit-content;
+        position: absolute;
+        font-size:20px;
+        color: #5f5d6b;
+        bottom: 5px;
+        display: inline-block;
+        
+      }
+
+      .checkout .checkout-btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 36px;
+        background: linear-gradient(
+          180deg,
+          #4480ff 0%,
+          #115dfc 50%,
+          #0550ed 100%
+        );
+        box-shadow: 0px 0.5px 0.5px #efefef,
+          0px 1px 0.5px rgba(239, 239, 239, 0.5);
+        border-radius: 7px;
+        border: 0;
+        outline: none;
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+      }
+      .imgdiv{
+        width: 80%;
+        /* padding: 5px; */
+        /* border: 1px solid; */
+        margin: 5px;
+      }
+      .product{
+        width: 100%;
+        height: 100px;
+      }
+      .products img{
+        width: 100%;
+        
+      }
+      .priceDiv{
+        padding-top: 25px;
+        margin-left: 50px;
+        display: flex;
+        flex-direction: column;
+      }
+      .priceDiv>
+      hr{
+        width: 100%;
+      }
+      .masterContainer{
+        margin: auto;
+        margin-top: 150px;
+        width: 80%;
+        border: 1px solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+       
+      }
+      .masterContainer>div{
+        width: 100%;
+        /* height: 500px; */
+      }
+.priceMRP{
+    color: #bdc97d;
+    /* border: 1px solid ; */
+    border-radius: 10px;
+    padding: 5px;
+    margin-right: 5px;
+    position: relative;
+    font-size: x-large;
+}
+.priceMRP:before{
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    right: 0;
+    border-top: 1px solid;
+    border-color: inherit;
+    width: 30px;
+    -webkit-transform:rotate(-5deg);
+    -moz-transform:rotate(-5deg);
+    -ms-transform:rotate(-5deg);
+    -o-transform:rotate(-5deg);
+    transform:rotate(-5deg);
+}
+
+    </style>
+  </head>
+  <body>
+
+    
+
+
+
+    <div class="cartDiv">
+    <div class="masterContainer">
+      <div class="card cart">
+        <label class="title">Your cart</label>
+        <div class="products">
+       
+        </div>
+      </div>
+
+
+      <div class="card checkout">
+        <label class="title">Checkout</label>
+        <div class="details">
+          <span>Your cart subtotal:</span>
+          <span class="subTotal"></span>
+          <span>Discounted Total</span>
+          <span class="disTotal"></span>
+          <span>Shipping fees:</span>
+          <span class="shipping"></span>
+        </div>
+        <div class="checkout--footer">
+          <label class="price"></label>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+      </div>
+    </div>
+</div>
+  </body>
+</html>
+<script>
+  let DataBase = JSON.parse(localStorage.getItem("cart")) || [];
+ let masterContainer= document.querySelector("masterContainer")
+ let products=document.querySelector(".products")
+ let countryData = JSON.parse(localStorage.getItem("userCountry"));
+ 
+  
+  append(DataBase)
+
+  
+  
+  function append(data) {
+
+    console.log(data)
+
+    products.innerHTML=null;
+    data.forEach((e) => {
+    // console.log(e.quantity)  
+      let product = document.createElement("div");
+      product.setAttribute("class", "product");
+      let imgdiv = document.createElement("div");
+      imgdiv.setAttribute("class","imgdiv")
+      let img = document.createElement("img");
+      img.src = e.image4;
+      // imgdiv.append(img);
+      let div = document.createElement("div");
+      let span=document.createElement("span");
+      span.innerText=e.name;
+      let p1=document.createElement("p")
+      p1.innerText=e.category;
+      div.append(span,p1)
+      divQ=document.createElement("div");
+      divQ.setAttribute("class","quantity")
+      div.append(span,p1);
+    let priceDiv=document.createElement("div")
+    priceDiv.setAttribute("class","priceDiv")
+    let price=document.createElement("label")
+    price.setAttribute("class","priceSmall")
+    let price1=document.createElement("label")
+    price1.setAttribute("class","priceMRP")
+      let incbtn=document.createElement("button")
+      incbtn.setAttribute("class","incBtn")
+    let x= `<svg
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  height="14"
+                  width="14"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    stroke-width="2.5"
+                    stroke="#47484b"
+                    d="M12 4V20M20 12H4"
+                  ></path>
+                </svg>`;
+
+      incbtn.innerHTML=`${x}`
+      let q=1;
+      incbtn.addEventListener("click",()=>{
+        e.quantity++;
+        // console.log(e.quantity)
+        label.innerText++;
+        q+=1
+       
+            
+            // window.location.reload()
+        
+        priceDiv.append(price1,price)
+    if(countryData[1]==="India"){
+            price1.innerText="₹"+(e["price-inr"]*q)
+            price.innerText=`₹${Math.ceil(e["price-inr"]-(e["price-inr"]*e.discount)/100)*q}`;
+            total+=`₹${Math.ceil(e["price-inr"]-(e["price-inr"]*e.discount)/100)*q}`;
+
+          }
+          if(countryData[1]==="USA"){
+            price1.innerText="$"+(e["price-usd"]*q)
+            price.innerText=`$${Math.ceil(e["price-usd"]-(e["price-usd"]*e.discount)/100)*q}`;
+          }
+          if(countryData[1]==="UK"){
+            price1.innerText="£"+(e["price-pound"]*q)
+             price.innerText=`£${Math.ceil(e["price-pound"]-(e["price-pound"]*e.discount)/100)*q}`;
+          }
+        // console.log(q)
+      })
+      let label=document.createElement("label")
+      label.innerText=1;
+      
+      let decbtn=document.createElement("button")
+      decbtn.setAttribute("class","decBtn")
+      let y=`<svg
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  height="14"
+                  width="14"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    stroke-width="2.5"
+                    stroke="#47484b"
+                    d="M20 12L4 12"
+                  ></path>
+                </svg>`
+      decbtn.innerHTML=`${y}`
+
+      decbtn.addEventListener("click",()=>{
+        q-=1;
+        e.quantity--;
+        // e.quantity--;
+        if(label.innerText<1)
+        {
+            decbtn.addEventListener("click",()=>{
+            let LS  =  JSON.parse(localStorage.getItem("cart")) || [];
+            LS.splice(data.indexOf(e),1);
+            localStorage.setItem("cart",JSON.stringify(LS));
+            return window.location.reload()
+             append(LS);
+        })
+        }
+        priceDiv.append(price1,price)
+    if(countryData[1]==="India"){
+            price1.innerText="₹"+(e["price-inr"]*q)
+            price.innerText=`₹${Math.ceil(e["price-inr"]-(e["price-inr"]*e.discount)/100)*q}`;
+          }
+          if(countryData[1]==="USA"){
+            price1.innerText="$"+(e["price-usd"]*q)
+            price.innerText=`$${Math.ceil(e["price-usd"]-(e["price-usd"]*e.discount)/100)*q}`;
+          }
+          if(countryData[1]==="UK"){
+            price1.innerText="£"+(e["price-pound"]*q)
+                        price.innerText=`£${Math.ceil(e["price-pound"]-(e["price-pound"]*e.discount)/100)*q}`;
+          }
+        label.innerText--;
+        
+      })
+      divQ.append(decbtn,label,incbtn)
+    //   size we can append as p2 tag
+   
+let discount=document.createElement("label")
+discount.setAttribute("class","discount")
+discount.innerText=e.discount+"%"
+priceDiv.append(price1,price,discount)
+
+    if(countryData[1]==="India"){
+            price1.innerText="₹"+(e["price-inr"]*q)
+            price.innerText=`₹${Math.ceil(e["price-inr"]-(e["price-inr"]*e.discount)/100)*q}`;
+          }
+          if(countryData[1]==="USA"){
+            price1.innerText="$"+(e["price-usd"]*q)
+            price.innerText=`$${Math.ceil(e["price-usd"]-(e["price-usd"]*e.discount)/100)*q}`;
+          }
+          if(countryData[1]==="UK"){
+            price1.innerText="£"+(e["price-pound"]*q)
+             price.innerText=`£${Math.ceil(e["price-pound"]-(e["price-pound"]*e.discount)/100)*q}`;
+          }
+
+let line=document.createElement("hr")
+product.append(imgdiv,div,divQ,priceDiv)
+products.append(product,line)
+    });
+
+  }
+  
+  let totalPrice=document.querySelector(".price");
+let subTotalPrice=document.querySelector(".subTotal");
+let disTotal=document.querySelector(".disTotal");
+let shippingPrice=document.querySelector(".shipping");
+let incBtn=document.querySelector(".incBtn")
+let decBtn=document.querySelector(".decBtn")
+  let total=0;
+  let discountedTotal=0;
+  
+
+
+
+
+
+
+
+
+  for(let i=0;i<DataBase.length;i++){
+    // let quantity=1;
+    incBtn.addEventListener("click",()=>{
+      console.log(DataBase[i].quantity)
+
+    
+    if(countryData[1]==="India"){
+        total+=DataBase[i]["price-inr"]*DataBase[i].quantity
+        discountedTotal+=Math.ceil(DataBase[i]["price-inr"]-(DataBase[i]["price-inr"]*DataBase[i].discount)/100)*DataBase[i].quantity;
+
+        
+    }
+    if(countryData[1]==="USA"){
+        total+=DataBase[i]["price-usd"]*DataBase[i].quantity
+        discountedTotal+=Math.ceil(DataBase[i]["price-usd"]-(DataBase[i]["price-usd"]*DataBase[i].discount)/100)*DataBase[i].quantity;
+
+    }
+    if(countryData[1]==="UK"){
+        total+=((DataBase[i]["price-pound"]*DataBase[i].quantity))
+        discountedTotal+=(Math.ceil(DataBase[i]["price-pound"]-(DataBase[i]["price-pound"]*DataBase[i].discount)/100))*DataBase[i].quantity;
+        console.log(DataBase[i].quantity)
+        // console.log(total)
+    }
+    if(countryData[1]==="India"){
+    subTotalPrice.innerText="₹"+(total)
+   disTotal.innerText="₹"+discountedTotal
+   shippingPrice.innerText="₹"+80
+   totalPrice="₹"+(discountedTotal+80)
+   
+    }
+    if(countryData[1]==="USA"){
+        subTotalPrice.innerText="$"+(total)
+        disTotal.innerText="$"+discountedTotal
+        shippingPrice.innerText="$"+1
+        totalPrice="$"+(discountedTotal+1)
+    }
+    if(countryData[1]==="UK"){
+        subTotalPrice.innerText="£"+(total)
+        disTotal.innerText="£"+discountedTotal
+        shippingPrice.innerText="£"+1
+        totalPrice.innerText="£"+(discountedTotal+1)
+        
+    }
+  })
+  decBtn.addEventListener("click",()=>{
+    DataBase[i].quantity;
+    console.log(DataBase[i].quantity)
+      if(countryData[1]==="India"){
+          total+=DataBase[i]["price-inr"]*DataBase[i].quantity
+          discountedTotal+=(Math.ceil(DataBase[i]["price-inr"]-(DataBase[i]["price-inr"]*DataBase[i].discount)/100))*DataBase[i].quantity;
+  
+          
+      }
+      if(countryData[1]==="USA"){
+          total+=DataBase[i]["price-usd"]*DataBase[i].quantity
+          discountedTotal+=Math.ceil(DataBase[i]["price-usd"]-(DataBase[i]["price-usd"]*DataBase[i].discount)/100)*DataBase[i].quantity;
+  
+      }
+      if(countryData[1]==="UK"){
+          total+=((DataBase[i]["price-pound"]*DataBase[i].quantity))
+          discountedTotal+=(Math.ceil(DataBase[i]["price-pound"]-(DataBase[i]["price-pound"]*DataBase[i].discount)/100))*DataBase[i].quantity;
+          console.log(DataBase[i].quantity)
+      }
+      if(countryData[1]==="India"){
+      subTotalPrice.innerText="₹"+(total)
+     disTotal.innerText="₹"+discountedTotal
+     shippingPrice.innerText="₹"+80
+     totalPrice="₹"+(discountedTotal+80)
+     
+      }
+      if(countryData[1]==="USA"){
+          subTotalPrice.innerText="$"+(total)
+          disTotal.innerText="$"+discountedTotal
+          shippingPrice.innerText="$"+1
+          totalPrice="$"+(discountedTotal+1)
+      }
+      if(countryData[1]==="UK"){
+          subTotalPrice.innerText="£"+(total)
+          disTotal.innerText="£"+discountedTotal
+          shippingPrice.innerText="£"+1
+          totalPrice.innerText="£"+(discountedTotal+1)
+          
+      }
+    })
+    
+  if(countryData[1]==="India"){
+          total+=DataBase[i]["price-inr"]*DataBase[i].quantity
+          discountedTotal+=Math.ceil(DataBase[i]["price-inr"]-(DataBase[i]["price-inr"]*DataBase[i].discount)/100);
+  
+          
+      }
+      if(countryData[1]==="USA"){
+          total+=DataBase[i]["price-usd"]*DataBase[i].quantity
+          discountedTotal+=Math.ceil(DataBase[i]["price-usd"]-(DataBase[i]["price-usd"]*DataBase[i].discount)/100);
+  
+      }
+      if(countryData[1]==="UK"){
+          total+=((DataBase[i]["price-pound"]*DataBase[i].quantity))
+          discountedTotal+=Math.ceil(DataBase[i]["price-pound"]-(DataBase[i]["price-pound"]*(DataBase[i].discount)/100));
+          // console.log(total)
+      }
+      if(countryData[1]==="India"){
+      subTotalPrice.innerText="₹"+(total)
+     disTotal.innerText="₹"+discountedTotal
+     shippingPrice.innerText="₹"+80
+     totalPrice="₹"+(discountedTotal+80)
+     
+      }
+      if(countryData[1]==="USA"){
+          subTotalPrice.innerText="$"+(total)
+          disTotal.innerText="$"+discountedTotal
+          shippingPrice.innerText="$"+1
+          totalPrice="$"+(discountedTotal+1)
+      }
+      if(countryData[1]==="UK"){
+          subTotalPrice.innerText="£"+(total)
+          disTotal.innerText="£"+discountedTotal
+          shippingPrice.innerText="£"+1
+          totalPrice.innerText="£"+(discountedTotal+1)
+          
+      }
+  }
+
+
+  
+   
+    
+    // console.log(DataBase)
+
+  
+
+</script>

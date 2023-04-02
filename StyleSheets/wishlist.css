@@ -8,6 +8,7 @@ button{
 }
 #cart-filter{
     /* height: 100px; */
+    height: 10vw;
     /* margin-top: 300px; */
     /* margin-left: auto; */
     margin-right: 50px;
@@ -51,15 +52,6 @@ h1{
   color: rgb(223, 91, 113);
   /* text-decoration: underline; */
 }
-.advertise{
-    width: 200px;
-    /* margin: auto; */
-}
-.advertise>img{
-    width: 100%;
-    border-radius: 5px;
-    /* margin: auto; */
-}
 
 .cartParent{
     width: 90%;
@@ -100,7 +92,8 @@ border-radius: 30px;
     border-radius: 10px;
     /* margin: auto; */
     height: 650px;
-    /* width: 20%; */
+    width: 18vw;
+    flex-wrap: ;
 }
 .img{
     width: 80%;
@@ -109,7 +102,7 @@ border-radius: 30px;
     cursor: pointer;
 }
 .buy{
-    width: 200px;
+    width: 10vw;
     background-color: greenyellow;
     border-radius: 5px;
     padding: 10px;
@@ -187,7 +180,7 @@ box-shadow: inset 15px 15px 29px #fcff5f,
 
 
 .discount{
-    width: 50px;
+    width: 5vw;
     color: orangered;
     background-color: #fcff5f;
     padding: 5px;
@@ -210,4 +203,4 @@ flex-direction: column;
 .parent{
     flex-direction: column;
 }
-
+}
