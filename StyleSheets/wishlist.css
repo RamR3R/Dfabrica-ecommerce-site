@@ -59,7 +59,7 @@ h1{
    margin-left: auto;
    margin-right: auto;
     /* margin-top: 90px; */
-   /* justify-content: center; */
+   justify-content: center;
    /* padding: 50px; */
  /* border: 1px solid #50a78a; */
  
@@ -87,13 +87,13 @@ border-radius: 30px;
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
-    border: 1px solid silver;
+    /* border: 1px solid silver; */
     padding: 10px;
     border-radius: 10px;
     /* margin: auto; */
     height: 650px;
     width: 18vw;
-    flex-wrap: ;
+    margin-right: 100px;
 }
 .img{
     width: 80%;
@@ -138,9 +138,11 @@ box-shadow: inset 15px 15px 29px #fcff5f,
     
 }
 .title{
+    width: 50%;
     text-decoration: underline;
     color: #50a78a;
     cursor: pointer;
+    margin: auto;
 }
 .discountedPrice{
     /* border: 1px solid silver; */
