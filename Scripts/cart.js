@@ -309,5 +309,12 @@ function total(data){
 
 let checkout = document.getElementById("checkout");
 checkout.addEventListener("click",()=>{
+  let login = JSON.parse(localStorage.getItem("login-info"));
+  if(login!==null)
   window.location.href = "./checkout.html";
+  else
+  {
+    alert("Login Before Checking out");
+    window.location.href = "./LoginNew.html";
+  }
 })
