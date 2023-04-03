@@ -5,6 +5,7 @@
 }
 button{
     cursor: pointer;
+
 }
 
 #cart-filter h3{
@@ -93,12 +94,15 @@ border-radius: 30px;
     cursor: pointer;
 }
 .buy{
-    width: 200px;
-    background-color: greenyellow;
+    width: 10vw;
+    background-color: rgb(255, 47, 99);
     border-radius: 5px;
     padding: 10px;
     border: 0px;
     margin: 20px;
+    font-size: medium;
+    color: white;
+    padding: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
 
@@ -118,8 +122,8 @@ box-shadow: inset 15px 15px 29px #fcff5f,
   }
   
 .Delbutton{
-    width: 150px;
-    background-color: rgb(228, 102, 102);
+    width: 10ew;
+    background-color: rgb(255, 0, 0);
     border-radius: 5px;
     padding: 10px;
     border: 0px;
@@ -266,4 +270,24 @@ flex-direction: column;
    .cta:active {
     transform: scale(0.95);
    }
+   #checkout{
+    width: 10vw;
+    height: 50px;
+    border-radius: 10px;
+    background-color: greenyellow;
+    border: 0px;
+    box-shadow: #fcff5f ;
+    margin: auto;
+   }
+   .quan{
+    width: 10vw;
+    display: flex;
+    margin:auto;
+    justify-content: space-around;
+   }
+   .quan>button{
+    width: 30px;
+    height: 30px;
+   }
+
    

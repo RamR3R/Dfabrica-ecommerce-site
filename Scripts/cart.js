@@ -53,9 +53,10 @@ img.src=countryData[0]
 // -----------------------------------------------------
 
 
-// use local storage token as "wishlist" to get the data for now just use dummy data for reference
+// use local storage token as "cartlist" to get the data for now just use dummy data for reference
 
 let DataBase = JSON.parse(localStorage.getItem("cart")) || [];
+total(DataBase);   
 
 
 
@@ -102,11 +103,13 @@ filterD.addEventListener("change",()=>{
     data.sort((a,b)=>b.discount-a.discount); }
    else
    {
-       display(DataBase);   
+       display(DataBase);
+       total(DataBase);   
    }
    
    console.log(data);
    display(data);
+   total(data);
    window.reload()
 })
 filterR.addEventListener("change",()=>{
@@ -122,7 +125,8 @@ filterR.addEventListener("change",()=>{
     data.sort((a,b)=>b.rating-a.rating);   }
    else
    {
-       display(DataBase);   
+       display(DataBase);
+       total(DataBase);   
    }
    
    console.log(data);
@@ -138,7 +142,7 @@ function display(data)
     if(data.length == 0){
         let notify = document.createElement("div");
         let h1 = document.createElement("h1");
-        h1.innerText = "Your Wishlist is Empty";
+        h1.innerText = "Your cartlist is Empty";
         let signin = document.createElement("a");
         signin.setAttribute("href","./LoginNew.html");
         signin.innerText = "Click here to Login";
@@ -187,36 +191,72 @@ function display(data)
             discountedPrice.innerText=`£${Math.ceil(element["price-pound"]-(element["price-pound"]*element.discount)/100)}`;
           }
           
-        buy.innerText = "Checkout";
+        buy.innerText = "ADD TO WISHLIST";
         rating.innerText="⭐"+element.rating
+        let quan = document.createElement("div");
+        quan.setAttribute("class","quan")
+        let plus = document.createElement("button");
+        plus.innerText = " + ";
+        plus.addEventListener("click",()=>{
+            let LS  =  JSON.parse(localStorage.getItem("cart")) || [];
+                element.quantity++;
+                LS.splice(data.indexOf(element),1,element);
+                localStorage.setItem("cart",JSON.stringify(LS));
+                display(LS);
+                total(LS);
+        })
+        let quantity = document.createElement("p");
+        quantity.innerText = element.quantity;
+        let minus = document.createElement("button");
+        minus.innerText = " - ";
+        minus.addEventListener("click",()=>{
+            if(element.quantity == 1)
+            {
+                let LS  =  JSON.parse(localStorage.getItem("cart")) || [];
+                LS.splice(data.indexOf(element),1);
+                localStorage.setItem("cart",JSON.stringify(LS));
+                alert("Product deleted from cart");
+                display(LS);
+                total(LS);
+            }
+            else{
+                let LS  =  JSON.parse(localStorage.getItem("cart")) || [];
+                element.quantity--;
+                LS.splice(data.indexOf(element),1,element);
+                localStorage.setItem("cart",JSON.stringify(LS));
+                display(LS);
+                total(LS);
+            }
+        })
+        quan.append(plus,quantity,minus);
         buy.addEventListener("click",()=>{
           
-            let wish  =  JSON.parse(localStorage.getItem("cart")) || [];
+            let cart  =  JSON.parse(localStorage.getItem("wish")) || [];
             element.quantity = 1;
-            wish.push(element);
-            localStorage.setItem("cart",JSON.stringify(wish));
-            let LS  =  JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push(element);
+            localStorage.setItem("wish",JSON.stringify(wish));
+            let LS  =  JSON.parse(localStorage.getItem("wish")) || [];
             LS.splice(data.indexOf(element),1);
-            localStorage.setItem("cart",JSON.stringify(LS));
+            localStorage.setItem("wish",JSON.stringify(LS));
             display(LS);
-            // alert("Product Added to Cart");
+            total(LS);
+            alert("Product is wishlisted");
 
         })
-
         let delet = document.createElement("button");
-        delet.innerText = "Remove";
+        delet.innerText = "Delete";
         delet.setAttribute("class","Delbutton")
         delet.addEventListener("click",()=>{
             let LS  =  JSON.parse(localStorage.getItem("cart")) || [];
             LS.splice(data.indexOf(element),1);
             localStorage.setItem("cart",JSON.stringify(LS));
             display(LS);
-            // alert("Product Removed from Wishlist");
+            total(LS);
+            alert("Product Removed from cartlist");
         })
+        add.append(buy,delet);
 
-        add.append(delet);
-
-        card.append(img,title,price,discountedPrice,rating,discount,add);
+        card.append(img,title,price,discountedPrice,quan,rating,discount,add);
         // data will be use for product page
 // --------------------------Do Not Touch---------------------------------------------------
 let productData=[{
@@ -250,3 +290,38 @@ let productData=[{
     });
     
 }
+
+function total(data){
+  let price = document.getElementById("total");
+  let discountedPrice=document.getElementById("totalDis")
+  let x = 0;
+  let y=0;
+  data.forEach(element=>{
+    if(countryData[1]==="India"){
+
+      y+=Number(`${Math.ceil(element["price-inr"]-(element["price-inr"]*element.discount)/100)}`);
+      x += Number(element["price-inr"])*Number(element.quantity);
+      price.innerText="₹"+x;
+      discountedPrice.innerText="₹"+y
+    }
+    if(countryData[1]==="USA"){
+      y+=Number(`${Math.ceil(element["price-usd"]-(element["price-usd"]*element.discount)/100)}`);
+      x += Number(element["price-usd"])*Number(element.quantity);
+      price.innerText="$"+x;
+      discountedPrice.innerText="$"+y
+    }
+    if(countryData[1]==="UK"){
+      y+=Number(`${Math.ceil(element["price-pound"]-(element["price-pound"]*element.discount)/100)}`);
+      x += Number(element["price-pound"])*Number(element.quantity);
+      price.innerText="$"+x;
+      discountedPrice.innerText="$"+y
+    }
+  })
+  
+  price.innerText = x
+}
+
+let cart  = document.getElementById("checkout");
+cart.addEventListener("click",()=>{
+  window.location.replace("./checkout.html");
+})
