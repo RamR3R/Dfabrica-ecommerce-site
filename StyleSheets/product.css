@@ -345,13 +345,17 @@ font-size: x-large;
 }
 @media screen and (max-width:500px){
     .parentDiv{
-        margin: auto;
+        
         flex-direction: column;
-        width: 100%;
+        width: 80vw;
+        margin: auto;
+        align-items: center;
+        margin-top: 400px;
+        height: 100vh;
 
     }
     .picture .big{
-        width: 80vw;
+        width: 60vw;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -360,10 +364,11 @@ font-size: x-large;
     }
    .big div{
     margin: auto;
-    width: 100vw;
+    width: 60vw;
    }
    .mainImg{
     object-fit: contain;
+    width: 100%;
    }
     .picture img{
         margin: auto;
@@ -404,30 +409,61 @@ margin: auto;
         margin: auto;
         margin-top: 150px;
         flex-direction: column-reverse;
+        
     }
     .parentDiv>.picture .small{
         flex-direction: row;
-        width: 100vw;
+        width: 80%;
         height: 31vw;
         margin: auto;
         border: 0px;
         margin-top: 10px;
         border-radius: 10px;
     }
-    .picture{
+   .parentDiv>.picture{
+    width: 80%;
+        margin: auto;
         display: flex;
         flex-wrap: wrap;
     }
     .content{
-        display: flex;
+        flex-direction: row;
+        width: 80%;
+        /* height: 31vw; */
+        /* height: 100vh; */
+        margin: auto;
+        border: 0px;
+        margin-top: 10px;
+        border-radius: 10px;
         flex-wrap: wrap;
+    }
+    .content hr{
+        display: none;
     }
     .small img{
         margin: 10px;
+    }
+    .parentDiv .btns{
+        margin: auto;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .parentDiv .location{
+margin: auto;
+width: 100%;
+margin-bottom: 300px;
     }
    body{
     overflow-x: hidden;
     margin: auto;
    }
-  
+  body .navBar{
+    position: absolute;
+    height: 30vh;
+   }
+  footer{
+    width: 120%;
+  }
 }
