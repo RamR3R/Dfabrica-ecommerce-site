@@ -73,26 +73,29 @@ let signupbtn = document.getElementById("signup");
 let detailslog = document.getElementById("login-info");
 let detailssign = document.getElementById("sigup-info");
 
-loginbtn.addEventListener("click",()=>{
+loginbtn.addEventListener("click",(e)=>{
+    e.preventDefault();
     signupbtn.classList.remove("selected");
     loginbtn.classList.add("selected"); 
     detailssign.classList.add("noshow");
     detailslog.classList.remove("noshow");
     document.getElementById("submit").value = "Login";
-
+    document.getElementById("submit").innerText = "Login";
 })
 
-signupbtn.addEventListener("click",()=>{
+signupbtn.addEventListener("click",(e)=>{
+    e.preventDefault();
     signupbtn.classList.add("selected");
     loginbtn.classList.remove("selected");    
     detailslog.classList.add("noshow");
     detailssign.classList.remove("noshow");
     document.getElementById("submit").value = "Sign Up";
+    document.getElementById("submit").innerText = "Sign Up";
 })
 
-let form = document.querySelector("#form");
+let submitbtn = document.getElementById("submit")
 
-form.addEventListener("submit",(e)=>{
+submitbtn.addEventListener("click",(e)=>{
     e.preventDefault();
     if(document.getElementById("submit").value == "Login")
     login();
@@ -126,7 +129,7 @@ function logincall(user,pass){
         {
             alert("login Sucessfull");
             localStorage.setItem("login-info",dataBase[i]);
-            // window.location.href = "./index.html";
+            window.location.href = "./index.html";
         }
     }
 })
@@ -139,9 +142,7 @@ function register(fname,lname,email,pass){
         lastname:lname,
         password:pass
         }
-    
-    
-          verify(obj);
+        verify(obj);
     
 }
 
@@ -170,13 +171,14 @@ async function verify(obj) {
 
         let cancel = document.getElementById("cancel");
         cancel.addEventListener("clcik",()=>{
-            // window.location.href = "./LoginNew.html";
-            alert("cancel clicked");
+            alert("Verification Cancelled");
+            window.location.href = "./LoginNew.html";
+            
         })
 
         let button = document.getElementById("otp-btn");
         button.addEventListener("click",()=>{
-            alert("verification clicked");
+            alert("Verification clicked");
             let OTP = "";
             for(let i = 0  ;i<4 ;i++)
             {
@@ -186,6 +188,21 @@ async function verify(obj) {
             if(OTP==otp){
                 alert("Email verified");
                 localStorage.setItem("login-info",JSON.stringify(obj));
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(obj)
+                  })
+                  .then(response => {
+                    if (response.ok) {
+                      return response.json();
+                    }
+                    throw new Error('Network response was not ok.');
+                  })
+                  .then(json => console.log(json))
+                  .catch(error => console.error('Error:', error));
 
                 resolve("true")
             }
@@ -199,30 +216,5 @@ async function verify(obj) {
         
 
     });
-  
-    let result = await promise; // wait until the promise resolves (*)
-  
-    alert(result); // "done!"
-    if(result=="true"){
-        alert("in if");
-        fetch(url,{
-            method:"POST",
-            headers:{
-                "Content-type":"application/json"
-            },
-            body:JSON.stringify(obj)
-        })
-        .then(res=>{
-            alert()
-            console.log(res.json())
-            return res.json();
-        })
-        .then(data=>{
-            alert("in fetch");
-            console.log(data);
-            // window.location.href = "./index.html";
-        })
-        .catch(err=>console.log(err));
-    }
 }
   
