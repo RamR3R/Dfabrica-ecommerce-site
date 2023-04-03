@@ -1,6 +1,17 @@
 # DFabrica
 This is a Ecommerce site with clothing having both client and admin side
 
+## 🔗 Team Members Github Profiles
+[Ramsundar Sivakumar](https://github.com/RamR3R)
+
+[Suraj Deosarkar](https://github.com/Suraj12398)
+
+[Sumit Kumar](https://github.com/ksumit01)
+
+[Navneet Srivastava](https://github.com/Navneet3009)
+
+[Fija Jahangir Shaikh](https://github.com/fija29)
+
 # Deployed Site Link
 ### https://dfabrica.netlify.app/
 
