@@ -279,6 +279,10 @@ flex-direction: column;
     box-shadow: #fcff5f ;
     margin: auto;
    }
+   #checkout:hover{
+    background-color: aquamarine;
+    color: black;
+   }
    .quan{
     width: 10vw;
     display: flex;

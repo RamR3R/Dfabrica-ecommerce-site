@@ -65,74 +65,74 @@ display(DataBase);
 
 
 
-let filterP = document.querySelector("#filterP");
-let filterD = document.querySelector("#filterD");
-let filterR = document.querySelector("#filterR");
+// let filterP = document.querySelector("#filterP");
+// let filterD = document.querySelector("#filterD");
+// let filterR = document.querySelector("#filterR");
 
-filterP.addEventListener("change",()=>{
-  filterD.value =""
-  filterR.value =""
-   let data = JSON.parse(localStorage.getItem("cart")) || [];
-    if(filterP.value == "asc" || filterP.value == "")
-    {
-        data.sort((a,b)=>(a["price-inr"]-a["price-inr"]*a.discount/100)-(b["price-inr"]-b["price-inr"]*b.discount/100));
-    }
-    if(filterP.value == "dsc" || filterP.value == "")
-    {
-        data.sort((a,b)=>(b["price-inr"]-b["price-inr"]*b.discount/100)-(a["price-inr"]-a["price-inr"]*a.discount/100));    }
-    else
-    {
-        display(DataBase);   
-    }
+// filterP.addEventListener("change",()=>{
+//   filterD.value =""
+//   filterR.value =""
+//    let data = JSON.parse(localStorage.getItem("cart")) || [];
+//     if(filterP.value == "asc" || filterP.value == "")
+//     {
+//         data.sort((a,b)=>(a["price-inr"]-a["price-inr"]*a.discount/100)-(b["price-inr"]-b["price-inr"]*b.discount/100));
+//     }
+//     if(filterP.value == "dsc" || filterP.value == "")
+//     {
+//         data.sort((a,b)=>(b["price-inr"]-b["price-inr"]*b.discount/100)-(a["price-inr"]-a["price-inr"]*a.discount/100));    }
+//     else
+//     {
+//         display(DataBase);   
+//     }
     
-    console.log(data);
-    display(data);
-    window.reload()
-})
+//     console.log(data);
+//     display(data);
+//     window.reload()
+// })
 
-filterD.addEventListener("change",()=>{
-  filterP.value = ""
-  filterR.value = ""
-  let data = JSON.parse(localStorage.getItem("cart")) || [];
-   if(filterD.value == "asc" || filterD.value == "")
-   {
-       data.sort((a,b)=>a.discount-b.discount);
-   }
-   if(filterD.value == "dsc" || filterD.value == "")
-   {
-    data.sort((a,b)=>b.discount-a.discount); }
-   else
-   {
-       display(DataBase);
-       total(DataBase);   
-   }
+// filterD.addEventListener("change",()=>{
+//   filterP.value = ""
+//   filterR.value = ""
+//   let data = JSON.parse(localStorage.getItem("cart")) || [];
+//    if(filterD.value == "asc" || filterD.value == "")
+//    {
+//        data.sort((a,b)=>a.discount-b.discount);
+//    }
+//    if(filterD.value == "dsc" || filterD.value == "")
+//    {
+//     data.sort((a,b)=>b.discount-a.discount); }
+//    else
+//    {
+//        display(DataBase);
+//        total(DataBase);   
+//    }
    
-   console.log(data);
-   display(data);
-   total(data);
-   window.reload()
-})
-filterR.addEventListener("change",()=>{
-  filterP.value = ""
-  filterD.value = ""
-  let data = JSON.parse(localStorage.getItem("cart")) || [];
-   if(filterR.value == "asc" || filterR.value == "")
-   {
-       data.sort((a,b)=>a.rating-b.rating);
-   }
-   if(filterR.value == "dsc" || filterR.value == "")
-   {
-    data.sort((a,b)=>b.rating-a.rating);   }
-   else
-   {
-       display(DataBase);
-       total(DataBase);   
-   }
+//    console.log(data);
+//    display(data);
+//    total(data);
+//    window.reload()
+// })
+// filterR.addEventListener("change",()=>{
+//   filterP.value = ""
+//   filterD.value = ""
+//   let data = JSON.parse(localStorage.getItem("cart")) || [];
+//    if(filterR.value == "asc" || filterR.value == "")
+//    {
+//        data.sort((a,b)=>a.rating-b.rating);
+//    }
+//    if(filterR.value == "dsc" || filterR.value == "")
+//    {
+//     data.sort((a,b)=>b.rating-a.rating);   }
+//    else
+//    {
+//        display(DataBase);
+//        total(DataBase);   
+//    }
    
-   console.log(data);
-   display(data);
-   window.reload()
-})
+//    console.log(data);
+//    display(data);
+//    window.reload()
+// })
 
 
 function display(data)
@@ -279,11 +279,11 @@ let productData=[{
 }]
       img.addEventListener("click",()=>{
         localStorage.setItem("product", JSON.stringify(productData));
-        window. location. replace("product.html") 
+        window.location.replace("product.html") 
       })
       title.addEventListener("click",()=>{
         localStorage.setItem("product", JSON.stringify(productData));
-        window. location. replace("product.html") 
+        window.location.replace("product.html") 
       })
   // ------------------------------------------------------------------------------------------------------
         body.append(card);
@@ -321,7 +321,7 @@ function total(data){
   price.innerText = x
 }
 
-let cart  = document.getElementById("checkout");
-cart.addEventListener("click",()=>{
-  window.location.replace("./checkout.html");
+let checkout = document.getElementById("checkout");
+checkout.addEventListener("click",()=>{
+  window.location.href = "./checkout.html";
 })
