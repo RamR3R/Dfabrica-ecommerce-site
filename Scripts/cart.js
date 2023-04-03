@@ -229,20 +229,6 @@ function display(data)
             }
         })
         quan.append(plus,quantity,minus);
-        buy.addEventListener("click",()=>{
-          
-            let cart  =  JSON.parse(localStorage.getItem("wish")) || [];
-            element.quantity = 1;
-            cart.push(element);
-            localStorage.setItem("wish",JSON.stringify(wish));
-            let LS  =  JSON.parse(localStorage.getItem("wish")) || [];
-            LS.splice(data.indexOf(element),1);
-            localStorage.setItem("wish",JSON.stringify(LS));
-            display(LS);
-            total(LS);
-            alert("Product is wishlisted");
-
-        })
         let delet = document.createElement("button");
         delet.innerText = "Delete";
         delet.setAttribute("class","Delbutton")
@@ -254,7 +240,7 @@ function display(data)
             total(LS);
             alert("Product Removed from cartlist");
         })
-        add.append(buy,delet);
+        add.append(delet);
 
         card.append(img,title,price,discountedPrice,quan,rating,discount,add);
         // data will be use for product page
