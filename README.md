@@ -94,7 +94,7 @@ Admin can Login from here
 
 
 # The APIs Used in this project are below:
-### https://smtpjs.com/                   = Email sending
+### https://smtpjs.com/                   = Email sender usgin API in JS.
 ### https://cloud.google.com/apis         = Locating the User, Fetching Address using Location (Lat , Lng)
 ### DistanceMatrixApi                     = Calculate the route , distance and duration between 2 end points
 ### http://dfabrica-data-app.onrender.com = Api database with all CRUD operations and JWT Protected Routes.
