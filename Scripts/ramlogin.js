@@ -127,9 +127,11 @@ function logincall(user,pass){
     {
         if(dataBase[i].email == user && dataBase[i].password === pass)
         {
-            alert("login Sucessfull");
-            localStorage.setItem("login-info",dataBase[i]);
+            console.log(dataBase[i]);
+            localStorage.setItem("login-info",JSON.stringify(dataBase[i]));
             window.location.href = "./index.html";
+            alert("login Sucessfull");
+            break;
         }
     }
 })

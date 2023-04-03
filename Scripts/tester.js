@@ -2,13 +2,13 @@ const url = `https://dfabrica-data-app.onrender.com/users`;
 let obj = {
     email
 : 
-"ram30101998@gmail.com",
+"surajdeosarkar999@gmail.com",
 firstname
 : 
-"Ramsundar",
+"Suraj",
 lastname
 : 
-"Sivakumar",
+"Deosarkar",
 password
 : 
 "123"
