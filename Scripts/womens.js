@@ -63,16 +63,19 @@ async function renderData(urlMen,pageNumber){
         urlMen +=cat;
       }
   try {
-    loader.style.display = 'block';
+    
     let res = await fetch(urlMen);
-    let data = await res.json(); 
+    let data = await res.json();
   } catch (error) {
     console.log(error)
   }
     try {
       console.log(urlMen);
+      loader.style.display = 'block';
         let res = await fetch(`${urlMen}&_limit=9&_page=${pageNumber}`);
-        console.log(res.headers);
+        console.log(res);
+        let totalData= res.headers.get('x-total-length');
+        console.log(totalData);
         let data = await res.json();
 
         if(sort)
@@ -108,7 +111,7 @@ async function renderData(urlMen,pageNumber){
               return false;
           })
         }
-        let totalData= data.length;
+        
         totalButtons= Math.ceil(totalData/9);
         paginationwrapper.innerHTML = null;
         loader.style.display = 'none';
@@ -125,6 +128,19 @@ async function renderData(urlMen,pageNumber){
     }
 }
 renderData(urlMens,1);
+
+function getAsButton(urlMen,text, dataId) {
+  let btn = document.createElement("button");
+  btn.setAttribute("data-id", dataId);
+  btn.innerText = text;
+
+  btn.addEventListener("click", function (e) {
+    renderData(urlMen,e.target.dataset.id);
+    console.log(e.target.dataset.id);
+  });
+
+  return btn;
+}
 
 function displayData(data){
     cardContainer.innerHTML=null;
@@ -208,18 +224,7 @@ for (let i = 0; i < coll.length; i++) {
   });
 }
 
-function getAsButton(urlMen,text, dataId) {
-  let btn = document.createElement("button");
-  btn.setAttribute("data-id", dataId);
-  btn.innerText = text;
 
-  btn.addEventListener("click", function (e) {
-    renderData(urlMen,e.target.dataset.id);
-    console.log(e.target.dataset.id);
-  });
-
-  return btn;
-}
 
 let catfilter = document.getElementsByClassName("cat");
 for(let i=0;i<catfilter.length;i++){
